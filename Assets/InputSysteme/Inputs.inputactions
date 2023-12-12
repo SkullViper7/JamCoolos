@@ -1,0 +1,74 @@
+{
+    "name": "Inputs",
+    "maps": [
+        {
+            "name": "InGame",
+            "id": "cd3de4c2-e5d5-4720-adf4-107cb1d43ec4",
+            "actions": [
+                {
+                    "name": "Movements",
+                    "type": "Value",
+                    "id": "0b0508f9-d8b4-452e-88d9-f7aa5c6f8bf3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "InteractWithObjects",
+                    "type": "Button",
+                    "id": "c1e00509-ffe2-4100-816c-d1e47c675c5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PushOtherPlayers",
+                    "type": "Button",
+                    "id": "8618626e-eb57-4352-8785-859f1d280daf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8c76633a-cb58-4b2b-a07e-a437c1da038f",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movements",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e57d282e-c713-4ba2-9290-ce7942e13d0c",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractWithObjects",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce69c7a8-81a9-4690-8369-0f7f8c0ebbfd",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PushOtherPlayers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
