@@ -35,6 +35,11 @@ public class PlayerControls : MonoBehaviour
             case "Player4":
                 TryToFindController("PlayerInputController4");
                 break;
+            default:
+                //For the tests player
+                playerInput = GetComponent<PlayerInput>();
+                playerInput.onActionTriggered += OnAction;
+                break;
         }
     }
 
