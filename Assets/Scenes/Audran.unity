@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 170301848}
   - component: {fileID: 170301847}
   - component: {fileID: 170301846}
+  - component: {fileID: 170301850}
   m_Layer: 0
   m_Name: YellowGoal
   m_TagString: Untagged
@@ -391,6 +392,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170301850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170301845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0129e26ef8df34aa9e04b1492dde8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205116080
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +929,7 @@ GameObject:
   - component: {fileID: 558551865}
   - component: {fileID: 558551864}
   - component: {fileID: 558551863}
+  - component: {fileID: 558551867}
   m_Layer: 0
   m_Name: GreenGoal
   m_TagString: Untagged
@@ -1009,6 +1023,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &558551867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558551862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0129e26ef8df34aa9e04b1492dde8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &661646866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1047,7 @@ GameObject:
   - component: {fileID: 661646869}
   - component: {fileID: 661646868}
   - component: {fileID: 661646867}
+  - component: {fileID: 661646871}
   m_Layer: 0
   m_Name: RedGoal
   m_TagString: Untagged
@@ -1114,6 +1141,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661646871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661646866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0129e26ef8df34aa9e04b1492dde8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &790665313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1664,6 +1703,7 @@ GameObject:
   - component: {fileID: 1869564410}
   - component: {fileID: 1869564409}
   - component: {fileID: 1869564408}
+  - component: {fileID: 1869564412}
   m_Layer: 0
   m_Name: BlueGoal
   m_TagString: Untagged
@@ -1757,6 +1797,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869564412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869564407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0129e26ef8df34aa9e04b1492dde8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
