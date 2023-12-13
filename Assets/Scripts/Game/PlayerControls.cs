@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerControls : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private Movements movements;
-    private CollectObjects collectObjects;
+    public Movements movements;
+    public CollectObjects collectObjects;
 
     private void Start()
     {

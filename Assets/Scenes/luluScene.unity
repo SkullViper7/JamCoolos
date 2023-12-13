@@ -539,6 +539,7 @@ MonoBehaviour:
   CollectableObject: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
   totalChance: 0
+  Delay: 0
 --- !u!114 &1928133296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: bc8105d06baa34f4db1703bd050a1e4e,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -567,7 +568,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: InGame
+  m_DefaultActionMap: testSpawnBoucle
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
