@@ -68,6 +68,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "testSpawnBoucle",
+            "id": "6da60eae-318d-4d1c-86a5-4e9fe519ff1a",
+            "actions": [
+                {
+                    "name": "spawn",
+                    "type": "Button",
+                    "id": "5c12a185-d7b0-4448-a7bb-cfbfa0a96ccc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "970bd5cf-39e4-4eb9-9f36-e18a933f86af",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "spawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
