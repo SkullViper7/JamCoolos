@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class EventManager : MonoBehaviour
 {
@@ -26,14 +27,19 @@ public class EventManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        //Earthquake();
-        //StartCoroutine(Lightning());
-        StartCoroutine(Wind());
+        //StartCoroutine(Earthquake());
+        StartCoroutine(Lightning());
+        //StartCoroutine(Wind());
     }
 
-    public void Earthquake()
+    public IEnumerator Earthquake()
     {
         cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
+        Gamepad.current.SetMotorSpeeds(1, 1);
+
+        yield return new WaitForSeconds(4);
+
+        Gamepad.current.SetMotorSpeeds(0, 0);
     }
 
     public IEnumerator Lightning()
@@ -44,13 +50,18 @@ public class EventManager : MonoBehaviour
         flash = Instantiate(lightning, player.transform.position, Quaternion.identity);
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
+        Gamepad.current.SetMotorSpeeds(1, 1);
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
 
+        yield return new WaitForSeconds(0.5f);
+        Gamepad.current.SetMotorSpeeds(0, 0);
+
         player.GetComponent<PlayerControls>().enabled = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         player.GetComponent<PlayerControls>().enabled = true;
+
     }
 
     public IEnumerator Wind()
@@ -58,9 +69,12 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         player.GetComponent<PlayerControls>().moveSpeed = 2;
+        Gamepad.current.SetMotorSpeeds(0.25f, 0.25f);
+
 
         yield return new WaitForSeconds(3);
 
+        Gamepad.current.SetMotorSpeeds(0, 0);
         player.GetComponent<PlayerControls>().moveSpeed = 5;
     }
 }
