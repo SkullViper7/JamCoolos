@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class EventManager : MonoBehaviour
 {
-    GameObject player;
+    GameObject[] players;
+
     public GameObject cam;
 
     [Header("Earthquake")]
@@ -23,58 +24,82 @@ public class EventManager : MonoBehaviour
     public GameObject lightning;
     public Animator flashAnim;
 
+    bool hasMetal;
 
+    private List<Gamepad> gamepads = new List<Gamepad>();
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");
         //StartCoroutine(Earthquake());
-        //StartCoroutine(Lightning());
+        StartCoroutine(Lightning());
         //StartCoroutine(Wind());
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            var playerInput = players[i].GetComponent<PlayerControls>().playerInput;
+            if (playerInput != null && playerInput.user.pairedDevices.Count > 0)
+            {
+                var gamepad = (Gamepad)playerInput.user.pairedDevices[0];
+                gamepads.Add(gamepad);
+            }
+        }
     }
 
     public IEnumerator Earthquake()
     {
-        cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
-        Gamepad.current.SetMotorSpeeds(1, 1);
+        for (int i = 0; i < gamepads.Count; i++)
+        {
+            cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
+            gamepads[i].SetMotorSpeeds(1, 1);
 
-        yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(4);
 
-        Gamepad.current.SetMotorSpeeds(0, 0);
+            gamepads[i].SetMotorSpeeds(0, 0);
+        }
     }
 
     public IEnumerator Lightning()
     {
+        int randomStrike = Random.Range(0, players.Length);
+
         yield return new WaitForSeconds(1);
 
         GameObject flash;
-        flash = Instantiate(lightning, player.transform.position, Quaternion.identity);
+        flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
-        Gamepad.current.SetMotorSpeeds(1, 1);
+        gamepads[randomStrike].SetMotorSpeeds(1, 1);
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
 
-        yield return new WaitForSeconds(0.5f);
-        Gamepad.current.SetMotorSpeeds(0, 0);
+        yield return new WaitForSeconds(0.4f);
+        gamepads[randomStrike].SetMotorSpeeds(0, 0);
 
-        player.GetComponent<PlayerControls>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
-        player.GetComponent<PlayerControls>().enabled = true;
+        players[randomStrike].GetComponent<PlayerControls>().enabled = false;
+        yield return new WaitForSeconds(0.6f);
+        players[randomStrike].GetComponent<PlayerControls>().enabled = true;
+        flashAnim.Play("Idle");
 
+        StartCoroutine(Lightning());
     }
 
     public IEnumerator Wind()
     {
         yield return new WaitForSeconds(1);
 
-        player.GetComponent<PlayerControls>().moveSpeed = 2;
-        Gamepad.current.SetMotorSpeeds(0.25f, 0.25f);
-
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 2;
+            gamepads[i].SetMotorSpeeds(1, 1);
+        }
 
         yield return new WaitForSeconds(3);
 
-        Gamepad.current.SetMotorSpeeds(0, 0);
-        player.GetComponent<PlayerControls>().moveSpeed = 5;
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 5;
+            gamepads[i].SetMotorSpeeds(0, 0);
+        }
     }
 }
