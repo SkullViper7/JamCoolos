@@ -5,13 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
-    public PlayerInput playerInput;
-    public Movements movements;
+    private PlayerInput playerInput;
+    private Movements movements;
+    private CollectObjects collectObjects;
 
     private void Start()
     {
         LinkPlayerToDevice();
         movements = GetComponent<Movements>();
+        collectObjects = GetComponent<CollectObjects>();
     }
 
     private void LinkPlayerToDevice()
@@ -62,7 +64,10 @@ public class PlayerControls : MonoBehaviour
                 movements.Move(context.action.ReadValue<Vector2>());
                 break;
             case "InteractWithObjects":
-                Debug.Log("interact");
+                if (context.started)
+                {
+                    collectObjects.Interact();
+                }
                 break;
             case "PushOtherPlayers":
                 Debug.Log("push");

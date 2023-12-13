@@ -8,13 +8,19 @@ public class PlayerPerimeter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Add collectable object when it enter the player perimeter
-        collectableObjectsInPerimeter.Add(other.gameObject);
+        if (other.CompareTag("CollectableObject"))
+        {
+            //Add collectable object when it enter the player perimeter
+            collectableObjectsInPerimeter.Add(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //Remove collectable object when it exit the player perimeter
-        collectableObjectsInPerimeter.Remove(other.gameObject);
+        if (other.CompareTag("CollectableObject"))
+        {
+            //Remove collectable object when it exit the player perimeter
+            collectableObjectsInPerimeter.Remove(other.gameObject);
+        }
     }
 }
