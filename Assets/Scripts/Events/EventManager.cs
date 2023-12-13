@@ -31,7 +31,7 @@ public class EventManager : MonoBehaviour
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         //StartCoroutine(Earthquake());
-        StartCoroutine(Lightning());
+        //StartCoroutine(Lightning());
         //StartCoroutine(Wind());
 
         for (int i = 0; i < players.Length; i++)
