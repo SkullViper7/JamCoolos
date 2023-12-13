@@ -11,19 +11,19 @@ public class ScoringZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.name == "GreenZone" && other.gameObject.name == "Player1")
+        if (gameObject.name == "GreenGoal" && other.gameObject.name == "Player1")
         {
             greenCanScore = true;
         }
-        if (gameObject.name == "RedZone" && other.gameObject.name == "Player2")
+        if (gameObject.name == "RedGoal" && other.gameObject.name == "Player2")
         {
             redCanScore = true;
         }
-        if (gameObject.name == "BlueZone" && other.gameObject.name == "Player3")
+        if (gameObject.name == "BlueGoal" && other.gameObject.name == "Player3")
         {
             blueCanScore = true;
         }
-        if (gameObject.name == "YellowZone" && other.gameObject.name == "Player4")
+        if (gameObject.name == "YellowGoal" && other.gameObject.name == "Player4")
         {
             yellowCanScore = true;
         }
