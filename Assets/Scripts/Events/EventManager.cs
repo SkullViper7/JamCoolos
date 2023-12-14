@@ -34,7 +34,7 @@ public class EventManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         players = GameObject.FindGameObjectsWithTag("Player");
         //StartCoroutine(Earthquake());
-        StartCoroutine(Lightning());
+        //StartCoroutine(Lightning());
         //StartCoroutine(Wind());
 
         for (int i = 0; i < players.Length; i++)
@@ -64,7 +64,7 @@ public class EventManager : MonoBehaviour
     public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
-        int randomTime = Random.Range(3, 5);
+        int randomTime = Random.Range(10, 20);
 
         yield return new WaitForSeconds(randomTime);
 
