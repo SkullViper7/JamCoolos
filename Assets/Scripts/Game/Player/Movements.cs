@@ -7,9 +7,9 @@ public class Movements : MonoBehaviour
     private Vector3 lastOrientation;
     private Vector3 actualOrientation;
 
-    Rigidbody rb;
+    private Rigidbody rb;
     public float moveSpeed;
-    public bool isInMovement;
+    [HideInInspector]public bool isInMovement;
 
     private void Start()
     {

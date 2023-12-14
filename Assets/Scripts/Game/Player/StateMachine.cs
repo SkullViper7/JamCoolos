@@ -13,11 +13,11 @@ public class StateMachine : MonoBehaviour
     public HoldingState holdingState = new();
     public FallingState fallingState = new();
 
-    public PlayerInput playerInput;
-    public Movements movements;
-    public CollectObjects collectObjects;
-    public PushOtherPlayers pushOtherPlayers;
-    public PlayerFall playerFall;
+    [HideInInspector]public PlayerInput playerInput;
+    [HideInInspector] public Movements movements;
+    [HideInInspector] public CollectObjects collectObjects;
+    [HideInInspector] public PushOtherPlayers pushOtherPlayers;
+    [HideInInspector] public PlayerFall playerFall;
 
     private void Start()
     {

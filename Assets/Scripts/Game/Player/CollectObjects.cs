@@ -7,7 +7,7 @@ public class CollectObjects : MonoBehaviour
 {
     private StateMachine stateMachine;
     private PlayerPerimeter playerPerimeter;
-    public GameObject objectThatIsHeld;
+    [HideInInspector]public GameObject objectThatIsHeld;
 
     public float dropUpForce;
     public float dropForwardForce;
@@ -41,20 +41,8 @@ public class CollectObjects : MonoBehaviour
                             CollectObject(currentObject);
                         }
                     }
-                    else
-                    {
-                        Debug.Log("Can not collect");
-                    }
-                }
-                else
-                {
-                    Debug.Log("Can not collect");
                 }
             }
-        }
-        else
-        {
-            Debug.Log("No object");
         }
     }
 
@@ -65,7 +53,11 @@ public class CollectObjects : MonoBehaviour
         //Collect the object
         _object.transform.SetParent(transform);
         _object.GetComponent<Rigidbody>().isKinematic = true;
-        _object.transform.localPosition = new Vector3(0, 2, 0);
+
+        //Set a new height depending of the size of the object
+        float newHeight = transform.GetComponent<MeshRenderer>().bounds.size.y / 2f + _object.GetComponent<MeshRenderer>().bounds.size.y / 2;
+
+        _object.transform.localPosition = new Vector3(0, newHeight, 0);
         _object.transform.localRotation = Quaternion.identity;
         objectThatIsHeld = _object;
     }

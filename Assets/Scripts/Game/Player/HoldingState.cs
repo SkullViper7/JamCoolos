@@ -6,13 +6,11 @@ using UnityEngine.InputSystem;
 public class HoldingState : IState
 {
     private Movements movements;
-    public CollectObjects collectObjects;
+    private CollectObjects collectObjects;
     private StateMachine stateMachine;
 
     public void OnEnter(StateMachine _stateMachine)
     {
-        Debug.Log("HoldingState");
-
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
         movements = _stateMachine.movements;
@@ -33,7 +31,7 @@ public class HoldingState : IState
     {
         if (this == stateMachine.currentState)
         {
-            //Player who's holding an object can only move
+            //Player who's holding an object can only move and drop it
             switch (context.action.name)
             {
                 case "Movements":

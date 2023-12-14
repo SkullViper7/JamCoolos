@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectThatIsHeld: {fileID: 0}
   dropUpForce: 100
-  dropForwardForce: 500
+  dropForwardForce: 400
 --- !u!114 &7350046091701479538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,9 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punshForce: 1000
+  playerThatPushedMe: {fileID: 0}
+  pushForce: 600
   dropUpForce: 150
-  dropForwardForce: 750
+  dropForwardForce: 600
 --- !u!1 &7667843529884555341
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableObjectsInPerimeter: []
+  playersInPerimeter: []
 --- !u!1 &8809615873613618300
 GameObject:
   m_ObjectHideFlags: 0

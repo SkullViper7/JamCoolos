@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerDevice : MonoBehaviour
 {
-    public PlayerInput playerInput;
+    [HideInInspector]public PlayerInput playerInput;
     private StateMachine stateMachine;
 
     private void Start()
     {
-        //assign device
+        //Assign device
         stateMachine = GetComponent<StateMachine>();
         LinkPlayerToDevice();
     }
@@ -43,7 +43,7 @@ public class PlayerDevice : MonoBehaviour
 
     private void TryToFindController(string _name)
     {
-        //Try to find the PlayerInputController for the player given, if there is no PlayerInputController for it, desactive it
+        //Try to find the PlayerInputController for the player given, if there is no PlayerInputController for him, desactive him
         if (GameObject.Find(_name) != null)
         {
             playerInput = GameObject.Find(_name).GetComponent<PlayerInput>();

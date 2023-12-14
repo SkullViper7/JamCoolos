@@ -9,15 +9,13 @@ public class FallingState : IState
 
     public void OnEnter(StateMachine _stateMachine)
     {
-        Debug.Log("FallingState");
-
         playerFall = _stateMachine.playerFall;
         collectObjects = _stateMachine.collectObjects;
 
         //Player falls
-        playerFall.Fall(playerFall.playerThatHavePushingMe.transform.forward);
+        playerFall.Fall(playerFall.playerThatPushedMe.transform.forward);
 
-        //If player held an object it drops it
+        //If player held an object, he drops it
         if (collectObjects.objectThatIsHeld != null)
         {
             playerFall.DropObjectWhenPlayerFalls(collectObjects.objectThatIsHeld);

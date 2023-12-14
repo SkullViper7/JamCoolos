@@ -35,7 +35,7 @@ public class DefaultState : IState
     {
         if (this == stateMachine.currentState)
         {
-            //List of all inputs for the player
+            //In default state, player can move, collect an objet and push
             switch (context.action.name)
             {
                 case "Movements":
@@ -50,8 +50,7 @@ public class DefaultState : IState
                 case "PushOtherPlayers":
                     if (context.started)
                     {
-                        Debug.Log("push");
-                        pushOtherPlayers.Push();
+                        pushOtherPlayers.TryToPush();
                     }
                     break;
             }

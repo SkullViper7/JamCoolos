@@ -28,11 +28,12 @@ public class BonusManager : MonoBehaviour
 
     IEnumerator MoveFaster(GameObject player)
     {
-        player.GetComponent<Movements>().moveSpeed = 10;
+        Movements movements = player.GetComponent<Movements>();
+        movements.moveSpeed *= 2;
         
         yield return new WaitForSeconds(3);
 
-        player.GetComponent<Movements>().moveSpeed = 5;
+        movements.moveSpeed /= 2;
         Destroy(gameObject);
     }
 

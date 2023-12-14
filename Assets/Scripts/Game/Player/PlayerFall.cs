@@ -9,8 +9,8 @@ public class PlayerFall : MonoBehaviour
     private StateMachine stateMachine;
     private CollectObjects collectObjects;
 
-    public GameObject playerThatHavePushingMe;
-    public float punshForce;
+    [HideInInspector]public GameObject playerThatPushedMe;
+    public float pushForce;
     public float dropUpForce;
     public float dropForwardForce;
 
@@ -28,8 +28,10 @@ public class PlayerFall : MonoBehaviour
         movements.isInMovement = false;
 
         //Player falls
+        rb.drag = 2.5f;
+
         transform.forward = _direction;
-        Vector3 force = transform.forward * punshForce;
+        Vector3 force = transform.forward * pushForce;
         rb.AddForce(force);
         StartCoroutine(WaitUntilRaise());
     }
@@ -52,6 +54,9 @@ public class PlayerFall : MonoBehaviour
     {
         //Wait during the fall
         yield return new WaitForSeconds(2f);
+
+        rb.drag = 5f;
+        playerThatPushedMe = null;
 
         //Player can move again
         stateMachine.ChangeState(stateMachine.defaultState);

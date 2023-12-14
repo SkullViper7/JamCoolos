@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableObjectsInPerimeter: []
+  playersInPerimeter: []
 --- !u!1 &4849410713127640136
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +356,7 @@ MonoBehaviour:
   movements: {fileID: 0}
   collectObjects: {fileID: 0}
   pushOtherPlayers: {fileID: 0}
+  playerFall: {fileID: 0}
 --- !u!114 &-2972178344725017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce5fcdef0d9afb4bbd51caf5b049dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectGrab: 0
-  objectThatIsGrab: {fileID: 0}
+  objectThatIsHeld: {fileID: 0}
+  dropUpForce: 100
+  dropForwardForce: 400
 --- !u!114 &2600738169513143194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4e0f6cb99e46e4e98c5038411413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punshForce: 1000
 --- !u!114 &-2200981716397919418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerThatPushedMe: {fileID: 0}
+  pushForce: 600
+  dropUpForce: 150
+  dropForwardForce: 600
 --- !u!1 &8809615873613618300
 GameObject:
   m_ObjectHideFlags: 0
