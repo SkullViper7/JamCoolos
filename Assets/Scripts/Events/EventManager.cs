@@ -61,8 +61,9 @@ public class EventManager : MonoBehaviour
     public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
+        int randomTime = Random.Range(10, 20);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(randomTime);
 
         GameObject flash;
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
