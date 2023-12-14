@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControls : MonoBehaviour
+public class PlayerDevice : MonoBehaviour
 {
     public PlayerInput playerInput;
-    public Movements movements;
-    public CollectObjects collectObjects;
-    public PushOtherPlayers pushOtherPlayers;
-    public bool isStunned;
+    private StateMachine stateMachine;
 
     private void Start()
     {
+        //assign device
+        stateMachine = GetComponent<StateMachine>();
         LinkPlayerToDevice();
-        movements = GetComponent<Movements>();
-        collectObjects = GetComponent<CollectObjects>();
-        pushOtherPlayers = GetComponent<PushOtherPlayers>();
     }
 
     private void LinkPlayerToDevice()
@@ -39,7 +35,8 @@ public class PlayerControls : MonoBehaviour
             default:
                 //For the tests player
                 playerInput = GetComponent<PlayerInput>();
-                playerInput.onActionTriggered += OnAction;
+                stateMachine.playerInput = playerInput;
+                stateMachine.ChangeState(stateMachine.defaultState);
                 break;
         }
     }
@@ -50,37 +47,12 @@ public class PlayerControls : MonoBehaviour
         if (GameObject.Find(_name) != null)
         {
             playerInput = GameObject.Find(_name).GetComponent<PlayerInput>();
-            playerInput.onActionTriggered += OnAction;
+            stateMachine.playerInput = playerInput;
+            stateMachine.ChangeState(stateMachine.defaultState);
         }
         else
         {
             gameObject.SetActive(false);
-        }
-    }
-
-    public void OnAction(InputAction.CallbackContext context)
-    {
-        if (!isStunned)
-        {
-            //List of all inputs for the player
-            switch (context.action.name)
-            {
-                case "Movements":
-                    movements.Move(context.action.ReadValue<Vector2>());
-                    break;
-                case "InteractWithObjects":
-                    if (context.started)
-                    {
-                        collectObjects.Interact();
-                    }
-                    break;
-                case "PushOtherPlayers":
-                    if (context.started)
-                    {
-                        pushOtherPlayers.Push();
-                    }
-                    break;
-            }
         }
     }
 }

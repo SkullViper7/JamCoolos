@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PushOtherPlayers : MonoBehaviour
 {
-    public float punshForce;
-
     public void Push()
     {
         //Detecte if a player is in front of this player and close to push it
@@ -14,8 +12,15 @@ public class PushOtherPlayers : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
-                //Other player falls
-                hit.collider.GetComponent<PlayerFall>().Fall(transform.forward, punshForce);
+                if (hit.collider.GetComponent<StateMachine>().currentState != hit.collider.GetComponent<StateMachine>().fallingState)
+                {
+                    //Indicate to the player that this player pushs is this player
+                    hit.collider.GetComponent<PlayerFall>().playerThatHavePushingMe = this.gameObject;
+
+                    //Other player falls
+                    StateMachine otherPlayerStateMachine = hit.collider.GetComponent<StateMachine>();
+                    otherPlayerStateMachine.ChangeState(otherPlayerStateMachine.fallingState);
+                }
             }
         }
     }

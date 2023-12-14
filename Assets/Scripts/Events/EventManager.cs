@@ -36,7 +36,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            var playerInput = players[i].GetComponent<PlayerControls>().playerInput;
+            var playerInput = players[i].GetComponent<PlayerDevice>().playerInput;
             if (playerInput != null && playerInput.user.pairedDevices.Count > 0)
             {
                 var gamepad = (Gamepad)playerInput.user.pairedDevices[0];
@@ -76,9 +76,9 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         gamepads[randomStrike].SetMotorSpeeds(0, 0);
 
-        players[randomStrike].GetComponent<PlayerControls>().enabled = false;
+        players[randomStrike].GetComponent<PlayerDevice>().enabled = false;
         yield return new WaitForSeconds(0.6f);
-        players[randomStrike].GetComponent<PlayerControls>().enabled = true;
+        players[randomStrike].GetComponent<PlayerDevice>().enabled = true;
         flashAnim.Play("Idle");
 
         StartCoroutine(Lightning());
@@ -90,7 +90,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 2;
+            players[i].GetComponent<Movements>().moveSpeed = 2;
             gamepads[i].SetMotorSpeeds(1, 1);
         }
 
@@ -98,7 +98,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 5;
+            players[i].GetComponent<Movements>().moveSpeed = 5;
             gamepads[i].SetMotorSpeeds(0, 0);
         }
     }
