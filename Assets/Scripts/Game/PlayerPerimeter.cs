@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerPerimeter : MonoBehaviour
 {
     public List<GameObject> collectableObjectsInPerimeter = new();
+    private CollectObjects collectObjects;
+
+    public void Start()
+    {
+        collectObjects = GetComponentInParent<CollectObjects>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +18,7 @@ public class PlayerPerimeter : MonoBehaviour
         {
             //Add collectable object when it enter the player perimeter
             collectableObjectsInPerimeter.Add(other.gameObject);
-        }
+        } 
     }
 
     private void OnTriggerExit(Collider other)

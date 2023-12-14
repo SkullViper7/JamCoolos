@@ -7,8 +7,14 @@ public class Movements : MonoBehaviour
     private Vector3 lastOrientation;
     private Vector3 actualOrientation;
 
+    Rigidbody rb;
     public float moveSpeed;
-    private bool isInMovement;
+    public bool isInMovement;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void Move(Vector2 _value)
     {
@@ -37,8 +43,7 @@ public class Movements : MonoBehaviour
         {
             //Player moves when joystick is held
             Vector3 velocity = actualOrientation * moveSpeed * Time.deltaTime;
-
-            transform.Translate(velocity, Space.World);
+            rb.velocity = velocity;
         }
     }
 }
