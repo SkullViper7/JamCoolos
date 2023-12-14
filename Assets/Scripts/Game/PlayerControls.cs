@@ -8,12 +8,14 @@ public class PlayerControls : MonoBehaviour
     public PlayerInput playerInput;
     public Movements movements;
     public CollectObjects collectObjects;
+    public PushOtherPlayers pushOtherPlayers;
 
     private void Start()
     {
         LinkPlayerToDevice();
         movements = GetComponent<Movements>();
         collectObjects = GetComponent<CollectObjects>();
+        pushOtherPlayers = GetComponent<PushOtherPlayers>();
     }
 
     private void LinkPlayerToDevice()
@@ -70,7 +72,10 @@ public class PlayerControls : MonoBehaviour
                 }
                 break;
             case "PushOtherPlayers":
-                Debug.Log("push");
+                if (context.started)
+                {
+                    pushOtherPlayers.Push();
+                }
                 break;
         }
     }
