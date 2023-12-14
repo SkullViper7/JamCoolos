@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.AI;
 
 public class CollectObjects : MonoBehaviour
 {
     private PlayerPerimeter playerPerimeter;
-    public static int objectGrab;
+    public int objectGrab = 0;
+    public GameObject objectThatIsGrab;
 
     void Start()
     {
@@ -19,8 +20,6 @@ public class CollectObjects : MonoBehaviour
 
         if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
         {
-
-            int objectGrab = 0;
 
             for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
             {
@@ -41,8 +40,13 @@ public class CollectObjects : MonoBehaviour
                         if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(currentObject.transform.position.x - transform.position.x, currentObject.transform.position.z - transform.position.z)) <= 35f)
                         {
                             childTransform.SetParent(parentTransform);
+                            
                             rigidKinematic.isKinematic = true;
+                            currentObject.transform.localPosition = new Vector3(0,2,0);
+                            currentObject.transform.localRotation = Quaternion.identity;
                             objectGrab++;
+                            objectThatIsGrab = currentObject;
+                            Debug.Log(objectGrab);
                         }
                         else
                         {
@@ -55,6 +59,18 @@ public class CollectObjects : MonoBehaviour
                     }
                 }
             }   
+        }
+    }
+
+    public void dropItem()
+    {
+        Rigidbody rigidKinematic = objectThatIsGrab.GetComponent<Rigidbody>();
+
+        if (objectGrab == 1)
+        {
+            objectThatIsGrab.transform.SetParent(null);
+            rigidKinematic.isKinematic = false;
+            objectGrab = 0;
         }
     }
 }

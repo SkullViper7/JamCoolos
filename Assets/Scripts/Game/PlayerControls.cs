@@ -70,6 +70,10 @@ public class PlayerControls : MonoBehaviour
                 {
                     collectObjects.Interact();
                 }
+                else if (context.canceled)
+                {
+                    collectObjects.dropItem();
+                }
                 break;
             case "PushOtherPlayers":
                 if (context.started)
