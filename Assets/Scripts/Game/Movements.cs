@@ -9,7 +9,7 @@ public class Movements : MonoBehaviour
 
     Rigidbody rb;
     public float moveSpeed;
-    private bool isInMovement;
+    public bool isInMovement;
 
     private void Start()
     {
@@ -44,11 +44,6 @@ public class Movements : MonoBehaviour
             //Player moves when joystick is held
             Vector3 velocity = actualOrientation * moveSpeed * Time.deltaTime;
             rb.velocity = velocity;
-        }
-        else
-        {
-            //Stop movement
-            rb.velocity = Vector3.zero;
         }
     }
 }

@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6925107063909808370}
   - component: {fileID: 8161820726874739612}
   - component: {fileID: 5020056881203413551}
-  - component: {fileID: 6400918776200391459}
+  - component: {fileID: -1921023913496629631}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Player
@@ -185,8 +185,8 @@ Rigidbody:
   m_GameObject: {fileID: 5446436592220688024}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 5
+  m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -242,6 +242,7 @@ MonoBehaviour:
   movements: {fileID: 0}
   collectObjects: {fileID: 0}
   pushOtherPlayers: {fileID: 0}
+  isStunned: 0
 --- !u!114 &6925107063909808370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
+  isInMovement: 0
 --- !u!114 &8161820726874739612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,32 +281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4e0f6cb99e46e4e98c5038411413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &6400918776200391459
-CharacterController:
+  punshForce: 1000
+--- !u!114 &-1921023913496629631
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5446436592220688024}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8809615873613618300
 GameObject:
   m_ObjectHideFlags: 0

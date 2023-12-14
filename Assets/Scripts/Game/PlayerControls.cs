@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     public Movements movements;
     public CollectObjects collectObjects;
     public PushOtherPlayers pushOtherPlayers;
+    public bool isStunned;
 
     private void Start()
     {
@@ -59,24 +60,27 @@ public class PlayerControls : MonoBehaviour
 
     public void OnAction(InputAction.CallbackContext context)
     {
-        //List of all inputs for the player
-        switch (context.action.name)
+        if (!isStunned)
         {
-            case "Movements":
-                movements.Move(context.action.ReadValue<Vector2>());
-                break;
-            case "InteractWithObjects":
-                if (context.started)
-                {
-                    collectObjects.Interact();
-                }
-                break;
-            case "PushOtherPlayers":
-                if (context.started)
-                {
-                    pushOtherPlayers.Push();
-                }
-                break;
+            //List of all inputs for the player
+            switch (context.action.name)
+            {
+                case "Movements":
+                    movements.Move(context.action.ReadValue<Vector2>());
+                    break;
+                case "InteractWithObjects":
+                    if (context.started)
+                    {
+                        collectObjects.Interact();
+                    }
+                    break;
+                case "PushOtherPlayers":
+                    if (context.started)
+                    {
+                        pushOtherPlayers.Push();
+                    }
+                    break;
+            }
         }
     }
 }
