@@ -61,7 +61,7 @@ public class EventManager : MonoBehaviour
     public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
-        int randomTime = Random.Range(10, 20);
+        int randomTime = Random.Range(1, 2);
 
         yield return new WaitForSeconds(randomTime);
 
@@ -70,6 +70,7 @@ public class EventManager : MonoBehaviour
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
         gamepads[randomStrike].SetMotorSpeeds(1, 1);
+        players[randomStrike].GetComponent<PlayerControls>().movements.moveSpeed = 0;
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
@@ -77,9 +78,8 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         gamepads[randomStrike].SetMotorSpeeds(0, 0);
 
-        players[randomStrike].GetComponent<PlayerControls>().enabled = false;
-        yield return new WaitForSeconds(0.6f);
-        players[randomStrike].GetComponent<PlayerControls>().enabled = true;
+        yield return new WaitForSeconds(1);
+        players[randomStrike].GetComponent<PlayerControls>().movements.moveSpeed = 5;
         flashAnim.Play("Idle");
 
         StartCoroutine(Lightning());
