@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
     public Movements movements;
     public CollectObjects collectObjects;
 

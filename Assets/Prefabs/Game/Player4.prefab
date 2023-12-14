@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 38760891208349846}
   - component: {fileID: 5695757617435779808}
   - component: {fileID: 7250272171832263213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1181607064914755776}
   - component: {fileID: 1021144034329199635}
   - component: {fileID: 86177804491108336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player4
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   movements: {fileID: 0}
+  collectObjects: {fileID: 0}
 --- !u!114 &86177804491108336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 1265292661023151241}
   - component: {fileID: 5804615429813425785}
   - component: {fileID: 5145208098907173432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

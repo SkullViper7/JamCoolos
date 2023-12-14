@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 38760891208349846}
   - component: {fileID: 5695757617435779808}
   - component: {fileID: 7250272171832263213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: -1396418631797224916}
   - component: {fileID: -2972178344725017}
   - component: {fileID: -5648287560666121132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSolo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   movements: {fileID: 0}
+  collectObjects: {fileID: 0}
 --- !u!114 &-1396418631797224916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ GameObject:
   - component: {fileID: 1265292661023151241}
   - component: {fileID: 5804615429813425785}
   - component: {fileID: 5145208098907173432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
