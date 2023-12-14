@@ -23,12 +23,15 @@ public class EventManager : MonoBehaviour
     public float lRandomness;
     public GameObject lightning;
     public Animator flashAnim;
+    public AudioClip lightningSFX;
 
+    AudioSource audioSource;
     bool hasMetal;
 
     private List<Gamepad> gamepads = new List<Gamepad>();
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         players = GameObject.FindGameObjectsWithTag("Player");
         //StartCoroutine(Earthquake());
         StartCoroutine(Lightning());
@@ -61,7 +64,7 @@ public class EventManager : MonoBehaviour
     public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
-        int randomTime = Random.Range(1, 2);
+        int randomTime = Random.Range(3, 5);
 
         yield return new WaitForSeconds(randomTime);
 
@@ -69,6 +72,7 @@ public class EventManager : MonoBehaviour
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
+        audioSource.PlayOneShot(lightningSFX);
         gamepads[randomStrike].SetMotorSpeeds(1, 1);
         players[randomStrike].GetComponent<PlayerControls>().movements.moveSpeed = 0;
 
