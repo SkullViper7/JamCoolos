@@ -47,6 +47,11 @@ public class PlayerFall : MonoBehaviour
         objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.up * dropUpForce);
         objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.forward * dropForwardForce);
 
+        //Set the historic of object
+        CollectableObject collectableObject = _objectThatIsHeld.GetComponent<CollectableObject>();
+        collectableObject.lastPlayerWhoHeldThisObject = this.gameObject;
+        collectableObject.actualPlayerWhoHoldThisObject = null;
+
         collectObjects.objectThatIsHeld = null;
     }
 

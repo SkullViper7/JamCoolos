@@ -7,7 +7,7 @@ public class CollectObjects : MonoBehaviour
 {
     private StateMachine stateMachine;
     private PlayerPerimeter playerPerimeter;
-    [HideInInspector]public GameObject objectThatIsHeld;
+    /*[HideInInspector]*/public GameObject objectThatIsHeld;
 
     public float dropUpForce;
     public float dropForwardForce;
@@ -50,6 +50,13 @@ public class CollectObjects : MonoBehaviour
     {
         stateMachine.ChangeState(stateMachine.holdingState);
 
+        //Set the actual player who hold the object
+        CollectableObject collectableObject = _object.GetComponent<CollectableObject>();
+        if (collectableObject.actualPlayerWhoHoldThisObject == null)
+        {
+            collectableObject.actualPlayerWhoHoldThisObject = this.gameObject;
+        }
+
         //Collect the object
         _object.transform.SetParent(transform);
         _object.GetComponent<Rigidbody>().isKinematic = true;
@@ -74,6 +81,11 @@ public class CollectObjects : MonoBehaviour
         objectThatIsHeldRigidbody.isKinematic = false;
         objectThatIsHeldRigidbody.AddForce(objectThatIsHeld.transform.up * dropUpForce);
         objectThatIsHeldRigidbody.AddForce(objectThatIsHeld.transform.forward * dropForwardForce);
+
+        //Set the historic of object
+        CollectableObject collectableObject = objectThatIsHeld.GetComponent<CollectableObject>();
+        collectableObject.lastPlayerWhoHeldThisObject = this.gameObject;
+        collectableObject.actualPlayerWhoHoldThisObject = null;
 
         objectThatIsHeld = null;
     }
