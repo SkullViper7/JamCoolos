@@ -12,8 +12,6 @@ public class DefaultState : IState
 
     public void OnEnter(StateMachine _stateMachine)
     {
-        Debug.Log("DefaultState");
-
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
         movements = _stateMachine.movements;

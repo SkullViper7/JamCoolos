@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerPerimeter : MonoBehaviour
 {
-    [HideInInspector]public List<GameObject> collectableObjectsInPerimeter = new();
-    [HideInInspector]public List<GameObject> playersInPerimeter = new();
+    /*[HideInInspector]*/public List<GameObject> collectableObjectsInPerimeter = new();
+    /*[HideInInspector]*/public List<GameObject> playersInPerimeter = new();
 
     private void OnTriggerEnter(Collider other)
     {

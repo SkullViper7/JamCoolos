@@ -49,6 +49,8 @@ public class PlayerDevice : MonoBehaviour
             playerInput = GameObject.Find(_name).GetComponent<PlayerInput>();
             stateMachine.playerInput = playerInput;
             stateMachine.ChangeState(stateMachine.defaultState);
+            ScoreManager.Instance.playerScores.Add(this.gameObject.name, 0);
+            GameManager.Instance.players.Add(this.gameObject);
         }
         else
         {
