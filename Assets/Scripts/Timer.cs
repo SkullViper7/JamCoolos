@@ -8,6 +8,12 @@ public class Timer : MonoBehaviour
     TMP_Text time;
     public int minutes;
 
+    [Space]
+    public GameObject EndScreen;
+    public GameObject gameUI;
+    public AudioSource gameMusic;
+    public AudioSource endMusic;
+
     private void Start()
     {
         time = GetComponent<TMP_Text>();
@@ -29,6 +35,14 @@ public class Timer : MonoBehaviour
 
             yield return new WaitForSeconds(1);
             count--;
+
+            if (count == 0)
+            {
+                EndScreen.SetActive(true);
+                gameUI.SetActive(false);
+                gameMusic.Stop();
+                endMusic.Play();
+            }
         }
     }
 }
