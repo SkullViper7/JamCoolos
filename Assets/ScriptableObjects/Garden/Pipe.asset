@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Arrosoir
+  m_Name: Pipe
   m_EditorClassIdentifier: 
   weight: 2
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
+  material: {fileID: 2100000, guid: d23ddbda9cc57084eaf3f709de7970ed, type: 2}
   spawnProba: 14
-  score: 30
-  lowValue: 0
-  highValue: 14
+  score: 20
+  lowValue: 86
+  highValue: 100

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: chaise
+  m_Name: ToolBox
   m_EditorClassIdentifier: 
-  weight: 7
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dd29a0ffdbd95f04baabcb55c318c63c, type: 2}
-  spawnProba: 21
-  score: 20
+  weight: 10
+  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
+  spawnProba: 30
+  score: 50
   lowValue: 0
-  highValue: 10
+  highValue: 30

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: moteur
+  m_Name: Engine
   m_EditorClassIdentifier: 
   weight: 80
   mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
