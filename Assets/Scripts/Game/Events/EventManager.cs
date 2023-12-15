@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviour
     public float eqStrength;
     public int eqVibrato;
     public float eqRandomness;
+    public AudioClip earthquakeSFX;
 
     [Header("Lightning")]
     public float lDuration;
@@ -24,6 +25,9 @@ public class EventManager : MonoBehaviour
     public GameObject lightning;
     public Animator flashAnim;
     public AudioClip lightningSFX;
+
+    [Space]
+    public AudioClip windSFX;
 
     AudioSource audioSource;
     bool hasMetal;
@@ -78,6 +82,7 @@ public class EventManager : MonoBehaviour
         {
             cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
+            audioSource.PlayOneShot(earthquakeSFX);
             if (players[i].GetComponent<StateMachine>().currentState == players[i].GetComponent<StateMachine>().holdingState)
             {
                 players[i].GetComponent<CollectObjects>().DropObject();
@@ -126,6 +131,8 @@ public class EventManager : MonoBehaviour
         {
             players[i].GetComponent<Movements>().moveSpeed /= 2;
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 3, 0.5f));
+            audioSource.volume = 0.5f;
+            audioSource.PlayOneShot(windSFX);
         }
 
         yield return new WaitForSeconds(3);
@@ -133,6 +140,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().moveSpeed *= 2;
+            audioSource.volume = 1;
         }
 
         int newRandomTime = Random.Range(10, 15);
