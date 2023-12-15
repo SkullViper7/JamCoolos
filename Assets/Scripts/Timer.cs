@@ -6,7 +6,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     TMP_Text time;
-    public int minutes;
+    public float minutes;
 
     [Space]
     public GameObject EndScreen;
@@ -17,18 +17,18 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         time = GetComponent<TMP_Text>();
-        int seconds = minutes * 60;
+        float seconds = minutes * 60f;
         StartCoroutine(TimeDecrease(seconds));
     }
 
-    public IEnumerator TimeDecrease(int totalSeconds)
+    public IEnumerator TimeDecrease(float totalSeconds)
     {
-        int count = totalSeconds;
+        float count = totalSeconds;
 
         while (count >= 0)
         {
-            int minutesLeft = count / 60;
-            int secondsLeft = count % 60;
+            float minutesLeft = count / 60;
+            float secondsLeft = count % 60;
 
             string timeText = string.Format("{0:00}:{1:00}", minutesLeft, secondsLeft);
             time.text = timeText;

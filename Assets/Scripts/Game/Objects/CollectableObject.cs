@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectableObject : MonoBehaviour
 {
+    public CollectableObjectBase collectableObjectBase;
+
     private MeshRenderer meshRenderer;
     private MeshFilter meshFilter;
     private MeshCollider meshCollider;
@@ -11,7 +13,8 @@ public class CollectableObject : MonoBehaviour
     public int weight;
     public int probability;
     public int score;
-    public CollectableObjectBase collectableObjectBase;
+    public GameObject lastPlayerWhoHeldThisObject;
+    public GameObject actualPlayerWhoHoldThisObject;
 
     public void InitialiseObject()
     {

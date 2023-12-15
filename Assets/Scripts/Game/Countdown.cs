@@ -7,6 +7,7 @@ using UnityEngine;
 public class Countdown : MonoBehaviour
 {
     TMP_Text text;
+    public GameObject chrono;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class Countdown : MonoBehaviour
         yield return new WaitForSeconds(1);
         text.text = "GO";
         yield return new WaitForSeconds(1);
+        chrono.SetActive(true);
         Destroy(gameObject);
     }
 }
