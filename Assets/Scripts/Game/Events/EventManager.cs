@@ -38,13 +38,7 @@ public class EventManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        int randomLightningTime = Random.Range(10, 15);
-        int randomEarthquakeTime = Random.Range(10, 15);
-        int randomWindTime = Random.Range(10, 15);
-
-        StartCoroutine(Earthquake(randomEarthquakeTime));
-        StartCoroutine(Lightning(randomLightningTime));
-        StartCoroutine(Wind(randomWindTime));
+        StartCoroutine(PlayEvent());
 
         for (int i = 0; i < players.Length; i++)
         {
@@ -57,22 +51,32 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator Earthquake(int randomTime)
+    IEnumerator PlayEvent()
     {
-        isEarthquakeRunning = false;
+        int randomEvent = Random.Range(1, 4);
+        int randomTime = Random.Range(10, 15);
 
         yield return new WaitForSeconds(randomTime);
 
-        if (isLightningRunnig || isWindRunning)
+        switch (randomEvent)
         {
-            yield return new WaitForSeconds(10);
+            case 1 : StartCoroutine(Earthquake());
+                break;
+            case 2: StartCoroutine(Lightning());
+                break;
+            case 3: StartCoroutine(Wind());
+                break;
         }
 
-        isEarthquakeRunning = true;
+        StartCoroutine(PlayEvent());
+    }
 
+    public IEnumerator Earthquake()
+    {
+        Debug.Log("Earthquake");
         for (int i = 0; i < gamepads.Count; i++)
         {
-            cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
+            cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
             if (players[i].GetComponent<StateMachine>().currentState == players[i].GetComponent<StateMachine>().holdingState)
             {
@@ -80,25 +84,12 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        int newRandomTime = Random.Range(10, 15);
-
-        StartCoroutine(Earthquake(newRandomTime));
+        yield return null;
     }
 
-    public IEnumerator Lightning(int randomTime)
+    public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
-
-        isLightningRunnig = false;
-
-        yield return new WaitForSeconds(randomTime);
-
-        if (isEarthquakeRunning || isWindRunning)
-        {
-            yield return new WaitForSeconds(10);
-        }
-
-        isLightningRunnig = true;
 
         GameObject flash;
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
@@ -126,32 +117,11 @@ public class EventManager : MonoBehaviour
 
         players[randomStrike].GetComponent<Movements>().moveSpeed = initalSpeed;
         flashAnim.Play("Idle");
-
-        int newRandomTime = Random.Range(10, 15);
-
-        if (!isEarthquakeRunning && !isWindRunning)
-        {
-            StartCoroutine(Lightning(newRandomTime));
-
-            yield return new WaitForSeconds(5);
-
-            StartCoroutine(Lightning(newRandomTime));
-        }
     }
 
-    public IEnumerator Wind(int randomTime)
+    public IEnumerator Wind()
     {
-        isWindRunning = false;
-
-        yield return new WaitForSeconds(randomTime);
-
-        if (isLightningRunnig || isEarthquakeRunning)
-        {
-            yield return new WaitForSeconds(10);
-        }
-
-        isWindRunning = true;
-
+        Debug.Log("Wind");
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().moveSpeed /= 2;
@@ -166,14 +136,5 @@ public class EventManager : MonoBehaviour
         }
 
         int newRandomTime = Random.Range(10, 15);
-
-        if (!isEarthquakeRunning && !isLightningRunnig)
-        {
-            StartCoroutine(Wind(newRandomTime));
-
-            yield return new WaitForSeconds(5);
-
-            StartCoroutine(Wind(newRandomTime));
-        }
     }
 }

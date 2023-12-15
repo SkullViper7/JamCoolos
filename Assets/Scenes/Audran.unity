@@ -277,8 +277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 330585543}
   eqDuration: 5
-  eqStrength: 2
-  eqVibrato: 10
+  eqStrength: 0.5
+  eqVibrato: 15
   eqRandomness: 90
   lDuration: 1
   lStrength: 3
