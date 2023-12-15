@@ -73,12 +73,11 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < gamepads.Count; i++)
         {
             cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
-            gamepads[i].SetMotorSpeeds(1, 1);
-            players[i].GetComponent<CollectObjects>().DropObject();
-
-            yield return new WaitForSeconds(4);
-
-            gamepads[i].SetMotorSpeeds(0, 0);
+            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
+            if (players[i].GetComponent<StateMachine>().currentState == players[i].GetComponent<StateMachine>().holdingState)
+            {
+                players[i].GetComponent<CollectObjects>().DropObject();
+            }
         }
 
         int newRandomTime = Random.Range(10, 15);
@@ -115,7 +114,10 @@ public class EventManager : MonoBehaviour
         float initalSpeed = movements.moveSpeed;
         movements.moveSpeed = 0;
 
-        players[randomStrike].GetComponent<CollectObjects>().DropObject();
+        if (players[randomStrike].GetComponent<StateMachine>().currentState == players[randomStrike].GetComponent<StateMachine>().holdingState)
+        {
+            players[randomStrike].GetComponent<CollectObjects>().DropObject();
+        }
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
@@ -153,7 +155,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().moveSpeed /= 2;
-            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 0.5f, 0.5f));
+            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 3, 0.5f));
         }
 
         yield return new WaitForSeconds(3);
