@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     [Space]
     public GameObject EndScreen;
     public GameObject gameUI;
+    public AudioSource gameMusic;
+    public AudioSource endMusic;
 
     private void Start()
     {
@@ -38,6 +40,8 @@ public class Timer : MonoBehaviour
             {
                 EndScreen.SetActive(true);
                 gameUI.SetActive(false);
+                gameMusic.Stop();
+                endMusic.Play();
             }
         }
     }
