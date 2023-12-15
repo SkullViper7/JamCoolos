@@ -28,14 +28,23 @@ public class EventManager : MonoBehaviour
     AudioSource audioSource;
     bool hasMetal;
 
+    bool isLightningRunnig;
+    bool isEarthquakeRunning;
+    bool isWindRunning;
+
     private List<Gamepad> gamepads = new List<Gamepad>();
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         players = GameObject.FindGameObjectsWithTag("Player");
-        //StartCoroutine(Earthquake());
-        //StartCoroutine(Lightning());
-        //StartCoroutine(Wind());
+
+        int randomLightningTime = Random.Range(10, 15);
+        int randomEarthquakeTime = Random.Range(10, 15);
+        int randomWindTime = Random.Range(10, 15);
+
+        StartCoroutine(Earthquake(randomEarthquakeTime));
+        StartCoroutine(Lightning(randomLightningTime));
+        StartCoroutine(Wind(randomWindTime));
 
         for (int i = 0; i < players.Length; i++)
         {
@@ -48,8 +57,19 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator Earthquake()
+    public IEnumerator Earthquake(int randomTime)
     {
+        isEarthquakeRunning = false;
+
+        yield return new WaitForSeconds(randomTime);
+
+        if (isLightningRunnig || isWindRunning)
+        {
+            yield return new WaitForSeconds(10);
+        }
+
+        isEarthquakeRunning = true;
+
         for (int i = 0; i < gamepads.Count; i++)
         {
             cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
@@ -59,14 +79,26 @@ public class EventManager : MonoBehaviour
 
             gamepads[i].SetMotorSpeeds(0, 0);
         }
+
+        int newRandomTime = Random.Range(10, 15);
+
+        StartCoroutine(Earthquake(newRandomTime));
     }
 
-    public IEnumerator Lightning()
+    public IEnumerator Lightning(int randomTime)
     {
         int randomStrike = Random.Range(0, players.Length);
-        int randomTime = Random.Range(10, 20);
+
+        isLightningRunnig = false;
 
         yield return new WaitForSeconds(randomTime);
+
+        if (isEarthquakeRunning || isWindRunning)
+        {
+            yield return new WaitForSeconds(10);
+        }
+
+        isLightningRunnig = true;
 
         GameObject flash;
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
@@ -74,7 +106,7 @@ public class EventManager : MonoBehaviour
         flashAnim.Play("Flash");
         audioSource.PlayOneShot(lightningSFX);
         gamepads[randomStrike].SetMotorSpeeds(1, 1);
-        Movements movements = GetComponent<Movements>();
+        Movements movements = players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.moveSpeed;
         movements.moveSpeed = 0;
 
@@ -85,15 +117,33 @@ public class EventManager : MonoBehaviour
         gamepads[randomStrike].SetMotorSpeeds(0, 0);
 
         yield return new WaitForSeconds(1);
-        movements.moveSpeed = initalSpeed;
+        players[randomStrike].GetComponent<Movements>().moveSpeed = initalSpeed;
         flashAnim.Play("Idle");
 
-        StartCoroutine(Lightning());
+        int newRandomTime = Random.Range(10, 15);
+
+        if (!isEarthquakeRunning && !isWindRunning)
+        {
+            StartCoroutine(Lightning(newRandomTime));
+
+            yield return new WaitForSeconds(5);
+
+            StartCoroutine(Lightning(newRandomTime));
+        }
     }
 
-    public IEnumerator Wind()
+    public IEnumerator Wind(int randomTime)
     {
-        yield return new WaitForSeconds(1);
+        isWindRunning = false;
+
+        yield return new WaitForSeconds(randomTime);
+
+        if (isLightningRunnig || isEarthquakeRunning)
+        {
+            yield return new WaitForSeconds(10);
+        }
+
+        isWindRunning = true;
 
         for (int i = 0; i < players.Length; i++)
         {
@@ -107,6 +157,17 @@ public class EventManager : MonoBehaviour
         {
             players[i].GetComponent<Movements>().moveSpeed *= 2;
             gamepads[i].SetMotorSpeeds(0, 0);
+        }
+
+        int newRandomTime = Random.Range(10, 15);
+
+        if (!isEarthquakeRunning && !isLightningRunnig)
+        {
+            StartCoroutine(Wind(newRandomTime));
+
+            yield return new WaitForSeconds(5);
+
+            StartCoroutine(Wind(newRandomTime));
         }
     }
 }

@@ -2018,6 +2018,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90cfae4dd117fb74287c47c8f2c66029, type: 3}
+--- !u!114 &4425698219857588787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6889570063780089709, guid: 90cfae4dd117fb74287c47c8f2c66029,
+    type: 3}
+  m_PrefabInstance: {fileID: 4425698219857588786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57bc1a7b41b2764fa30ffd1ffc1c673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4918899870229823364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2160,6 +2172,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CountDown
       objectReference: {fileID: 0}
+    - target: {fileID: 7170893553151758184, guid: 470c3a271a5e4ea48b3e376c78b39c98,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 4425698219857588787}
     - target: {fileID: 8592838025928280003, guid: 470c3a271a5e4ea48b3e376c78b39c98,
         type: 3}
       propertyPath: m_Pivot.x
