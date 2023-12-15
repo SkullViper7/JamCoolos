@@ -74,6 +74,7 @@ public class EventManager : MonoBehaviour
         {
             cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness);
             gamepads[i].SetMotorSpeeds(1, 1);
+            players[i].GetComponent<CollectObjects>().DropObject();
 
             yield return new WaitForSeconds(4);
 
@@ -109,6 +110,7 @@ public class EventManager : MonoBehaviour
         Movements movements = players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.moveSpeed;
         movements.moveSpeed = 0;
+        players[randomStrike].GetComponent<CollectObjects>().DropObject();
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
