@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableObjectsInPerimeter: []
+  playersInPerimeter: []
 --- !u!1 &4849410713127640136
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +165,7 @@ GameObject:
   - component: {fileID: 2906738765362463627}
   - component: {fileID: 1181607064914755776}
   - component: {fileID: 1021144034329199635}
+  - component: {fileID: -3107407471768186646}
   - component: {fileID: -612762187954883895}
   - component: {fileID: 2918661982328534687}
   - component: {fileID: 3344433695787871014}
@@ -306,10 +308,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+--- !u!114 &-3107407471768186646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446436592220688024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534e4275fa34bb744afcd24d3baa34bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
   movements: {fileID: 0}
   collectObjects: {fileID: 0}
   pushOtherPlayers: {fileID: 0}
-  isStunned: 0
+  playerFall: {fileID: 0}
 --- !u!114 &-612762187954883895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce5fcdef0d9afb4bbd51caf5b049dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectThatIsHeld: {fileID: 0}
+  dropUpForce: 100
+  dropForwardForce: 400
 --- !u!114 &3344433695787871014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4e0f6cb99e46e4e98c5038411413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punshForce: 1000
 --- !u!114 &675673003579835797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerThatPushedMe: {fileID: 0}
+  pushForce: 600
+  dropUpForce: 150
+  dropForwardForce: 600
 --- !u!1 &8809615873613618300
 GameObject:
   m_ObjectHideFlags: 0

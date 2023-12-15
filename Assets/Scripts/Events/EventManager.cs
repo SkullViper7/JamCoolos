@@ -23,20 +23,23 @@ public class EventManager : MonoBehaviour
     public float lRandomness;
     public GameObject lightning;
     public Animator flashAnim;
+    public AudioClip lightningSFX;
 
+    AudioSource audioSource;
     bool hasMetal;
 
     private List<Gamepad> gamepads = new List<Gamepad>();
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         players = GameObject.FindGameObjectsWithTag("Player");
         //StartCoroutine(Earthquake());
-        StartCoroutine(Lightning());
+        //StartCoroutine(Lightning());
         //StartCoroutine(Wind());
 
         for (int i = 0; i < players.Length; i++)
         {
-            var playerInput = players[i].GetComponent<PlayerControls>().playerInput;
+            var playerInput = players[i].GetComponent<PlayerDevice>().playerInput;
             if (playerInput != null && playerInput.user.pairedDevices.Count > 0)
             {
                 var gamepad = (Gamepad)playerInput.user.pairedDevices[0];
@@ -61,14 +64,19 @@ public class EventManager : MonoBehaviour
     public IEnumerator Lightning()
     {
         int randomStrike = Random.Range(0, players.Length);
+        int randomTime = Random.Range(10, 20);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(randomTime);
 
         GameObject flash;
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
+        audioSource.PlayOneShot(lightningSFX);
         gamepads[randomStrike].SetMotorSpeeds(1, 1);
+        Movements movements = GetComponent<Movements>();
+        float initalSpeed = movements.moveSpeed;
+        movements.moveSpeed = 0;
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
@@ -76,9 +84,8 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         gamepads[randomStrike].SetMotorSpeeds(0, 0);
 
-        players[randomStrike].GetComponent<PlayerControls>().enabled = false;
-        yield return new WaitForSeconds(0.6f);
-        players[randomStrike].GetComponent<PlayerControls>().enabled = true;
+        yield return new WaitForSeconds(1);
+        movements.moveSpeed = initalSpeed;
         flashAnim.Play("Idle");
 
         StartCoroutine(Lightning());
@@ -90,7 +97,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 2;
+            players[i].GetComponent<Movements>().moveSpeed /= 2;
             gamepads[i].SetMotorSpeeds(1, 1);
         }
 
@@ -98,7 +105,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<PlayerControls>().movements.moveSpeed = 5;
+            players[i].GetComponent<Movements>().moveSpeed *= 2;
             gamepads[i].SetMotorSpeeds(0, 0);
         }
     }
