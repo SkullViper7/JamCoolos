@@ -103,22 +103,25 @@ public class EventManager : MonoBehaviour
 
         GameObject flash;
         flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
-        cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
         flashAnim.Play("Flash");
+
+        cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
+
         audioSource.PlayOneShot(lightningSFX);
-        gamepads[randomStrike].SetMotorSpeeds(1, 1);
+
+        StartCoroutine(GamepadRumble.Instance.Rumble(players[randomStrike], 0.5f, 1));
+
         Movements movements = players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.moveSpeed;
         movements.moveSpeed = 0;
+
         players[randomStrike].GetComponent<CollectObjects>().DropObject();
 
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
 
-        yield return new WaitForSeconds(0.4f);
-        gamepads[randomStrike].SetMotorSpeeds(0, 0);
-
         yield return new WaitForSeconds(1);
+
         players[randomStrike].GetComponent<Movements>().moveSpeed = initalSpeed;
         flashAnim.Play("Idle");
 
@@ -150,7 +153,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().moveSpeed /= 2;
-            gamepads[i].SetMotorSpeeds(1, 1);
+            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 0.5f, 0.5f));
         }
 
         yield return new WaitForSeconds(3);
@@ -158,7 +161,6 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().moveSpeed *= 2;
-            gamepads[i].SetMotorSpeeds(0, 0);
         }
 
         int newRandomTime = Random.Range(10, 15);
