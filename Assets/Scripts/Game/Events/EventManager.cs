@@ -83,13 +83,20 @@ public class EventManager : MonoBehaviour
             cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
             audioSource.PlayOneShot(earthquakeSFX);
+            Movements movements = players[i].GetComponent<Movements>();
+            movements.moveSpeed = 0;
             if (players[i].GetComponent<StateMachine>().currentState == players[i].GetComponent<StateMachine>().holdingState)
             {
                 players[i].GetComponent<CollectObjects>().DropObject();
             }
         }
 
-        yield return null;
+        yield return new WaitForSeconds(eqDuration);
+
+        for (int i = 0; i < gamepads.Count; i++)
+        {
+            players[i].GetComponent<Movements>().moveSpeed = 300;
+        }
     }
 
     public IEnumerator Lightning()
