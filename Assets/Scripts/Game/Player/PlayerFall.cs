@@ -24,6 +24,8 @@ public class PlayerFall : MonoBehaviour
 
     public void Fall(Vector3 _direction)
     {
+        StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.75f, 0.5f));
+
         //Stop any movement
         movements.isInMovement = false;
 
@@ -46,6 +48,11 @@ public class PlayerFall : MonoBehaviour
         objectThatIsHeldRigidbody.isKinematic = false;
         objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.up * dropUpForce);
         objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.forward * dropForwardForce);
+
+        //Set the historic of object
+        CollectableObject collectableObject = _objectThatIsHeld.GetComponent<CollectableObject>();
+        collectableObject.lastPlayerWhoHeldThisObject = this.gameObject;
+        collectableObject.actualPlayerWhoHoldThisObject = null;
 
         collectObjects.objectThatIsHeld = null;
     }

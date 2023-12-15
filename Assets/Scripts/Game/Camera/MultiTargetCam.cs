@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
+//Modified script from Brackeys
 public class MultiTargetCam : MonoBehaviour
 {
     GameObject[] targets;
@@ -32,8 +33,8 @@ public class MultiTargetCam : MonoBehaviour
 
     void Zoom()
     {
-        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance()/10);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / 10);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, 0.25f);
     }
 
     void Move()

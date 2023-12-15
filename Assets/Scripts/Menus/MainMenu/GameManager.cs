@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<GameObject> playerInputControls = new();
 
+    [HideInInspector]
+    public List<GameObject> players = new();
+
     private void Awake()
     {
         //Singleton
