@@ -12,5 +12,4 @@ public class CollectableObjectBase : ScriptableObject
     public int score;
     public int lowValue;
     public int highValue;
-    
 }

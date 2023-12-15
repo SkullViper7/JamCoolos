@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Lampe
+  m_Name: Mower
   m_EditorClassIdentifier: 
-  weight: 2
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
-  spawnProba: 21
-  score: 20
-  lowValue: 10
-  highValue: 20
+  weight: 150
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: e25c3cfebe4b0a647be1c34321ffaf5e, type: 2}
+  spawnProba: 11
+  score: 120
+  lowValue: 75
+  highValue: 86

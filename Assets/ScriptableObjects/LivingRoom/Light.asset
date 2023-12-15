@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Livre
+  m_Name: Light
   m_EditorClassIdentifier: 
-  weight: 1
+  weight: 2
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
+  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
   spawnProba: 21
-  score: 10
-  lowValue: 20
-  highValue: 30
+  score: 20
+  lowValue: 10
+  highValue: 20

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: ordinateur
+  m_Name: WateringCan
   m_EditorClassIdentifier: 
-  weight: 5
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
-  spawnProba: 13
-  score: 35
-  lowValue: 30
-  highValue: 40
+  weight: 2
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
+  spawnProba: 14
+  score: 30
+  lowValue: 0
+  highValue: 14

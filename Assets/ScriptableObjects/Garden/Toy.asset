@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Pot de Plante
+  m_Name: Toy
   m_EditorClassIdentifier: 
-  weight: 4
-  mesh: {fileID: 0}
-  material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
-  spawnProba: 36
-  score: 15
-  lowValue: 39
-  highValue: 75
+  weight: 1
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
+  spawnProba: 25
+  score: 20
+  lowValue: 14
+  highValue: 39
