@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PushOtherPlayers : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void TryToPush()
     {
+        StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.25f, 0.5f));
+
         //If there is players in player perimeter
         if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
         {
