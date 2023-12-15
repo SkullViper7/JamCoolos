@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 356085325}
   - component: {fileID: 356085324}
   m_Layer: 0
-  m_Name: SpawnerSalon (1)
+  m_Name: SpawnerGarage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,18 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363080dbf148c6b48ba834b3c53c8a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyObjects:
-  - {fileID: 11400000, guid: 8c0693dd707fe39438cea290b125bddd, type: 2}
-  - {fileID: 11400000, guid: 25116e949668dc041bf0764b93b71915, type: 2}
-  - {fileID: 11400000, guid: 624ad3bad1846c843856a78ccb2220ae, type: 2}
-  - {fileID: 11400000, guid: 0c4981d866d65c346a5439fca8f1d429, type: 2}
-  y: 5
-  areaX: 5
-  areaZ: 5
+  ObjectBases: []
   CollectableObject: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  totalChance: 0
-  Delay: 0
+  minDelay: 0
+  maxDelay: 0
 --- !u!1 &792706691
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +217,7 @@ GameObject:
   - component: {fileID: 792706693}
   - component: {fileID: 792706692}
   m_Layer: 0
-  m_Name: Plane (3)
+  m_Name: Jardin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,7 +430,7 @@ GameObject:
   - component: {fileID: 1047622093}
   - component: {fileID: 1047622092}
   m_Layer: 0
-  m_Name: Plane (2)
+  m_Name: Garage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -942,9 +935,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 7
-  spawnProba: 10
+  probability: 0
   score: 20
-  myObject: {fileID: 11400000, guid: bd7b98228cd14be4ba5cdb44a1d96687, type: 2}
+  collectableObjectBase: {fileID: 0}
 --- !u!23 &1501908890
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1022,7 +1015,7 @@ GameObject:
   - component: {fileID: 1749165776}
   - component: {fileID: 1749165775}
   m_Layer: 0
-  m_Name: SpawnerSalon (2)
+  m_Name: SpawnerJardin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,19 +1079,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363080dbf148c6b48ba834b3c53c8a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyObjects:
-  - {fileID: 11400000, guid: 04c029e8f1f066649b46a7d874e4a21c, type: 2}
-  - {fileID: 11400000, guid: 5d2e87946d5f52a49aa9e32068cf8919, type: 2}
-  - {fileID: 11400000, guid: c75797d02ee92e64eb75c3bf3cea40cd, type: 2}
-  - {fileID: 11400000, guid: 0b2ed39a9430ec24483f4f129adaab71, type: 2}
-  - {fileID: 11400000, guid: 0d0719b9d89728644bd7647a69129db5, type: 2}
-  y: 5
-  areaX: 5
-  areaZ: 5
+  ObjectBases: []
   CollectableObject: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  totalChance: 0
-  Delay: 0
+  minDelay: 0
+  maxDelay: 0
 --- !u!1 &1804435784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1097,7 @@ GameObject:
   - component: {fileID: 1804435786}
   - component: {fileID: 1804435785}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Salon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1251,20 +1236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363080dbf148c6b48ba834b3c53c8a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyObjects:
-  - {fileID: 11400000, guid: 934bfab308246474185992becf989521, type: 2}
-  - {fileID: 11400000, guid: 9dca062e38b1e374e9262fce1f19bf51, type: 2}
-  - {fileID: 11400000, guid: c8e16b24468151d45ba858169570b24c, type: 2}
-  - {fileID: 11400000, guid: af0b5224767141f43b4d4d3f81500e2f, type: 2}
-  - {fileID: 11400000, guid: 5170aff8c73e1f5429acf0f362413a5d, type: 2}
-  - {fileID: 11400000, guid: 6088d001f41be7c46a9dc4d176283697, type: 2}
-  y: 5
-  areaX: 5
-  areaZ: 5
+  ObjectBases: []
   CollectableObject: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  totalChance: 0
-  Delay: 0
+  minDelay: 0
+  maxDelay: 0
 --- !u!114 &1928133296
 MonoBehaviour:
   m_ObjectHideFlags: 0
