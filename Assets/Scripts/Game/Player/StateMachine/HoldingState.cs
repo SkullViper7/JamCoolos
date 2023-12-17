@@ -15,11 +15,9 @@ public class HoldingState : IPlayerState
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
         movements = _stateMachine.movements;
         collectObjects = _stateMachine.collectObjects;
-    }
 
-    public void UpdateState(PlayerStateMachine _stateMachine)
-    {
-        
+        //Set the actual move speed depending of the weight of the object held
+        movements.actualSpeed = movements.defaultMoveSpeed * SpeedCoefficient();
     }
 
     public void OnExit(PlayerStateMachine _stateMachine)
@@ -27,7 +25,7 @@ public class HoldingState : IPlayerState
 
     }
 
-    public void OnAction(InputAction.CallbackContext context)
+    private void OnAction(InputAction.CallbackContext context)
     {
         if (this == stateMachine.currentState)
         {
@@ -45,5 +43,11 @@ public class HoldingState : IPlayerState
                     break;
             }
         }
+    }
+
+    private float SpeedCoefficient()
+    {
+        //Return the multiplier to apply to the default speed to reduce speed
+        return 1f - (collectObjects.objectThatIsHeld.GetComponent<CollectableObject>().weight / 100f);
     }
 }

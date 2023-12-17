@@ -84,8 +84,8 @@ public class EventManager : MonoBehaviour
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
             audioSource.PlayOneShot(earthquakeSFX);
             Movements movements = players[i].GetComponent<Movements>();
-            movements.moveSpeed = 0;
-            if (players[i].GetComponent<StateMachine>().currentState == players[i].GetComponent<StateMachine>().holdingState)
+            movements.defaultMoveSpeed = 0;
+            if (players[i].GetComponent<PlayerStateMachine>().currentState == players[i].GetComponent<PlayerStateMachine>().holdingState)
             {
                 players[i].GetComponent<CollectObjects>().DropObject();
             }
@@ -95,7 +95,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < gamepads.Count; i++)
         {
-            players[i].GetComponent<Movements>().moveSpeed = 300;
+            players[i].GetComponent<Movements>().defaultMoveSpeed = 300;
         }
     }
 
@@ -114,10 +114,10 @@ public class EventManager : MonoBehaviour
         StartCoroutine(GamepadRumble.Instance.Rumble(players[randomStrike], 0.5f, 1));
 
         Movements movements = players[randomStrike].GetComponent<Movements>();
-        float initalSpeed = movements.moveSpeed;
-        movements.moveSpeed = 0;
+        float initalSpeed = movements.defaultMoveSpeed;
+        movements.defaultMoveSpeed = 0;
 
-        if (players[randomStrike].GetComponent<StateMachine>().currentState == players[randomStrike].GetComponent<StateMachine>().holdingState)
+        if (players[randomStrike].GetComponent<PlayerStateMachine>().currentState == players[randomStrike].GetComponent<PlayerStateMachine>().holdingState)
         {
             players[randomStrike].GetComponent<CollectObjects>().DropObject();
         }
@@ -127,7 +127,7 @@ public class EventManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        players[randomStrike].GetComponent<Movements>().moveSpeed = initalSpeed;
+        players[randomStrike].GetComponent<Movements>().defaultMoveSpeed = initalSpeed;
         flashAnim.Play("Idle");
     }
 
@@ -136,7 +136,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("Wind");
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Movements>().moveSpeed /= 2;
+            players[i].GetComponent<Movements>().defaultMoveSpeed /= 2;
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 3, 0.5f));
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(windSFX);
@@ -146,7 +146,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Movements>().moveSpeed *= 2;
+            players[i].GetComponent<Movements>().defaultMoveSpeed *= 2;
             audioSource.volume = 1;
         }
 

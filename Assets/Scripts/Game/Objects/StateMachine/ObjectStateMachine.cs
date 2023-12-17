@@ -13,6 +13,9 @@ public class ObjectStateMachine : MonoBehaviour
     [HideInInspector]
     public CollectableObject collectableObject;
     [HideInInspector]
+    public ObjectFall objectFall;
+
+    [HideInInspector]
     public float dropUpForce;
     [HideInInspector]
     public float dropForwardForce;
@@ -20,6 +23,7 @@ public class ObjectStateMachine : MonoBehaviour
     private void Start()
     {
         collectableObject = GetComponent<CollectableObject>();
+        objectFall = GetComponent<ObjectFall>();
 
         ChangeState(collectableState);
     }

@@ -17,11 +17,9 @@ public class DefaultState : IPlayerState
         movements = _stateMachine.movements;
         collectObjects = _stateMachine.collectObjects;
         pushOtherPlayers = _stateMachine.pushOtherPlayers;
-    }
 
-    public void UpdateState(PlayerStateMachine _stateMachine)
-    {
-
+        //Set the speed by delfault
+        movements.actualSpeed = movements.defaultMoveSpeed;
     }
 
     public void OnExit(PlayerStateMachine _stateMachine)
@@ -29,7 +27,7 @@ public class DefaultState : IPlayerState
 
     }
 
-    public void OnAction(InputAction.CallbackContext context)
+    private void OnAction(InputAction.CallbackContext context)
     {
         if (this == stateMachine.currentState)
         {

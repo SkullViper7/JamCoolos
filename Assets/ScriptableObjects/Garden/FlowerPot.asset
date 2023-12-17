@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
   m_Name: FlowerPot
   m_EditorClassIdentifier: 
-  weight: 4
+  weight: 5
   mesh: {fileID: 0}
   material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
-  spawnProba: 36
-  score: 15
-  lowValue: 39
-  highValue: 75
+  spawnProba: 20
+  score: 10
+  lowValue: 0
+  highValue: 20

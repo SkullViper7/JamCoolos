@@ -171,6 +171,8 @@ GameObject:
   - component: {fileID: -5648287560666121132}
   - component: {fileID: 2600738169513143194}
   - component: {fileID: -2200981716397919418}
+  - component: {fileID: -2065394049994727988}
+  - component: {fileID: 6031918630230935945}
   m_Layer: 6
   m_Name: PlayerSolo
   m_TagString: Player
@@ -357,6 +359,8 @@ MonoBehaviour:
   collectObjects: {fileID: 0}
   pushOtherPlayers: {fileID: 0}
   playerFall: {fileID: 0}
+  playerRecovery: {fileID: 0}
+  playerInvincibility: {fileID: 0}
 --- !u!114 &-2972178344725017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f505a888baf8ba642ae2186a476f5e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 300
+  defaultMoveSpeed: 300
+  actualSpeed: 0
   isInMovement: 0
 --- !u!114 &-5648287560666121132
 MonoBehaviour:
@@ -414,6 +419,32 @@ MonoBehaviour:
   pushForce: 600
   dropUpForce: 150
   dropForwardForce: 600
+--- !u!114 &-2065394049994727988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446436592220688024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f78152269e54449b374bca7eb0ffb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRecoveryTime: 1
+--- !u!114 &6031918630230935945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446436592220688024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ffa21556e71642a765723ae16017b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultInvincibilityTime: 3
 --- !u!1 &8809615873613618300
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class CollectObjects : MonoBehaviour
 {
     private PlayerStateMachine playerStateMachine;
     private PlayerPerimeter playerPerimeter;
-    /*[HideInInspector]*/public GameObject objectThatIsHeld;
+    [HideInInspector] public GameObject objectThatIsHeld;
 
     public float dropUpForce;
     public float dropForwardForce;
@@ -67,12 +67,11 @@ public class CollectObjects : MonoBehaviour
     public void DropObject()
     {
         //Set the different state machines
-        playerStateMachine.ChangeState(playerStateMachine.defaultState);
         ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
         objectStateMachine.dropUpForce = this.dropUpForce;
         objectStateMachine.dropForwardForce = this.dropForwardForce;
         objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
-        objectThatIsHeld = null;
+        playerStateMachine.ChangeState(playerStateMachine.recoveryState);
     }
 }

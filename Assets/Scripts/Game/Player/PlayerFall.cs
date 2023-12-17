@@ -58,6 +58,6 @@ public class PlayerFall : MonoBehaviour
         playerThatPushedMe = null;
 
         //Player can move again
-        stateMachine.ChangeState(stateMachine.defaultState);
+        stateMachine.ChangeState(stateMachine.invincibleState);
     }
 }

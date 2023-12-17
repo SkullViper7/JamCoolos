@@ -22,11 +22,6 @@ public class FallingState : IPlayerState
         }
     }
 
-    public void UpdateState(PlayerStateMachine _stateMachine)
-    {
-
-    }
-
     public void OnExit(PlayerStateMachine _stateMachine)
     {
 

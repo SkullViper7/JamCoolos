@@ -31,8 +31,8 @@ public class PushOtherPlayers : MonoBehaviour
                     if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= 45f)
                     {
                         PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
-                        //If other player is not already falling
-                        if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState)
+                        //If other player is not already falling or invincible
+                        if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState && otherPlayerStateMachine.currentState != otherPlayerStateMachine.invincibleState)
                         {
                             //Other player falls
                             Push(otherPlayerStateMachine);

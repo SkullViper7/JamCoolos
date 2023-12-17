@@ -12,7 +12,7 @@ public class DroppedState : IObjectState
         objectStateMachine = _objectStateMachine;
 
         //Listen if the object has hit the ground
-        objectFall = _objectStateMachine.GetComponent<ObjectFall>();
+        objectFall = _objectStateMachine.objectFall;
         objectFall.enabled = true;
         objectFall.ObjectHitsTheGround += ObjectHasHitTheGround;
 

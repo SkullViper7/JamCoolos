@@ -8,7 +8,7 @@ public class IsHeldState : IObjectState
 
     public void OnEnter(ObjectStateMachine _objectStateMachine)
     {
-        collectableObject = _objectStateMachine.GetComponent<CollectableObject>();
+        collectableObject = _objectStateMachine.collectableObject;
 
         //object is collected
         _objectStateMachine.transform.SetParent(collectableObject.actualPlayerWhoHoldThisObject.transform);
