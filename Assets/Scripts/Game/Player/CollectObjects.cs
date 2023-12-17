@@ -5,7 +5,7 @@ using UnityEngine.Experimental.AI;
 
 public class CollectObjects : MonoBehaviour
 {
-    private StateMachine stateMachine;
+    private PlayerStateMachine playerStateMachine;
     private PlayerPerimeter playerPerimeter;
     /*[HideInInspector]*/public GameObject objectThatIsHeld;
 
@@ -14,7 +14,7 @@ public class CollectObjects : MonoBehaviour
 
     void Start()
     {
-        stateMachine = GetComponent<StateMachine>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
     }
 
@@ -26,19 +26,25 @@ public class CollectObjects : MonoBehaviour
             //For each object in player perimeter
             for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
             {
-                GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
-
-                //If object is enough close
-                if (Vector3.Distance(transform.position, currentObject.transform.position) <= 2)
+                //If there is no object already held
+                if (objectThatIsHeld == null)
                 {
-                    //If object is in front of the player
-                    if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(currentObject.transform.position.x - transform.position.x, currentObject.transform.position.z - transform.position.z)) <= 35f)
+                    GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
+
+                    //If object is enough close
+                    if (Vector3.Distance(transform.position, currentObject.transform.position) <= 2)
                     {
-                        //If there is no object already held
-                        if (objectThatIsHeld == null)
+                        //If object is in front of the player
+                        if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(currentObject.transform.position.x - transform.position.x, currentObject.transform.position.z - transform.position.z)) <= 35f)
                         {
-                            //Collect object and switch to holding state
-                            CollectObject(currentObject);
+                            ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
+
+                            //If object is collectable
+                            if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                            {
+                                //Collect object and switch to holding state
+                                CollectObject(currentObject);
+                            }
                         }
                     }
                 }
@@ -48,44 +54,24 @@ public class CollectObjects : MonoBehaviour
 
     private void CollectObject(GameObject _object)
     {
-        stateMachine.ChangeState(stateMachine.holdingState);
-
-        //Set the actual player who hold the object
-        CollectableObject collectableObject = _object.GetComponent<CollectableObject>();
-        if (collectableObject.actualPlayerWhoHoldThisObject == null)
-        {
-            collectableObject.actualPlayerWhoHoldThisObject = this.gameObject;
-        }
-
-        //Collect the object
-        _object.transform.SetParent(transform);
-        _object.GetComponent<Rigidbody>().isKinematic = true;
-
-        //Set a new height depending of the size of the object
-        float newHeight = transform.GetComponent<MeshRenderer>().bounds.size.y / 2f + _object.GetComponent<MeshRenderer>().bounds.size.y / 2;
-
-        _object.transform.localPosition = new Vector3(0, newHeight, 0);
-        _object.transform.localRotation = Quaternion.identity;
+        //Set the actual player who hold the object and the object that is held
+        _object.GetComponent<CollectableObject>().actualPlayerWhoHoldThisObject = this.gameObject;
         objectThatIsHeld = _object;
+
+        //Set the different state machines
+        playerStateMachine.ChangeState(playerStateMachine.holdingState);
+        ObjectStateMachine objectStateMachine = _object.GetComponent<ObjectStateMachine>();
+        objectStateMachine.ChangeState(objectStateMachine.isHeldState);
     }
 
     public void DropObject()
     {
-        stateMachine.ChangeState(stateMachine.defaultState);
-
-        //Drop object on the ground
-        objectThatIsHeld.transform.SetParent(null);
-
-        Rigidbody objectThatIsHeldRigidbody = objectThatIsHeld.GetComponent<Rigidbody>();
-
-        objectThatIsHeldRigidbody.isKinematic = false;
-        objectThatIsHeldRigidbody.AddForce(objectThatIsHeld.transform.up * dropUpForce);
-        objectThatIsHeldRigidbody.AddForce(objectThatIsHeld.transform.forward * dropForwardForce);
-
-        //Set the historic of object
-        CollectableObject collectableObject = objectThatIsHeld.GetComponent<CollectableObject>();
-        collectableObject.lastPlayerWhoHeldThisObject = this.gameObject;
-        collectableObject.actualPlayerWhoHoldThisObject = null;
+        //Set the different state machines
+        playerStateMachine.ChangeState(playerStateMachine.defaultState);
+        ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
+        objectStateMachine.dropUpForce = this.dropUpForce;
+        objectStateMachine.dropForwardForce = this.dropForwardForce;
+        objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
         objectThatIsHeld = null;
     }

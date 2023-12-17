@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class StateMachine : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour
 {
-    public IState currentState;
+    public IPlayerState currentState;
 
     public DefaultState defaultState = new();
     public HoldingState holdingState = new();
@@ -36,7 +36,7 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    public void ChangeState(IState newState)
+    public void ChangeState(IPlayerState newState)
     {
         //Switch to a new state
         if (currentState != null)
@@ -50,9 +50,9 @@ public class StateMachine : MonoBehaviour
 }
 
 //Interface for each state
-public interface IState
+public interface IPlayerState
 {
-    public void OnEnter(StateMachine stateManager);
-    public void UpdateState(StateMachine stateManager);
-    public void OnExit(StateMachine stateManager);
+    public void OnEnter(PlayerStateMachine _playerStateMachine);
+    public void UpdateState(PlayerStateMachine _playerStateMachine);
+    public void OnExit(PlayerStateMachine _playerStateMachine);
 }

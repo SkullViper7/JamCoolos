@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DefaultState : IState
+public class DefaultState : IPlayerState
 {
     private Movements movements;
     private CollectObjects collectObjects;
     private PushOtherPlayers pushOtherPlayers;
-    private StateMachine stateMachine;
+    private PlayerStateMachine stateMachine;
 
-    public void OnEnter(StateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
@@ -19,12 +19,12 @@ public class DefaultState : IState
         pushOtherPlayers = _stateMachine.pushOtherPlayers;
     }
 
-    public void UpdateState(StateMachine _stateMachine)
+    public void UpdateState(PlayerStateMachine _stateMachine)
     {
 
     }
 
-    public void OnExit(StateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine _stateMachine)
     {
 
     }

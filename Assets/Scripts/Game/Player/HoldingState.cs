@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HoldingState : IState
+public class HoldingState : IPlayerState
 {
     private Movements movements;
     private CollectObjects collectObjects;
-    private StateMachine stateMachine;
+    private PlayerStateMachine stateMachine;
 
-    public void OnEnter(StateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
@@ -17,12 +17,12 @@ public class HoldingState : IState
         collectObjects = _stateMachine.collectObjects;
     }
 
-    public void UpdateState(StateMachine _stateMachine)
+    public void UpdateState(PlayerStateMachine _stateMachine)
     {
         
     }
 
-    public void OnExit(StateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine _stateMachine)
     {
 
     }

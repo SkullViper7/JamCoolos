@@ -27,7 +27,7 @@ public class PushOtherPlayers : MonoBehaviour
                     //If player is in front of this player
                     if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= 45f)
                     {
-                        StateMachine otherPlayerStateMachine = otherPlayer.GetComponent<StateMachine>();
+                        PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
                         //If other player is not already falling
                         if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState)
                         {
@@ -40,7 +40,7 @@ public class PushOtherPlayers : MonoBehaviour
         }
     }
 
-    public void Push(StateMachine _stateMachine)
+    public void Push(PlayerStateMachine _stateMachine)
     {
         //Indicate to the other player that this player is the player who has pushed him
         _stateMachine.GetComponent<PlayerFall>().playerThatPushedMe = this.gameObject;
