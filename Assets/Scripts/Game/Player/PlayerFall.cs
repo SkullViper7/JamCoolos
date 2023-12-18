@@ -8,6 +8,7 @@ public class PlayerFall : MonoBehaviour
     private Movements movements;
     private PlayerStateMachine stateMachine;
     private CollectObjects collectObjects;
+    ParticleSystem smoke;
 
     [HideInInspector]public GameObject playerThatPushedMe;
     public float pushForce;
@@ -20,11 +21,13 @@ public class PlayerFall : MonoBehaviour
         movements = GetComponent<Movements>();
         stateMachine = GetComponent<PlayerStateMachine>();
         collectObjects = GetComponent<CollectObjects>();
+        smoke = GetComponentInChildren<ParticleSystem>();
     }
 
     public void Fall(Vector3 _direction)
     {
         StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.75f, 0.5f));
+        smoke.Play();
 
         //Stop any movement
         movements.isInMovement = false;
