@@ -8,12 +8,19 @@ public class Movements : MonoBehaviour
     private Vector3 actualOrientation;
 
     private Rigidbody rb;
-    public float moveSpeed;
-    [HideInInspector]public bool isInMovement;
+    public float defaultMoveSpeed;
+    [HideInInspector]
+    public float actualSpeed;
+
+    [HideInInspector]
+    public bool isInMovement;
+
+    Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void Move(Vector2 _value)
@@ -25,12 +32,14 @@ public class Movements : MonoBehaviour
         {
             actualOrientation = new Vector3(_value.x, 0f, _value.y);
             isInMovement = true;
+            animator.SetInteger("State", 1);
         }
-        //Else keep the last orientation to not go to the neutral pos
+        //Else keep the last orientation to don't go to the neutral pos
         else
         {
             actualOrientation = lastOrientation;
             isInMovement = false;
+            animator.SetInteger("State", 0);
         }
 
         //Player orientation is the same as the stick
@@ -42,7 +51,7 @@ public class Movements : MonoBehaviour
         if (isInMovement)
         {
             //Player moves when joystick is held
-            Vector3 velocity = actualOrientation * moveSpeed * Time.deltaTime;
+            Vector3 velocity = actualOrientation * actualSpeed * Time.deltaTime;
             rb.velocity = velocity;
         }
     }
