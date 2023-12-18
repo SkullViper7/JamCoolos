@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
   m_Name: Engine
   m_EditorClassIdentifier: 
-  weight: 80
+  weight: 50
   mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
   spawnProba: 10
-  score: 50
-  lowValue: 30
-  highValue: 40
+  score: 100
+  lowValue: 0
+  highValue: 10

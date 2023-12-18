@@ -70,6 +70,10 @@ public class SpawnRandom : MonoBehaviour
 
         newObject.name = newObjectScript.collectableObjectBase.name;
         newObject.transform.position = SpawnPoint;
+
+        //Set state by default
+        ObjectStateMachine objectStateMachine = newObject.GetComponent<ObjectStateMachine>();
+        objectStateMachine.ChangeState(objectStateMachine.collectableState);
     }
 
     IEnumerator WaitBetweenTwoSpawns()

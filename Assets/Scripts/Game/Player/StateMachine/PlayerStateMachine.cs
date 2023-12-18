@@ -5,19 +5,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class StateMachine : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour
 {
-    public IState currentState;
+    public IPlayerState currentState;
 
     public DefaultState defaultState = new();
+    public RecoveryState recoveryState = new();
     public HoldingState holdingState = new();
     public FallingState fallingState = new();
+    public InvincibleState invincibleState = new();
 
-    [HideInInspector]public PlayerInput playerInput;
+    [HideInInspector] public PlayerInput playerInput;
     [HideInInspector] public Movements movements;
     [HideInInspector] public CollectObjects collectObjects;
     [HideInInspector] public PushOtherPlayers pushOtherPlayers;
     [HideInInspector] public PlayerFall playerFall;
+    [HideInInspector] public PlayerRecovery playerRecovery;
+    [HideInInspector] public PlayerInvincibility playerInvincibility;
 
     private void Start()
     {
@@ -25,18 +29,11 @@ public class StateMachine : MonoBehaviour
         collectObjects = GetComponent<CollectObjects>();
         pushOtherPlayers = GetComponent<PushOtherPlayers>();
         playerFall = GetComponent<PlayerFall>();
+        playerRecovery = GetComponent<PlayerRecovery>();
+        playerInvincibility = GetComponent<PlayerInvincibility>();
     }
 
-    private void FixedUpdate()
-    {
-        //Execute the actual state's comportement
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
-    }
-
-    public void ChangeState(IState newState)
+    public void ChangeState(IPlayerState newState)
     {
         //Switch to a new state
         if (currentState != null)
@@ -50,9 +47,8 @@ public class StateMachine : MonoBehaviour
 }
 
 //Interface for each state
-public interface IState
+public interface IPlayerState
 {
-    public void OnEnter(StateMachine stateManager);
-    public void UpdateState(StateMachine stateManager);
-    public void OnExit(StateMachine stateManager);
+    public void OnEnter(PlayerStateMachine _playerStateMachine);
+    public void OnExit(PlayerStateMachine _playerStateMachine);
 }

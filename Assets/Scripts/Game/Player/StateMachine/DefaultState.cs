@@ -3,33 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DefaultState : IState
+public class DefaultState : IPlayerState
 {
     private Movements movements;
     private CollectObjects collectObjects;
     private PushOtherPlayers pushOtherPlayers;
-    private StateMachine stateMachine;
+    private PlayerStateMachine stateMachine;
 
-    public void OnEnter(StateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
         movements = _stateMachine.movements;
         collectObjects = _stateMachine.collectObjects;
         pushOtherPlayers = _stateMachine.pushOtherPlayers;
+
+        //Set the speed by delfault
+        movements.actualSpeed = movements.defaultMoveSpeed;
     }
 
-    public void UpdateState(StateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine _stateMachine)
     {
 
     }
 
-    public void OnExit(StateMachine _stateMachine)
-    {
-
-    }
-
-    public void OnAction(InputAction.CallbackContext context)
+    private void OnAction(InputAction.CallbackContext context)
     {
         if (this == stateMachine.currentState)
         {

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingState : IState
+public class FallingState : IPlayerState
 {
     private PlayerFall playerFall;
     private CollectObjects collectObjects;
 
-    public void OnEnter(StateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine _stateMachine)
     {
         playerFall = _stateMachine.playerFall;
         collectObjects = _stateMachine.collectObjects;
@@ -22,12 +22,7 @@ public class FallingState : IState
         }
     }
 
-    public void UpdateState(StateMachine _stateMachine)
-    {
-
-    }
-
-    public void OnExit(StateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine _stateMachine)
     {
 
     }

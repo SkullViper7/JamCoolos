@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HoldingState : IState
+public class HoldingState : IPlayerState
 {
     private Movements movements;
     private CollectObjects collectObjects;
-    private StateMachine stateMachine;
+    private PlayerStateMachine stateMachine;
 
-    public void OnEnter(StateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
         _stateMachine.playerInput.onActionTriggered += this.OnAction;
         movements = _stateMachine.movements;
         collectObjects = _stateMachine.collectObjects;
+
+        //Set the actual move speed depending of the weight of the object held
+        movements.actualSpeed = movements.defaultMoveSpeed * SpeedCoefficient();
     }
 
-    public void UpdateState(StateMachine _stateMachine)
-    {
-        
-    }
-
-    public void OnExit(StateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine _stateMachine)
     {
 
     }
 
-    public void OnAction(InputAction.CallbackContext context)
+    private void OnAction(InputAction.CallbackContext context)
     {
         if (this == stateMachine.currentState)
         {
@@ -45,5 +43,11 @@ public class HoldingState : IState
                     break;
             }
         }
+    }
+
+    private float SpeedCoefficient()
+    {
+        //Return the multiplier to apply to the default speed to reduce speed
+        return 1f - (collectObjects.objectThatIsHeld.GetComponent<CollectableObject>().weight / 100f);
     }
 }

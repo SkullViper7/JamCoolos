@@ -6,7 +6,7 @@ public class PlayerFall : MonoBehaviour
 {
     private Rigidbody rb;
     private Movements movements;
-    private StateMachine stateMachine;
+    private PlayerStateMachine stateMachine;
     private CollectObjects collectObjects;
 
     [HideInInspector]public GameObject playerThatPushedMe;
@@ -18,7 +18,7 @@ public class PlayerFall : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         movements = GetComponent<Movements>();
-        stateMachine = GetComponent<StateMachine>();
+        stateMachine = GetComponent<PlayerStateMachine>();
         collectObjects = GetComponent<CollectObjects>();
     }
 
@@ -40,19 +40,11 @@ public class PlayerFall : MonoBehaviour
 
     public void DropObjectWhenPlayerFalls(GameObject _objectThatIsHeld)
     {
-        //player drop the object when it is falls
-        _objectThatIsHeld.transform.SetParent(null);
-
-        Rigidbody objectThatIsHeldRigidbody = _objectThatIsHeld.GetComponent<Rigidbody>();
-
-        objectThatIsHeldRigidbody.isKinematic = false;
-        objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.up * dropUpForce);
-        objectThatIsHeldRigidbody.AddForce(_objectThatIsHeld.transform.forward * dropForwardForce);
-
-        //Set the historic of object
-        CollectableObject collectableObject = _objectThatIsHeld.GetComponent<CollectableObject>();
-        collectableObject.lastPlayerWhoHeldThisObject = this.gameObject;
-        collectableObject.actualPlayerWhoHoldThisObject = null;
+        //Set object state machine
+        ObjectStateMachine objectStateMachine = _objectThatIsHeld.GetComponent<ObjectStateMachine>();
+        objectStateMachine.dropUpForce = this.dropUpForce;
+        objectStateMachine.dropForwardForce = this.dropForwardForce;
+        objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
         collectObjects.objectThatIsHeld = null;
     }
@@ -66,6 +58,6 @@ public class PlayerFall : MonoBehaviour
         playerThatPushedMe = null;
 
         //Player can move again
-        stateMachine.ChangeState(stateMachine.defaultState);
+        stateMachine.ChangeState(stateMachine.invincibleState);
     }
 }
