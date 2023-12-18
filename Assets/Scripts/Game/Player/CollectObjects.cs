@@ -12,10 +12,13 @@ public class CollectObjects : MonoBehaviour
     public float dropUpForce;
     public float dropForwardForce;
 
+    Animator animator;
+
     void Start()
     {
         playerStateMachine = GetComponent<PlayerStateMachine>();
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void TryToCollectObject()
@@ -54,6 +57,8 @@ public class CollectObjects : MonoBehaviour
 
     private void CollectObject(GameObject _object)
     {
+        animator.SetInteger("UpperState", 2);
+
         //Set the actual player who hold the object and the object that is held
         _object.GetComponent<CollectableObject>().actualPlayerWhoHoldThisObject = this.gameObject;
         objectThatIsHeld = _object;
@@ -66,6 +71,9 @@ public class CollectObjects : MonoBehaviour
 
     public void DropObject()
     {
+        animator.SetInteger("UpperState", 3);
+        Invoke("Idle", 0.67f);
+
         //Set the different state machines
         ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
         objectStateMachine.dropUpForce = this.dropUpForce;
@@ -73,5 +81,10 @@ public class CollectObjects : MonoBehaviour
         objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
         playerStateMachine.ChangeState(playerStateMachine.recoveryState);
+    }
+
+    void Idle()
+    {
+        animator.SetInteger("UpperState", 0);
     }
 }

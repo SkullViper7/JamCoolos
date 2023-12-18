@@ -6,15 +6,20 @@ using UnityEngine.InputSystem;
 public class PushOtherPlayers : MonoBehaviour
 {
     private PlayerPerimeter playerPerimeter;
+    Animator animator;
 
     void Start()
     {
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        animator = GetComponentInChildren<Animator>();
+        animator.SetLayerWeight(1, 1);
     }
 
     public void TryToPush()
     {
         StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.25f, 0.5f));
+        animator.SetInteger("UpperState", 1);
+        Invoke("Idle", 0.58f);
 
         //If there is players in player perimeter
         if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
@@ -50,5 +55,10 @@ public class PushOtherPlayers : MonoBehaviour
 
         //Other player falls
         _stateMachine.ChangeState(_stateMachine.fallingState);
+    }
+
+    void Idle()
+    {
+        animator.SetInteger("UpperState", 0);
     }
 }
