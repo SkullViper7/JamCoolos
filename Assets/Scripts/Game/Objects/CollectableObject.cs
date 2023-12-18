@@ -7,6 +7,8 @@ public class CollectableObject : MonoBehaviour
 {
     [HideInInspector]
     public CollectableObjectBase collectableObjectBase;
+    [HideInInspector]
+    public ObjectPool poolWhereItCameFrom;
 
     private MeshRenderer meshRenderer;
     private MeshFilter meshFilter;
@@ -46,5 +48,7 @@ public class CollectableObject : MonoBehaviour
         lastPlayerWhoHeldThisObject = null;
         actualPlayerWhoHoldThisObject = null;
         transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        gameObject.SetActive(false);
     }
 }
