@@ -510,6 +510,26 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154607770547574979, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 154607770547574979, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154607770547574979, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 154607770547574979, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1351987903391510518, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -565,6 +585,26 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5858260401539945183, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858260401539945183, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858260401539945183, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858260401539945183, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8734488065991224039, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
         type: 3}
       propertyPath: m_Name
@@ -574,6 +614,26 @@ PrefabInstance:
         type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116052345524971578, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116052345524971578, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116052345524971578, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116052345524971578, guid: 1a4a858cf5d18ae4e84cf35071bbfbc6,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
