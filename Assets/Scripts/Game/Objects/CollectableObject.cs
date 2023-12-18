@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectableObject : MonoBehaviour
 {
+    [HideInInspector]
     public CollectableObjectBase collectableObjectBase;
 
     private MeshRenderer meshRenderer;
@@ -28,14 +29,5 @@ public class CollectableObject : MonoBehaviour
         meshFilter.mesh = collectableObjectBase.mesh;
         meshCollider = GetComponent<MeshCollider>();
         meshCollider.sharedMesh = collectableObjectBase.mesh;
-    }
-
-    public void Update()
-    {
-        //Destoy object when it falls under the map
-        if (transform.position.y < -10)
-        {
-            Destroy(gameObject);
-        }
     }
 }

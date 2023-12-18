@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerDevice : MonoBehaviour
 {
     [HideInInspector]public PlayerInput playerInput;
-    private StateMachine stateMachine;
+    private PlayerStateMachine playerStateMachine;
 
     private void Start()
     {
         //Assign device
-        stateMachine = GetComponent<StateMachine>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
         LinkPlayerToDevice();
     }
 
@@ -35,8 +35,8 @@ public class PlayerDevice : MonoBehaviour
             default:
                 //For the tests player
                 playerInput = GetComponent<PlayerInput>();
-                stateMachine.playerInput = playerInput;
-                stateMachine.ChangeState(stateMachine.defaultState);
+                playerStateMachine.playerInput = playerInput;
+                playerStateMachine.ChangeState(playerStateMachine.defaultState);
                 break;
         }
     }
@@ -47,8 +47,8 @@ public class PlayerDevice : MonoBehaviour
         if (GameObject.Find(_name) != null)
         {
             playerInput = GameObject.Find(_name).GetComponent<PlayerInput>();
-            stateMachine.playerInput = playerInput;
-            stateMachine.ChangeState(stateMachine.defaultState);
+            playerStateMachine.playerInput = playerInput;
+            playerStateMachine.ChangeState(playerStateMachine.defaultState);
             ScoreManager.Instance.playerScores.Add(this.gameObject.name, 0);
             GameManager.Instance.players.Add(this.gameObject);
         }

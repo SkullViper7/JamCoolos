@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollectableObject
+  - Ground
   layers:
   - Default
   - TransparentFX
