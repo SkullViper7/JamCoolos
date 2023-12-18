@@ -2187,6 +2187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8774579069076800810, guid: 8c57560901da42b4cb4fdaeaf8502633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
