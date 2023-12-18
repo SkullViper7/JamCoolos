@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 //Modified script from Brackeys
 public class MultiTargetCam : MonoBehaviour

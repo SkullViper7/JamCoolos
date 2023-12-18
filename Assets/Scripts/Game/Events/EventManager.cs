@@ -78,9 +78,9 @@ public class EventManager : MonoBehaviour
     public IEnumerator Earthquake()
     {
         Debug.Log("Earthquake");
+        cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
         for (int i = 0; i < gamepads.Count; i++)
         {
-            cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
             audioSource.PlayOneShot(earthquakeSFX);
             Movements movements = players[i].GetComponent<Movements>();
@@ -125,7 +125,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Destroy(flash);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(lDuration);
 
         players[randomStrike].GetComponent<Movements>().defaultMoveSpeed = initalSpeed;
         flashAnim.Play("Idle");
