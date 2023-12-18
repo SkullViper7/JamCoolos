@@ -2730,6 +2730,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: maxZoom
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: minZoom
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: offset.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: offset.z
+      value: -6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
