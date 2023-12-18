@@ -23,7 +23,7 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public PlayerRecovery playerRecovery;
     [HideInInspector] public PlayerInvincibility playerInvincibility;
 
-    private void Start()
+    private void Awake()
     {
         movements = GetComponent<Movements>();
         collectObjects = GetComponent<CollectObjects>();
