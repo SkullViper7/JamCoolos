@@ -83,6 +83,8 @@ public class Chrono : MonoBehaviour
             seconds.SetText(ConvertToString(nbrOfSeconds));
             decrementTimer = StartCoroutine(DecrementChrono());
         }
+
+        NewSecond?.Invoke();
     }
 
     private void CheckGameProgress()

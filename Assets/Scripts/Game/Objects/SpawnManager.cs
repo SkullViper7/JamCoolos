@@ -37,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         //Listeners
+        //chrono.NewSecond += ;
         chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
         chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
         chrono.FifthOfTheGame += ForceABigObjectToSpawn;
