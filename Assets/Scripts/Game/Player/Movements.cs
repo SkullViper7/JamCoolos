@@ -68,19 +68,19 @@ public class Movements : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 2))
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Grass"))
+            if (hit.collider.gameObject.tag == "Grass")
             {
                 isOnGrass = true;
                 isOnRock = false;
                 isOnCarpet = false;
             }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Rock"))
+            else if (hit.collider.gameObject.tag == "Rock")
             {
                 isOnGrass = false;
                 isOnRock = true;
                 isOnCarpet = false;
             }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Carpet"))
+            else if (hit.collider.gameObject.tag == "Carpet")
             {
                 isOnGrass = false;
                 isOnRock = false;

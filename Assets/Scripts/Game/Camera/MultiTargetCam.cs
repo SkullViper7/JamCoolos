@@ -38,11 +38,28 @@ public class MultiTargetCam : MonoBehaviour
 
     void Move()
     {
-        Vector3 centerPoint = GetCenterPoint();
+        Bounds playersBounds = CalculatePlayersBounds();
+
+        Vector3 centerPoint = playersBounds.center;
 
         Vector3 newPosition = centerPoint + offset;
 
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+    }
+
+    Bounds CalculatePlayersBounds()
+    {
+        Bounds playersBounds = new Bounds(targets[0].transform.position, Vector3.zero);
+        foreach (GameObject player in targets)
+        {
+            Renderer renderer = player.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                playersBounds.Encapsulate(renderer.bounds);
+            }
+        }
+
+        return playersBounds;
     }
 
     float GetGreatestDistance()
@@ -54,16 +71,5 @@ public class MultiTargetCam : MonoBehaviour
         }
 
         return bounds.size.x;
-    }
-
-    Vector3 GetCenterPoint()
-    {
-        var bounds = new Bounds(targets[0].transform.position, Vector3.zero);
-        for (int i  = 0; i < targets.Length; i++)
-        {
-            bounds.Encapsulate(targets[i].transform.position);
-        }
-
-        return bounds.center;
     }
 }

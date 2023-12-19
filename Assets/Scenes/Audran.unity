@@ -1170,9 +1170,9 @@ GameObject:
   - component: {fileID: 231949699}
   - component: {fileID: 231949698}
   - component: {fileID: 231949697}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LivingRoom
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1423,6 +1423,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trotoire
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87821e4e9263074478b101375b09b4df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87821e4e9263074478b101375b09b4df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4702,9 +4712,9 @@ GameObject:
   - component: {fileID: 901875680}
   - component: {fileID: 901875679}
   - component: {fileID: 901875678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6327,9 +6337,9 @@ GameObject:
   - component: {fileID: 1256617118}
   - component: {fileID: 1256617117}
   - component: {fileID: 1256617116}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Garage
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8369,9 +8379,9 @@ GameObject:
   - component: {fileID: 1783656533}
   - component: {fileID: 1783656532}
   - component: {fileID: 1783656531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Garden
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9775,6 +9785,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete road
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac3742fb64ce76a43ab7f5ca7b5b43ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac3742fb64ce76a43ab7f5ca7b5b43ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10546,12 +10566,12 @@ PrefabInstance:
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8433915
+      value: 0.7933534
       objectReference: {fileID: 0}
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.53729963
+      value: 0.60876137
       objectReference: {fileID: 0}
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
@@ -10566,7 +10586,7 @@ PrefabInstance:
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 65
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
@@ -10576,6 +10596,21 @@ PrefabInstance:
     - target: {fileID: 5227642098058423242, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: maxZoom
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: minZoom
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
+        type: 3}
+      propertyPath: offset.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

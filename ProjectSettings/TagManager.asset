@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - FootstepsSFX
   - Car
+  - Grass
+  - Rock
+  - Carpet
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - Grass
-  - Rock
-  - Carpet
+  - 
+  - 
+  - 
   - 
   - 
   - 
