@@ -8,11 +8,15 @@ public class PushOtherPlayers : MonoBehaviour
     private PlayerPerimeter playerPerimeter;
     Animator animator;
 
+    AudioSource audioSource;
+    public List<AudioClip> punchSFX;
+
     void Start()
     {
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
         animator = GetComponentInChildren<Animator>();
         animator.SetLayerWeight(1, 1);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TryToPush()
@@ -50,8 +54,10 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void Push(PlayerStateMachine _stateMachine)
     {
+        int randomSFX = Random.Range(0, punchSFX.Count);
+        audioSource.PlayOneShot(punchSFX[randomSFX]);
         //Indicate to the other player that this player is the player who has pushed him
-        _stateMachine.GetComponent<PlayerFall>().playerThatPushedMe = this.gameObject;
+        _stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = this.gameObject;
 
         //Other player falls
         _stateMachine.ChangeState(_stateMachine.fallingState);

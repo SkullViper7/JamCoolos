@@ -12,7 +12,7 @@ public class MenuMusic : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (SceneManager.GetActiveScene().name == "Audran")
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             Destroy(gameObject);
         }
