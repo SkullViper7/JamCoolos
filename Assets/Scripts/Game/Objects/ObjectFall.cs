@@ -18,7 +18,7 @@ public class ObjectFall : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //If object hits the ground
-        if (collision.transform.CompareTag("Ground"))
+        if (collision.gameObject.layer == 3)
         {
             ObjectHitsTheGround?.Invoke();
         }

@@ -6,6 +6,11 @@ TagManager:
   tags:
   - CollectableObject
   - Ground
+  - FootstepsSFX
+  - Car
+  - Grass
+  - Rock
+  - Carpet
   layers:
   - Default
   - TransparentFX

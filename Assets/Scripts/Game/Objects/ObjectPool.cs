@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -16,42 +13,37 @@ public class ObjectPool : MonoBehaviour
 
     private int totalChance;
 
-    [SerializeField]
-    private CollectableObjectBase[] ObjectBases;
+    public List<CollectableObjectBase> ObjectBases;
 
     public CollectableObjectBase biggestObjectOfThisArea;
 
-    public void Start()
+    public void InitializePool()
     {
-        CalculeProbability();
+        CalculeProbabilities();
+        DetermineBiggestObject();
 
-        for (int i = 0; i < poolSize; i++) 
+        //Create a pool of objects without any informations
+        for (int i = 0; i < poolSize; i++)
         {
             GameObject newObject = Instantiate(objectPrefab, Vector3.zero, Quaternion.identity);
             objects.Add(newObject);
+            newObject.GetComponent<CollectableObject>().poolWhereItCameFrom = this;
             newObject.SetActive(false);
         }
     }
 
-    public void CalculeProbability()
+    private void DetermineBiggestObject()
     {
-        totalChance = 0;
-
+        //Set the biggest object of the area
         CollectableObjectBase tempBiggestObjectOfThisArea = null;
         int tempBiggestScore = 0;
 
-        //Set up total probability and a range in percent for each object
-        for (int i = 0; i < ObjectBases.Length; i++)
+        for (int i = 0; i < ObjectBases.Count; i++)
         {
-            ObjectBases[i].lowValue = totalChance;
-            ObjectBases[i].highValue = totalChance + ObjectBases[i].spawnProba;
-
-            totalChance += ObjectBases[i].spawnProba;
-
             //Keep the biggest object of this area
-            if (ObjectBases[i].spawnProba > tempBiggestScore)
+            if (ObjectBases[i].score > tempBiggestScore)
             {
-                tempBiggestScore = ObjectBases[i].spawnProba;
+                tempBiggestScore = ObjectBases[i].score;
                 tempBiggestObjectOfThisArea = ObjectBases[i];
             }
         }
@@ -59,23 +51,44 @@ public class ObjectPool : MonoBehaviour
         biggestObjectOfThisArea = tempBiggestObjectOfThisArea;
     }
 
+    public void CalculeProbabilities()
+    {
+        //Set up total probabilities and a range in percent for each object
+        totalChance = 0;
+
+        for (int i = 0; i < ObjectBases.Count; i++)
+        {
+            ObjectBases[i].lowValue = totalChance;
+            ObjectBases[i].highValue = totalChance + ObjectBases[i].spawnProba;
+
+            totalChance += ObjectBases[i].spawnProba;
+        }
+    }
+
     public CollectableObjectBase GetRandomObject()
     {
         //Return an random object base depending of the probability
         int randVal = Random.Range(0, totalChance + 1);
 
-        for (int i = 0; i < ObjectBases.Length; i++)
+        for (int i = 0; i < ObjectBases.Count; i++)
         {
             if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
             {
                 var objectToSpawn = ObjectBases[i];
+                
+                //If object to spawn is the biggest, warns the spawn manager
+                if (objectToSpawn == biggestObjectOfThisArea)
+                {
+                    SpawnManager.Instance.wasThereABigObjectDuringGame = true;
+                }
+
                 return objectToSpawn;
             }
         }
         return null;
     }
 
-    public CollectableObjectBase GetBigObject()
+    public CollectableObjectBase GetBiggestObject()
     {
         //Return the biggest object of this area
         return biggestObjectOfThisArea;
@@ -83,21 +96,18 @@ public class ObjectPool : MonoBehaviour
 
     public CollectableObjectBase GetRandomObjectWithoutTheBiggest()
     {
+        //Return a random object without the biggest
         //If range of the biggest object is from 0
         if (biggestObjectOfThisArea.lowValue == 0)
         {
             int randVal = Random.Range(biggestObjectOfThisArea.highValue + 1, totalChance + 1);
 
-            for (int i = 0; i < ObjectBases.Length; i++)
+            for (int i = 0; i < ObjectBases.Count; i++)
             {
                 if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
                 {
                     var objectToSpawn = ObjectBases[i];
                     return objectToSpawn;
-                }
-                else
-                {
-                    return null;
                 }
             }
         }
@@ -106,34 +116,42 @@ public class ObjectPool : MonoBehaviour
         {
             int randVal = Random.Range(0, biggestObjectOfThisArea.lowValue);
 
-            for (int i = 0; i < ObjectBases.Length; i++)
+            for (int i = 0; i < ObjectBases.Count; i++)
             {
                 if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
                 {
                     var objectToSpawn = ObjectBases[i];
                     return objectToSpawn;
-                }
-                else
-                {
-                    return null;
                 }
             }
         }
-        //If range is between 0 and 100
+        //If range is between 0 and 100 but doesn't contain 0 and 100 
         else
         {
-            int randVal = Random.Range(0, totalChance + 1);
+            //Re-calcule the probabilities wihout the biggest object
+            //List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new();
+            List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = ObjectBases;
+            ObjectBasesWithoutTheBiggest.Remove(biggestObjectOfThisArea);
+            int tempTotalChance = 0;
+            for (int i = 0; i < ObjectBases.Count; i++)
+            {
+                //Set up total probabilities and a range in percent for each object
+                ObjectBases[i].lowValue = tempTotalChance;
+                ObjectBases[i].highValue = tempTotalChance + ObjectBases[i].spawnProba;
 
-            for (int i = 0; i < ObjectBases.Length; i++)
+                tempTotalChance += ObjectBases[i].spawnProba;
+            }
+
+            int randVal = Random.Range(0, tempTotalChance + 1);
+
+            for (int i = 0; i < ObjectBases.Count; i++)
             {
                 if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
                 {
                     var objectToSpawn = ObjectBases[i];
+                    //Reset probabilities with the biggest object
+                    CalculeProbabilities();
                     return objectToSpawn;
-                }
-                else
-                {
-                    return null;
                 }
             }
         }
@@ -141,9 +159,9 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
-    public GameObject CreateAnObject(GameObject _object, CollectableObjectBase _collectableObjectBase)
+    public GameObject HydrateObject(GameObject _object, CollectableObjectBase _collectableObjectBase)
     {
-        //Hydrate the prefab object with a random base
+        //Hydrate the prefab object with a base given
         CollectableObject collectable = _object.GetComponent<CollectableObject>();
         collectable.collectableObjectBase = _collectableObjectBase;
         collectable.InitialiseObject();
@@ -157,6 +175,7 @@ public class ObjectPool : MonoBehaviour
         //Try to get an object if there is one available
         if (objects.TryTake(out GameObject _object))
         {
+            SpawnManager.Instance.numberOfObjectsInGame++;
             return _object;
         }
         else
@@ -172,5 +191,6 @@ public class ObjectPool : MonoBehaviour
 
         //When an object finished it work, it return in available objects
         objects.Add(_object);
+        SpawnManager.Instance.numberOfObjectsInGame--;
     }
 }

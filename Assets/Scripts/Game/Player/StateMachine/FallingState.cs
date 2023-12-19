@@ -12,8 +12,24 @@ public class FallingState : IPlayerState
         playerFall = _stateMachine.playerFall;
         collectObjects = _stateMachine.collectObjects;
 
-        //Player falls
-        playerFall.Fall(playerFall.playerThatPushedMe.transform.forward);
+        if (playerFall.objectThatPushedMe.CompareTag("Player"))
+        {
+            //Player falls
+            playerFall.Fall(playerFall.objectThatPushedMe.transform.forward);
+        }
+        else
+        {
+            int randomAngle = Random.Range(0, 2);
+
+            if (randomAngle == 0)
+            {
+                playerFall.Fall(playerFall.objectThatPushedMe.transform.forward);
+            }
+            if (randomAngle == 1)
+            {
+                playerFall.Fall(-playerFall.objectThatPushedMe.transform.forward);
+            }
+        }
 
         //If player held an object, he drops it
         if (collectObjects.objectThatIsHeld != null)

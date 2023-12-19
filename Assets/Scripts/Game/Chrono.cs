@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Chrono : MonoBehaviour
 {
@@ -20,11 +20,18 @@ public class Chrono : MonoBehaviour
     public AudioSource gameMusic;
     public AudioSource endMusic;
 
+    // Observer
+    public delegate void ProgressDelegate();
+
+    public event ProgressDelegate NewSecond;
+    public event ProgressDelegate HalfOfTheGame;
+    public event ProgressDelegate TiersOfTheGame;
+    public event ProgressDelegate FifthOfTheGame;
+    //
+
     private void Start()
     {
-        // Convert seconds into minutes and seconds
-        nbrOfMinutes = Mathf.FloorToInt(time / 60f);
-        nbrOfSeconds = (int)(time - (Mathf.FloorToInt(time / 60f) * 60f));
+        ConvertTimeIntoChrono(time);
 
         minutes.SetText(ConvertToString(nbrOfMinutes));
         seconds.SetText(ConvertToString(nbrOfSeconds));
@@ -32,8 +39,27 @@ public class Chrono : MonoBehaviour
         decrementTimer = StartCoroutine(DecrementChrono());
     }
 
+    private void ConvertTimeIntoChrono(float _time)
+    {
+        // Convert seconds into minutes and seconds
+        nbrOfMinutes = Mathf.FloorToInt(_time / 60f);
+        nbrOfSeconds = (int)(_time - (Mathf.FloorToInt(_time / 60f) * 60f));
+    }
+
+    private float ConvertChronoIntoTime(int _minutes, int _seconds)
+    {
+        // Convert seconds and minutes into seconds
+        float _time = 0;
+
+        _time += _minutes * 60;
+        _time += _seconds;
+
+        return _time;
+    }
+
     private IEnumerator DecrementChrono()
     {
+        CheckGameProgress();
         yield return new WaitForSeconds(1);
 
         // Decrement seconds at each second and minutes when seconds are under 0
@@ -56,6 +82,26 @@ public class Chrono : MonoBehaviour
             nbrOfSeconds -= 1;
             seconds.SetText(ConvertToString(nbrOfSeconds));
             decrementTimer = StartCoroutine(DecrementChrono());
+        }
+
+        NewSecond?.Invoke();
+    }
+
+    private void CheckGameProgress()
+    {
+        //Check if it's the half of the game
+        if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 2))
+        {
+            HalfOfTheGame?.Invoke();
+        }
+        //Check if it's the quarter of the game
+        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 3))
+        {
+            TiersOfTheGame?.Invoke();
+        }
+        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 5))
+        {
+            FifthOfTheGame?.Invoke();
         }
     }
 
