@@ -21,7 +21,7 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void TryToPush()
     {
-        StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.25f, 0.5f));
+        GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
         animator.SetInteger("UpperState", 1);
         Invoke("Idle", 0.58f);
 
