@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Table
   m_EditorClassIdentifier: 
   weight: 50
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e25c3cfebe4b0a647be1c34321ffaf5e, type: 2}
+  mesh: {fileID: -5495902117074765545, guid: 976d734df9b811e44b2fa22d9a951489, type: 3}
+  material: {fileID: 2100000, guid: b2e9b6b871ddaee4ab0efc4c81bddb2c, type: 2}
   spawnProba: 10
   score: 100
   lowValue: 90

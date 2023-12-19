@@ -11,7 +11,7 @@ public class PlayerFall : MonoBehaviour
     ParticleSystem smoke;
     Animator animator;
 
-    [HideInInspector]public GameObject playerThatPushedMe;
+    [HideInInspector]public GameObject objectThatPushedMe;
     public float pushForce;
     public float dropUpForce;
     public float dropForwardForce;
@@ -34,6 +34,7 @@ public class PlayerFall : MonoBehaviour
         //Stop any movement
         movements.isInMovement = false;
         animator.SetInteger("State", 2);
+        animator.SetInteger("UpperState", 0);
 
         //Player falls
         rb.drag = 2.5f;
@@ -67,7 +68,7 @@ public class PlayerFall : MonoBehaviour
         animator.SetInteger("State", 0);
 
         rb.drag = 5f;
-        playerThatPushedMe = null;
+        objectThatPushedMe = null;
         
         //Player can move again
         stateMachine.ChangeState(stateMachine.invincibleState);

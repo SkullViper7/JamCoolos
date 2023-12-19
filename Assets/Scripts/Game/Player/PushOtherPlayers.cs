@@ -6,15 +6,24 @@ using UnityEngine.InputSystem;
 public class PushOtherPlayers : MonoBehaviour
 {
     private PlayerPerimeter playerPerimeter;
+    Animator animator;
+
+    AudioSource audioSource;
+    public List<AudioClip> punchSFX;
 
     void Start()
     {
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        animator = GetComponentInChildren<Animator>();
+        animator.SetLayerWeight(1, 1);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TryToPush()
     {
         StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.25f, 0.5f));
+        animator.SetInteger("UpperState", 1);
+        Invoke("Idle", 0.58f);
 
         //If there is players in player perimeter
         if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
@@ -45,10 +54,17 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void Push(PlayerStateMachine _stateMachine)
     {
+        int randomSFX = Random.Range(0, punchSFX.Count);
+        audioSource.PlayOneShot(punchSFX[randomSFX]);
         //Indicate to the other player that this player is the player who has pushed him
-        _stateMachine.GetComponent<PlayerFall>().playerThatPushedMe = this.gameObject;
+        _stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = this.gameObject;
 
         //Other player falls
         _stateMachine.ChangeState(_stateMachine.fallingState);
+    }
+
+    void Idle()
+    {
+        animator.SetInteger("UpperState", 0);
     }
 }

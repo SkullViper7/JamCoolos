@@ -17,6 +17,10 @@ public class Movements : MonoBehaviour
 
     Animator animator;
 
+    public bool isOnGrass;
+    public bool isOnRock;
+    public bool isOnCarpet;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,11 +52,52 @@ public class Movements : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateGroundType();
+
         if (isInMovement)
         {
             //Player moves when joystick is held
             Vector3 velocity = actualOrientation * actualSpeed * Time.deltaTime;
             rb.velocity = velocity;
+        }
+    }
+
+    private void UpdateGroundType()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Grass"))
+            {
+                isOnGrass = true;
+                isOnRock = false;
+                isOnCarpet = false;
+            }
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Rock"))
+            {
+                isOnGrass = false;
+                isOnRock = true;
+                isOnCarpet = false;
+            }
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Carpet"))
+            {
+                isOnGrass = false;
+                isOnRock = false;
+                isOnCarpet = true;
+            }
+            else
+            {
+                isOnGrass = false;
+                isOnRock = false;
+                isOnCarpet = false;
+            }
+        }
+        else
+        {
+            isOnGrass = false;
+            isOnRock = false;
+            isOnCarpet = false;
         }
     }
 }

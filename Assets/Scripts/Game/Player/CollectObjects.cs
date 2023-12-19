@@ -12,10 +12,18 @@ public class CollectObjects : MonoBehaviour
     public float dropUpForce;
     public float dropForwardForce;
 
+    Animator animator;
+    AudioSource audioSource;
+
+    public List<AudioClip> pickupSFX;
+    public List<AudioClip> dropSFX;
+
     void Start()
     {
         playerStateMachine = GetComponent<PlayerStateMachine>();
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TryToCollectObject()
@@ -54,6 +62,10 @@ public class CollectObjects : MonoBehaviour
 
     private void CollectObject(GameObject _object)
     {
+        int randomSFX = Random.Range(0, pickupSFX.Count);
+        animator.SetInteger("UpperState", 2);
+        audioSource.PlayOneShot(pickupSFX[randomSFX]);
+
         //Set the actual player who hold the object and the object that is held
         _object.GetComponent<CollectableObject>().actualPlayerWhoHoldThisObject = this.gameObject;
         objectThatIsHeld = _object;
@@ -66,6 +78,11 @@ public class CollectObjects : MonoBehaviour
 
     public void DropObject()
     {
+        animator.SetInteger("UpperState", 3);
+        Invoke("Idle", 0.67f);
+
+        Invoke("DropSFX", 0.65f);
+
         //Set the different state machines
         ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
         objectStateMachine.dropUpForce = this.dropUpForce;
@@ -73,5 +90,16 @@ public class CollectObjects : MonoBehaviour
         objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
         playerStateMachine.ChangeState(playerStateMachine.recoveryState);
+    }
+
+    void DropSFX()
+    {
+        int randomSFX = Random.Range(0, dropSFX.Count);
+        audioSource.PlayOneShot(dropSFX[randomSFX]);
+    }
+
+    void Idle()
+    {
+        animator.SetInteger("UpperState", 0);
     }
 }

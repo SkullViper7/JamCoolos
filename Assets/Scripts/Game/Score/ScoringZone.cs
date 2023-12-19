@@ -6,6 +6,14 @@ public class ScoringZone : MonoBehaviour
 {
     public GameObject playerAssignToThisZone;
 
+    AudioSource audioSource;
+    public AudioClip cashSFX;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //If there is an object in the zone
@@ -21,8 +29,10 @@ public class ScoringZone : MonoBehaviour
                 //Remove object from all player perimeters
                 RemoveObjectFromAllPerimeters(other.gameObject);
 
-                //Destroy object
-                Destroy(other.gameObject);
+                //Release object
+                collectableObject.poolWhereItCameFrom.Release(other.gameObject);
+
+                audioSource.PlayOneShot(cashSFX);
             }
         }
     }

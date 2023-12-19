@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6799137332549563857}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &4313822438209271196
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e25c3cfebe4b0a647be1c34321ffaf5e, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableObjectBase: {fileID: 11400000, guid: 5170aff8c73e1f5429acf0f362413a5d,
     type: 2}
-  weight: 50
-  probability: 10
-  score: 100
+  weight: 0
+  probability: 0
+  score: 0
   lastPlayerWhoHeldThisObject: {fileID: 0}
   actualPlayerWhoHoldThisObject: {fileID: 0}
 --- !u!114 &8841046715131416922
@@ -183,4 +183,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
