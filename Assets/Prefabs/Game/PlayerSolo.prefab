@@ -376,6 +376,9 @@ MonoBehaviour:
   defaultMoveSpeed: 300
   actualSpeed: 0
   isInMovement: 0
+  isOnGrass: 0
+  isOnRock: 0
+  isOnCarpet: 0
 --- !u!114 &-5648287560666121132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,8 +392,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectThatIsHeld: {fileID: 0}
+  distanceToCollectAnObject: 1.5
+  AngleToCollectAnObject: 90
   dropUpForce: 100
   dropForwardForce: 400
+  pickupSFX: []
+  dropSFX: []
 --- !u!114 &2600738169513143194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4e0f6cb99e46e4e98c5038411413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPush: 1.5
+  angleToPush: 90
+  punchSFX: []
 --- !u!114 &-2200981716397919418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerThatPushedMe: {fileID: 0}
+  objectThatPushedMe: {fileID: 0}
   pushForce: 600
   dropUpForce: 150
   dropForwardForce: 600

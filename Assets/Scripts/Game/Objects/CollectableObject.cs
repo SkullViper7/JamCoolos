@@ -28,6 +28,7 @@ public class CollectableObject : MonoBehaviour
         meshFilter.mesh = collectableObjectBase.mesh;
         meshCollider = GetComponent<MeshCollider>();
         meshCollider.sharedMesh = collectableObjectBase.mesh;
+        transform.rotation = Quaternion.Euler(0f, Random.Range(0, 361), 0f);
     }
 
     public void ResetObject()
