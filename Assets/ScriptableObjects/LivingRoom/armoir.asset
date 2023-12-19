@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: ToolBox
+  m_Name: armoir
   m_EditorClassIdentifier: 
-  weight: 15
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
-  spawnProba: 25
-  score: 30
-  lowValue: 50
-  highValue: 80
+  weight: 60
+  mesh: {fileID: -6792825863729521, guid: d1170e224d12b104eade708cc0deb0da, type: 3}
+  material: {fileID: 2100000, guid: 626f79c78d3161c41a0f2fc803e5549f, type: 2}
+  spawnProba: 8
+  score: 120
+  lowValue: 90
+  highValue: 100

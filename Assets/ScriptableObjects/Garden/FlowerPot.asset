@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FlowerPot
   m_EditorClassIdentifier: 
   weight: 5
-  mesh: {fileID: 0}
-  material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
+  mesh: {fileID: 2534964839176971238, guid: c1f94e573c83c2e44b62693cb0f73bcc, type: 3}
+  material: {fileID: 4561601497117340719, guid: c1f94e573c83c2e44b62693cb0f73bcc,
+    type: 3}
   spawnProba: 20
   score: 10
   lowValue: 0
