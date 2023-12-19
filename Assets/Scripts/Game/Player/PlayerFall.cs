@@ -34,6 +34,7 @@ public class PlayerFall : MonoBehaviour
         //Stop any movement
         movements.isInMovement = false;
         animator.SetInteger("State", 2);
+        animator.SetInteger("UpperState", 0);
 
         //Player falls
         rb.drag = 2.5f;
