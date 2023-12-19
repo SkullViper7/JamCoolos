@@ -297,6 +297,14 @@ MonoBehaviour:
   objectThatIsHeld: {fileID: 0}
   dropUpForce: 100
   dropForwardForce: 400
+  pickupSFX:
+  - {fileID: 8300000, guid: 616427f3b6235494c8b1152a2dba65eb, type: 3}
+  - {fileID: 8300000, guid: 085b14b12b475d744941d0178162b0a3, type: 3}
+  - {fileID: 8300000, guid: 28bd68d21dce3324c94ed260516482e0, type: 3}
+  dropSFX:
+  - {fileID: 8300000, guid: 0aa22b782baddba4793ac4a5078393e6, type: 3}
+  - {fileID: 8300000, guid: 02d084e486854834ab0599d2f5039961, type: 3}
+  - {fileID: 8300000, guid: f54caa587cb355d44ae8bf7ef798d27e, type: 3}
 --- !u!114 &7350046091701479538
 MonoBehaviour:
   m_ObjectHideFlags: 0
