@@ -4412,6 +4412,9 @@ MonoBehaviour:
   - {fileID: 1064097228}
   - {fileID: 504065883}
   numberOfObjectsAtStartInAZone: 3
+  numberOfObjectsInGame: 0
+  wasThereABigObjectDuringGame: 0
+  chrono: {fileID: 7799142190087211723}
 --- !u!1001 &819576616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10089,6 +10092,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4614339375737072658, guid: 73b33b39ec54a9c4bb76dbbc97d9f3b5,
         type: 3}
+      propertyPath: time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614339375737072658, guid: 73b33b39ec54a9c4bb76dbbc97d9f3b5,
+        type: 3}
       propertyPath: gameUI
       value: 
       objectReference: {fileID: 7799142190087211722}
@@ -10234,6 +10242,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7799142190087211720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7799142190087211723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4614339375737072658, guid: 73b33b39ec54a9c4bb76dbbc97d9f3b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7799142190087211720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799142190087211722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57bc1a7b41b2764fa30ffd1ffc1c673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
-using UnityEngine.Rendering;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -17,8 +13,7 @@ public class ObjectPool : MonoBehaviour
 
     private int totalChance;
 
-    [SerializeField]
-    private List<CollectableObjectBase> ObjectBases;
+    public List<CollectableObjectBase> ObjectBases;
 
     public CollectableObjectBase biggestObjectOfThisArea;
 
@@ -80,6 +75,13 @@ public class ObjectPool : MonoBehaviour
             if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
             {
                 var objectToSpawn = ObjectBases[i];
+                
+                //If object to spawn is the biggest, warns the spawn manager
+                if (objectToSpawn == biggestObjectOfThisArea)
+                {
+                    SpawnManager.Instance.wasThereABigObjectDuringGame = true;
+                }
+
                 return objectToSpawn;
             }
         }
@@ -127,6 +129,7 @@ public class ObjectPool : MonoBehaviour
         else
         {
             //Re-calcule the probabilities wihout the biggest object
+            //List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new();
             List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = ObjectBases;
             ObjectBasesWithoutTheBiggest.Remove(biggestObjectOfThisArea);
             int tempTotalChance = 0;
@@ -172,6 +175,7 @@ public class ObjectPool : MonoBehaviour
         //Try to get an object if there is one available
         if (objects.TryTake(out GameObject _object))
         {
+            SpawnManager.Instance.numberOfObjectsInGame++;
             return _object;
         }
         else
@@ -187,5 +191,6 @@ public class ObjectPool : MonoBehaviour
 
         //When an object finished it work, it return in available objects
         objects.Add(_object);
+        SpawnManager.Instance.numberOfObjectsInGame--;
     }
 }
