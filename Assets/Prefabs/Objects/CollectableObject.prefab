@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4465857490138549226}
   - component: {fileID: 4313822438209271196}
   - component: {fileID: 1717064111333425981}
+  - component: {fileID: 8841046715131416922}
+  - component: {fileID: -8181389695634522321}
   - component: {fileID: 9116204417899879707}
   - component: {fileID: -581978365660996785}
   m_Layer: 0
@@ -98,10 +100,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cf5a37809caf04a8578f5aebd8648a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectableObjectBase: {fileID: 11400000, guid: 5170aff8c73e1f5429acf0f362413a5d,
+    type: 2}
   weight: 0
-  spawnProba: 0
+  probability: 0
   score: 0
-  myObject: {fileID: 0}
+  lastPlayerWhoHeldThisObject: {fileID: 0}
+  actualPlayerWhoHoldThisObject: {fileID: 0}
+--- !u!114 &8841046715131416922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799137332549563857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a6e93d5d883ee4aaa1549111d58aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableObject: {fileID: 0}
+  objectFall: {fileID: 0}
+  dropUpForce: 0
+  dropForwardForce: 0
+--- !u!114 &-8181389695634522321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799137332549563857}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65d5a6834d701b4db53ad7807847a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &9116204417899879707
 Rigidbody:
   m_ObjectHideFlags: 0
