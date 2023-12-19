@@ -9,6 +9,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int numberOfObjectsAtStartInAZone;
 
+    private int numberOfObjectsInGame;
+    private bool wasThereABigObjectDuringGame;
+
     private void Start()
     {
         //Initialize areas before any operation
@@ -56,5 +59,10 @@ public class SpawnManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator ProgressOfTheGame()
+    {
+        yield return new WaitUntil();
     }
 }
