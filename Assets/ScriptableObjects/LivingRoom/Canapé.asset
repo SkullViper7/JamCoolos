@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: ToolBox
+  m_Name: "Canap\xE9"
   m_EditorClassIdentifier: 
-  weight: 15
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
-  spawnProba: 25
-  score: 30
-  lowValue: 50
-  highValue: 80
+  weight: 55
+  mesh: {fileID: -4353394543340689726, guid: 119c88a921005d746bd4e38870c498a9, type: 3}
+  material: {fileID: 2100000, guid: 6a999ef431a7a2d4d8cace999529de87, type: 2}
+  spawnProba: 8
+  score: 110
+  lowValue: 90
+  highValue: 100

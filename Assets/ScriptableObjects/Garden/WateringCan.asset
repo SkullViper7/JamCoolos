@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WateringCan
   m_EditorClassIdentifier: 
   weight: 15
-  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
+  mesh: {fileID: -6185288438626542566, guid: dda3a6026a5fa6c4c84d05ea126b1840, type: 3}
+  material: {fileID: 2100000, guid: 3dda47e11e6e8fe41b23af03890b755e, type: 2}
   spawnProba: 20
   score: 30
-  lowValue: 80
-  highValue: 100
+  lowValue: 70
+  highValue: 90
