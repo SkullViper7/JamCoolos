@@ -84,7 +84,7 @@ public class EventManager : MonoBehaviour
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
             audioSource.PlayOneShot(earthquakeSFX);
             Movements movements = players[i].GetComponent<Movements>();
-            movements.defaultMoveSpeed = 0;
+            movements.actualSpeed = 0;
             if (players[i].GetComponent<PlayerStateMachine>().currentState == players[i].GetComponent<PlayerStateMachine>().holdingState)
             {
                 players[i].GetComponent<CollectObjects>().DropObject();
@@ -95,7 +95,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < gamepads.Count; i++)
         {
-            players[i].GetComponent<Movements>().defaultMoveSpeed = 300;
+            players[i].GetComponent<Movements>().actualSpeed = 300;
         }
     }
 
@@ -115,7 +115,7 @@ public class EventManager : MonoBehaviour
 
         Movements movements = players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.defaultMoveSpeed;
-        movements.defaultMoveSpeed = 0;
+        movements.actualSpeed = 0;
 
         if (players[randomStrike].GetComponent<PlayerStateMachine>().currentState == players[randomStrike].GetComponent<PlayerStateMachine>().holdingState)
         {
@@ -127,7 +127,7 @@ public class EventManager : MonoBehaviour
 
         yield return new WaitForSeconds(lDuration);
 
-        players[randomStrike].GetComponent<Movements>().defaultMoveSpeed = initalSpeed;
+        players[randomStrike].GetComponent<Movements>().actualSpeed = initalSpeed;
         flashAnim.Play("Idle");
     }
 
@@ -136,7 +136,7 @@ public class EventManager : MonoBehaviour
         Debug.Log("Wind");
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Movements>().defaultMoveSpeed /= 2;
+            players[i].GetComponent<Movements>().actualSpeed /= 2;
             StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 3, 0.5f));
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(windSFX);
@@ -146,7 +146,7 @@ public class EventManager : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            players[i].GetComponent<Movements>().defaultMoveSpeed *= 2;
+            players[i].GetComponent<Movements>().actualSpeed *= 2;
             audioSource.volume = 1;
         }
 

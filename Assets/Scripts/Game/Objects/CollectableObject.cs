@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class CollectableObject : MonoBehaviour
@@ -15,7 +12,6 @@ public class CollectableObject : MonoBehaviour
     private MeshCollider meshCollider;
 
     public int weight;
-    public int probability;
     public int score;
     public GameObject lastPlayerWhoHeldThisObject;
     public GameObject actualPlayerWhoHoldThisObject;
@@ -25,7 +21,6 @@ public class CollectableObject : MonoBehaviour
         //Set up object
         gameObject.name = collectableObjectBase.name;
         weight = collectableObjectBase.weight;
-        probability = collectableObjectBase.spawnProba;
         score = collectableObjectBase.score;
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = collectableObjectBase.material;
@@ -40,7 +35,6 @@ public class CollectableObject : MonoBehaviour
         //Reset object
         gameObject.name = "CollectableObject";
         weight = 0;
-        probability = 0;
         score = 0;
         meshRenderer.material = null;
         meshFilter.mesh = null;
