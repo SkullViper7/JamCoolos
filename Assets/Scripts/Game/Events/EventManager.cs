@@ -109,6 +109,11 @@ public class EventManager : MonoBehaviour
 
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
 
+        PlayerStateMachine stateMachine = players[randomStrike].GetComponent<PlayerStateMachine>();
+        stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
+        stateMachine.ChangeState(stateMachine.fallingState);
+
+
         audioSource.PlayOneShot(lightningSFX);
 
         GamepadRumble.Instance.StartRumble(players[randomStrike], 0.5f, 1);
