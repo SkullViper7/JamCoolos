@@ -76,10 +76,11 @@ public class ObjectPool : MonoBehaviour
             {
                 var objectToSpawn = ObjectBases[i];
                 
-                //If object to spawn is the biggest, warns the spawn manager
+                //If object to spawn is the biggest, warns the spawn manager and reset probabilities
                 if (objectToSpawn == biggestObjectOfThisArea)
                 {
                     SpawnManager.Instance.wasThereABigObjectDuringGame = true;
+                    SpawnManager.Instance.ResetAllProbabilities();
                 }
 
                 return objectToSpawn;
@@ -130,7 +131,7 @@ public class ObjectPool : MonoBehaviour
         {
             //Re-calcule the probabilities wihout the biggest object
             //List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new();
-            List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = ObjectBases;
+            List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new(ObjectBases);
             ObjectBasesWithoutTheBiggest.Remove(biggestObjectOfThisArea);
             int tempTotalChance = 0;
             for (int i = 0; i < ObjectBases.Count; i++)

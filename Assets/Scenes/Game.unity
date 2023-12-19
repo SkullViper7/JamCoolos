@@ -3211,7 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  poolSize: 10
+  poolSize: 5
   ObjectBases:
   - {fileID: 11400000, guid: c75797d02ee92e64eb75c3bf3cea40cd, type: 2}
   - {fileID: 11400000, guid: 0b2ed39a9430ec24483f4f129adaab71, type: 2}
@@ -4718,6 +4718,8 @@ MonoBehaviour:
   numberOfObjectsAtStartInAZone: 3
   numberOfObjectsInGame: 0
   wasThereABigObjectDuringGame: 0
+  minDelayBetweenTwoObjects: 8
+  maxDelayBetweenTwoObjects: 12
   chrono: {fileID: 7799142190087211723}
 --- !u!1001 &819576616
 PrefabInstance:
@@ -5556,10 +5558,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  poolSize: 10
+  poolSize: 6
   ObjectBases:
   - {fileID: 11400000, guid: 25116e949668dc041bf0764b93b71915, type: 2}
   - {fileID: 11400000, guid: 624ad3bad1846c843856a78ccb2220ae, type: 2}
+  - {fileID: 11400000, guid: f1415f593eb9c0441be4f3e756e92512, type: 2}
   - {fileID: 11400000, guid: 8c0693dd707fe39438cea290b125bddd, type: 2}
   - {fileID: 11400000, guid: 0c4981d866d65c346a5439fca8f1d429, type: 2}
   biggestObjectOfThisArea: {fileID: 0}
@@ -7916,12 +7919,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 6799137332549563857, guid: 9084ea362269d624caacbcaf9ac339d5,
     type: 3}
-  poolSize: 10
+  poolSize: 7
   ObjectBases:
+  - {fileID: 11400000, guid: a2a253766c6cd254b970298e887221ea, type: 2}
   - {fileID: 11400000, guid: 6088d001f41be7c46a9dc4d176283697, type: 2}
   - {fileID: 11400000, guid: c8e16b24468151d45ba858169570b24c, type: 2}
   - {fileID: 11400000, guid: 934bfab308246474185992becf989521, type: 2}
   - {fileID: 11400000, guid: af0b5224767141f43b4d4d3f81500e2f, type: 2}
+  - {fileID: 11400000, guid: b7ae8892614e4564d8fb03ec51f3b81a, type: 2}
   - {fileID: 11400000, guid: 9dca062e38b1e374e9262fce1f19bf51, type: 2}
   - {fileID: 11400000, guid: 5170aff8c73e1f5429acf0f362413a5d, type: 2}
   biggestObjectOfThisArea: {fileID: 0}
@@ -10495,7 +10500,7 @@ PrefabInstance:
     - target: {fileID: 4614339375737072658, guid: 73b33b39ec54a9c4bb76dbbc97d9f3b5,
         type: 3}
       propertyPath: time
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4614339375737072658, guid: 73b33b39ec54a9c4bb76dbbc97d9f3b5,
         type: 3}

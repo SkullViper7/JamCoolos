@@ -24,9 +24,9 @@ public class Chrono : MonoBehaviour
     public delegate void ProgressDelegate();
 
     public event ProgressDelegate NewSecond;
-    public event ProgressDelegate HalfOfTheGame;
     public event ProgressDelegate TiersOfTheGame;
-    public event ProgressDelegate FifthOfTheGame;
+    public event ProgressDelegate HalfOfTheGame;
+    public event ProgressDelegate LastQuarterOfTheGame;
     //
 
     private void Start()
@@ -84,24 +84,26 @@ public class Chrono : MonoBehaviour
             decrementTimer = StartCoroutine(DecrementChrono());
         }
 
+        //Invoke this event at each second
         NewSecond?.Invoke();
     }
 
     private void CheckGameProgress()
     {
-        //Check if it's the half of the game
-        if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 2))
-        {
-            HalfOfTheGame?.Invoke();
-        }
-        //Check if it's the quarter of the game
-        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 3))
+        //Check if it's the tiers of the game
+        if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 3) * 2)
         {
             TiersOfTheGame?.Invoke();
         }
-        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 5))
+        //Check if it's the half of the game
+        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 2))
         {
-            FifthOfTheGame?.Invoke();
+            HalfOfTheGame?.Invoke();
+        }
+        //Check if it's the last quarter of the game
+        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 4))
+        {
+            LastQuarterOfTheGame?.Invoke();
         }
     }
 

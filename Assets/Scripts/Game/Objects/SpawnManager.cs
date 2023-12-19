@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,10 @@ public class SpawnManager : MonoBehaviour
 
     public int numberOfObjectsInGame;
     public bool wasThereABigObjectDuringGame;
+    public Coroutine spawnCoroutine;
+
+    public int minDelayBetweenTwoObjects;
+    public int maxDelayBetweenTwoObjects;
 
     [SerializeField]
     private Chrono chrono;
@@ -37,15 +42,15 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         //Listeners
-        //chrono.NewSecond += ;
-        chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
+        chrono.NewSecond += CheckIfThereAreEnoughObjects;
         chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
-        chrono.FifthOfTheGame += ForceABigObjectToSpawn;
+        chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
+        chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
         //
 
         //Initialize all object bases
         InitializeObjectBases();
-        
+
         //Initialize areas before any operation
         for (int i = 0; i < areas.Count; i++)
         {
@@ -90,7 +95,7 @@ public class SpawnManager : MonoBehaviour
         //Spawn random objects in the other areas but don't spawn a big object
         _areas.Remove(areaWithTheBigObjectAtStart);
 
-        for (int i = 0; i < _areas.Count;i++)
+        for (int i = 0; i < _areas.Count; i++)
         {
             SpawnArea spawnArea = _areas[i].GetComponent<SpawnArea>();
             ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
@@ -105,10 +110,34 @@ public class SpawnManager : MonoBehaviour
                 }
             }
         }
+
+        //Launch regular spawn
+        spawnCoroutine = StartCoroutine(SpawnARandomObject());
+    }
+
+    private IEnumerator SpawnARandomObject()
+    {
+        //Wait during a lapse of time
+        yield return new WaitForSeconds(Random.Range(minDelayBetweenTwoObjects, maxDelayBetweenTwoObjects + 1));
+
+        //Spawn a random object in a random area
+        GameObject area = areas[Random.Range(0, areas.Count)];
+        SpawnArea spawnArea = area.GetComponent<SpawnArea>();
+        ObjectPool objectPool = area.GetComponent<ObjectPool>();
+
+        GameObject objectToSpawn = objectPool.GetAnObject();
+
+        if (objectToSpawn != null)
+        {
+            spawnArea.Spawn(objectPool.HydrateObject(objectToSpawn, objectPool.GetRandomObject()));
+        }
+
+        spawnCoroutine = StartCoroutine(SpawnARandomObject());
     }
 
     private void IncreaseProbabilityForBiggestObject()
     {
+        //Double the big object's spawn probability and decrease for the other as equaly as possible
         if (!wasThereABigObjectDuringGame)
         {
             //For each area
@@ -116,18 +145,58 @@ public class SpawnManager : MonoBehaviour
             {
                 ObjectPool objectPool = areas[i].GetComponent<ObjectPool>();
 
+                //Get the list of objects without the biggest
                 List<CollectableObjectBase> objectBasesWithoutTheBiggest = new(objectPool.ObjectBases);
                 objectBasesWithoutTheBiggest.Remove(objectPool.biggestObjectOfThisArea);
 
-                //Decrease probabilities for each object except the biggest
-                for (int j = 0; j < objectBasesWithoutTheBiggest.Count; j++)
-                {
-                    objectBasesWithoutTheBiggest[j].spawnProba -= (objectPool.biggestObjectOfThisArea.spawnProba / objectBasesWithoutTheBiggest.Count);
-                }
-
-                //Increase probability for the biggest object
+                //Increase spawn probability for the biggest object
                 objectPool.biggestObjectOfThisArea.spawnProba *= 2;
 
+                //Percents to dispatch to other objects after increase the big object's probability
+                int percentsToDispatch = objectPool.biggestObjectOfThisArea.spawnProba / 2;
+
+                //Rest of percents to dispatch to other objects if euclidean division is not possible
+                int rest = percentsToDispatch % objectBasesWithoutTheBiggest.Count;
+
+                //If there is no possibility to decrease an equal portion for each object without rest
+                if (rest != 0)
+                {
+                    //If there is a possibility to decrease an equal portion for each object and to decrease the rest randomly
+                    if (percentsToDispatch - rest != 0)
+                    {
+                        //Decrease all object probability with an equal portion
+                        int percentToDecreaseForEachObject = (percentsToDispatch - rest) / objectBasesWithoutTheBiggest.Count;
+                        for (int j = 0; j < objectBasesWithoutTheBiggest.Count; j++)
+                        {
+                            objectBasesWithoutTheBiggest[j].spawnProba -= percentToDecreaseForEachObject;
+                        }
+                        //Display the rest randomly
+                        for (int j = 0; j < rest; j++)
+                        {
+                            objectBasesWithoutTheBiggest[Random.Range(0, objectBasesWithoutTheBiggest.Count)].spawnProba -= 1;
+                        }
+                    }
+                    //If there is no possibility because the rest does not allow to decrease a minimum of 1% for each object
+                    else
+                    {
+                        //Display the rest randomly
+                        for (int j = 0; j < rest; j++)
+                        {
+                            objectBasesWithoutTheBiggest[Random.Range(0, objectBasesWithoutTheBiggest.Count)].spawnProba -= 1;
+                        }
+                    }
+                }
+                //If there is a possibility to decrease an equal portion for each object without rest
+                else
+                {
+                    //Decrease equal portions for each object
+                    for (int j = 0; j < objectBasesWithoutTheBiggest.Count; j++)
+                    {
+                        objectBasesWithoutTheBiggest[j].spawnProba -= percentsToDispatch / objectBasesWithoutTheBiggest.Count;
+                    }
+                }
+
+                //Re-calculate all ranges
                 objectPool.CalculeProbabilities();
             }
         }
@@ -144,13 +213,44 @@ public class SpawnManager : MonoBehaviour
 
             GameObject bigObjectToSpawn = objectPool.GetAnObject();
 
+            //If an object is available spawn it as a big object
             if (bigObjectToSpawn != null)
             {
+                chrono.NewSecond -= ForceABigObjectToSpawn;
+                ResetAllProbabilities();
                 spawnArea.Spawn(objectPool.HydrateObject(bigObjectToSpawn, objectPool.GetBiggestObject()));
             }
+            //Else retry every second
             else
             {
-                ForceABigObjectToSpawn();
+                chrono.NewSecond += ForceABigObjectToSpawn;
+            }
+        }
+    }
+
+    private void CheckIfThereAreEnoughObjects()
+    {
+        int maxNumberOfObjectsInGame = 0;
+
+        //Get all pool sizes
+        for (int i = 0; i < areas.Count; i++)
+        {
+            maxNumberOfObjectsInGame += areas[i].GetComponent<ObjectPool>().poolSize;
+        }
+
+        //Check if there is a minimum of the half of the maximum number of objects in the game
+        if (numberOfObjectsInGame < maxNumberOfObjectsInGame / 2)
+        {
+            //Spawn a random object in a random area
+            GameObject area = areas[Random.Range(0, areas.Count)];
+            SpawnArea spawnArea = area.GetComponent<SpawnArea>();
+            ObjectPool objectPool = area.GetComponent<ObjectPool>();
+
+            GameObject objectToSpawn = objectPool.GetAnObject();
+
+            if (objectToSpawn != null)
+            {
+                spawnArea.Spawn(objectPool.HydrateObject(objectToSpawn, objectPool.GetRandomObject()));
             }
         }
     }
@@ -173,6 +273,8 @@ public class SpawnManager : MonoBehaviour
             {
                 objectBases[j].spawnProba = objectBases[j].defaultSpawnProba;
             }
+
+            objectPool.CalculeProbabilities();
         }
     }
 }
