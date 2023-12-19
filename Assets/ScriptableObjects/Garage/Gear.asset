@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gear
   m_EditorClassIdentifier: 
   weight: 5
-  mesh: {fileID: 2534964839176971238, guid: a0604ab2dbd90f348bc480341c6b2e49, type: 3}
+  mesh: {fileID: 2272999815812657615, guid: a0604ab2dbd90f348bc480341c6b2e49, type: 3}
   material: {fileID: 2100000, guid: 67f0a9f938875e44db76edfd13a38661, type: 2}
   spawnProba: 30
   score: 10
   lowValue: 10
-  highValue: 50
+  highValue: 40
