@@ -10601,7 +10601,7 @@ PrefabInstance:
     - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: maxZoom
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
@@ -10611,7 +10611,7 @@ PrefabInstance:
     - target: {fileID: 7122261360661530317, guid: ee85fd6889e2b3b478798756d30857ec,
         type: 3}
       propertyPath: offset.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
