@@ -57,7 +57,7 @@ public class PushOtherPlayers : MonoBehaviour
         int randomSFX = Random.Range(0, punchSFX.Count);
         audioSource.PlayOneShot(punchSFX[randomSFX]);
         //Indicate to the other player that this player is the player who has pushed him
-        _stateMachine.GetComponent<PlayerFall>().playerThatPushedMe = this.gameObject;
+        _stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = this.gameObject;
 
         //Other player falls
         _stateMachine.ChangeState(_stateMachine.fallingState);
