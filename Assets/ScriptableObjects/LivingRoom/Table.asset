@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Table
   m_EditorClassIdentifier: 
   weight: 50
-  mesh: {fileID: -5495902117074765545, guid: 976d734df9b811e44b2fa22d9a951489, type: 3}
+  mesh: {fileID: -5495902117074765545, guid: 7a7afd0d4d1b42042a0dbd07f49c5da8, type: 3}
   material: {fileID: 2100000, guid: 4e9a3ef2109bac9478d7bef9c4dbb4bc, type: 2}
   spawnProba: 8
   score: 100
-  lowValue: 92
-  highValue: 100
+  lowValue: 76
+  highValue: 84
