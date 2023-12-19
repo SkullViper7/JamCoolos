@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cf5a37809caf04a8578f5aebd8648a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableObjectBase: {fileID: 0}
+  collectableObjectBase: {fileID: 11400000, guid: 5170aff8c73e1f5429acf0f362413a5d,
+    type: 2}
   weight: 0
   probability: 0
   score: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableObject: {fileID: 0}
+  objectFall: {fileID: 0}
   dropUpForce: 0
   dropForwardForce: 0
 --- !u!114 &-8181389695634522321

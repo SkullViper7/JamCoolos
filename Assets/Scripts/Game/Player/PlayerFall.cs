@@ -8,6 +8,8 @@ public class PlayerFall : MonoBehaviour
     private Movements movements;
     private PlayerStateMachine stateMachine;
     private CollectObjects collectObjects;
+    ParticleSystem smoke;
+    Animator animator;
 
     [HideInInspector]public GameObject playerThatPushedMe;
     public float pushForce;
@@ -20,14 +22,18 @@ public class PlayerFall : MonoBehaviour
         movements = GetComponent<Movements>();
         stateMachine = GetComponent<PlayerStateMachine>();
         collectObjects = GetComponent<CollectObjects>();
+        smoke = GetComponentInChildren<ParticleSystem>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void Fall(Vector3 _direction)
     {
         StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.75f, 0.5f));
+        smoke.Play();
 
         //Stop any movement
         movements.isInMovement = false;
+        animator.SetInteger("State", 2);
 
         //Player falls
         rb.drag = 2.5f;
@@ -52,11 +58,17 @@ public class PlayerFall : MonoBehaviour
     private IEnumerator WaitUntilRaise()
     {
         //Wait during the fall
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.2f);
+
+        animator.SetInteger("State", 3);
+
+        yield return new WaitForSeconds(0.8f);
+
+        animator.SetInteger("State", 0);
 
         rb.drag = 5f;
         playerThatPushedMe = null;
-
+        
         //Player can move again
         stateMachine.ChangeState(stateMachine.invincibleState);
     }

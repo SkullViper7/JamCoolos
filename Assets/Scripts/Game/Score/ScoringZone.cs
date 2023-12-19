@@ -21,8 +21,8 @@ public class ScoringZone : MonoBehaviour
                 //Remove object from all player perimeters
                 RemoveObjectFromAllPerimeters(other.gameObject);
 
-                //Destroy object
-                Destroy(other.gameObject);
+                //Release object
+                collectableObject.poolWhereItCameFrom.Release(other.gameObject);
             }
         }
     }

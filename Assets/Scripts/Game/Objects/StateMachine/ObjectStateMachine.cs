@@ -20,7 +20,7 @@ public class ObjectStateMachine : MonoBehaviour
     [HideInInspector]
     public float dropForwardForce;
 
-    private void Start()
+    private void Awake()
     {
         collectableObject = GetComponent<CollectableObject>();
         objectFall = GetComponent<ObjectFall>();
