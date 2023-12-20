@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wardrobe
   m_EditorClassIdentifier: 
   weight: 37
-  mesh: {fileID: -6792825863729521, guid: d1170e224d12b104eade708cc0deb0da, type: 3}
+  mesh: {fileID: -6792825863729521, guid: 0aae97d35909bd949bdaa27fc7624a87, type: 3}
   material: {fileID: 2100000, guid: 626f79c78d3161c41a0f2fc803e5549f, type: 2}
   defaultSpawnProba: 7
   spawnProba: 7
   score: 75
-  lowValue: 0
-  highValue: 7
+  lowValue: 93
+  highValue: 100

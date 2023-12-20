@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WateringCan
   m_EditorClassIdentifier: 
   weight: 15
-  mesh: {fileID: -6185288438626542566, guid: dda3a6026a5fa6c4c84d05ea126b1840, type: 3}
+  mesh: {fileID: -6185288438626542566, guid: 44966f65f2880c942be7a675e2c61ea7, type: 3}
   material: {fileID: 2100000, guid: 3dda47e11e6e8fe41b23af03890b755e, type: 2}
   defaultSpawnProba: 20
   spawnProba: 20

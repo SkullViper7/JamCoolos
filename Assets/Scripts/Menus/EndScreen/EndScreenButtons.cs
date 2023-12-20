@@ -7,12 +7,13 @@ public class EndScreenButtons : MonoBehaviour
 {
     public void Restart()
     {
+        GameManager.Instance.ResetManager();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        GameManager.Instance.ResetManager();
+        GameManager.Instance.ClearManager();
         SceneManager.LoadScene("MainMenu");
     }
 }

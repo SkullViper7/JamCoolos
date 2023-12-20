@@ -21,8 +21,7 @@ public class SpawnManager : MonoBehaviour
     public int minDelayBetweenTwoObjects;
     public int maxDelayBetweenTwoObjects;
 
-    [SerializeField]
-    private Chrono chrono;
+    private Chrono _chrono;
 
     private void Awake()
     {
@@ -41,12 +40,14 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        _chrono = Chrono.Instance;
+
         //Listeners
-        chrono.NewSecond += CheckIfThereAreEnoughObjects;
-        chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
-        chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
-        chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
-        chrono.EndOfTheGame += StopSpawn;
+        _chrono.NewSecond += CheckIfThereAreEnoughObjects;
+        _chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
+        _chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
+        _chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
+        _chrono.EndOfTheGame += StopSpawn;
         //
 
         //Initialize all object bases
@@ -217,14 +218,14 @@ public class SpawnManager : MonoBehaviour
             //If an object is available spawn it as a big object
             if (bigObjectToSpawn != null)
             {
-                chrono.NewSecond -= ForceABigObjectToSpawn;
+                _chrono.NewSecond -= ForceABigObjectToSpawn;
                 ResetAllProbabilities();
                 spawnArea.Spawn(objectPool.HydrateObject(bigObjectToSpawn, objectPool.GetBiggestObject()));
             }
             //Else retry every second
             else
             {
-                chrono.NewSecond += ForceABigObjectToSpawn;
+                _chrono.NewSecond += ForceABigObjectToSpawn;
             }
         }
     }

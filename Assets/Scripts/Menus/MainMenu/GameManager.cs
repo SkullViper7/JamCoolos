@@ -46,7 +46,14 @@ public class GameManager : MonoBehaviour
         playerCount = 0;
     }
 
-    public void ClearPlayerInputControls()
+    public void ResetManager()
+    {
+        players.Clear();
+        gamepads.Clear();
+        isGameOver = true;
+    }
+
+    public void ClearManager()
     {
         //Delete all playerInputControls
         foreach (GameObject playerInputControl in playerInputControls)
@@ -54,13 +61,10 @@ public class GameManager : MonoBehaviour
             Destroy(playerInputControl);
         }
         playerInputControls.Clear();
-        playerCount = 0;
-    }
 
-    public void ResetManager()
-    {
         //Reset all values
+        playerCount = 0;
         maxPlayerCount = 0;
-        ClearPlayerInputControls();
+        ResetManager();
     }
 }
