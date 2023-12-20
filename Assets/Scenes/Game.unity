@@ -1593,6 +1593,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee85fd6889e2b3b478798756d30857ec, type: 3}
+--- !u!1 &475228573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4205077872278903101, guid: ee85fd6889e2b3b478798756d30857ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 475228572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499217645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4872,12 +4878,12 @@ PrefabInstance:
         type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 475228573}
     - target: {fileID: 932892199576164322, guid: 8c57560901da42b4cb4fdaeaf8502633,
         type: 3}
       propertyPath: flashAnim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1125165132}
     - target: {fileID: 932892199576164322, guid: 8c57560901da42b4cb4fdaeaf8502633,
         type: 3}
       propertyPath: eqDuration
