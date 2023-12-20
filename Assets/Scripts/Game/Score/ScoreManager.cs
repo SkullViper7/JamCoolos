@@ -27,10 +27,10 @@ public class ScoreManager : MonoBehaviour
         //
     }
 
-    public void AddScore(string _playerName, int _score)
+    public void AddScore(string playerName, int score)
     {
         //Add score to a player given
-        playerScores[_playerName] += _score;
+        playerScores[playerName] += score;
     }
 
     public GameObject GetBestPlayer()

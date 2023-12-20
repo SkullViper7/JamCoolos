@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class FallingState : IPlayerState
 {
-    private PlayerFall playerFall;
-    private CollectObjects collectObjects;
+    private PlayerFall _playerFall;
+    private CollectObjects _collectObjects;
 
-    public void OnEnter(PlayerStateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine stateMachine)
     {
-        playerFall = _stateMachine.playerFall;
-        collectObjects = _stateMachine.collectObjects;
+        _playerFall = stateMachine.playerFall;
+        _collectObjects = stateMachine.collectObjects;
 
-        if (playerFall.objectThatPushedMe.CompareTag("Player"))
+        if (_playerFall.objectThatPushedMe.CompareTag("Player"))
         {
             //Player falls
-            playerFall.Fall(playerFall.objectThatPushedMe.transform.forward);
+            _playerFall.Fall(_playerFall.objectThatPushedMe.transform.forward);
         }
         else
         {
@@ -23,22 +23,22 @@ public class FallingState : IPlayerState
 
             if (randomAngle == 0)
             {
-                playerFall.Fall(playerFall.objectThatPushedMe.transform.forward);
+                _playerFall.Fall(_playerFall.objectThatPushedMe.transform.forward);
             }
             if (randomAngle == 1)
             {
-                playerFall.Fall(-playerFall.objectThatPushedMe.transform.forward);
+                _playerFall.Fall(-_playerFall.objectThatPushedMe.transform.forward);
             }
         }
 
         //If player held an object, he drops it
-        if (collectObjects.objectThatIsHeld != null)
+        if (_collectObjects.objectThatIsHeld != null)
         {
-            playerFall.DropObjectWhenPlayerFalls(collectObjects.objectThatIsHeld);
+            _playerFall.DropObjectWhenPlayerFalls(_collectObjects.objectThatIsHeld);
         }
     }
 
-    public void OnExit(PlayerStateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine stateMachine)
     {
 
     }

@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PushOtherPlayers : MonoBehaviour
 {
-    private PlayerPerimeter playerPerimeter;
-    Animator animator;
+    private PlayerPerimeter _playerPerimeter;
+    private Animator _animator;
 
     private EventManager _eventManager;
 
@@ -18,9 +18,9 @@ public class PushOtherPlayers : MonoBehaviour
 
     void Start()
     {
-        playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
-        animator = GetComponentInChildren<Animator>();
-        animator.SetLayerWeight(1, 1);
+        _playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        _animator = GetComponentInChildren<Animator>();
+        _animator.SetLayerWeight(1, 1);
         audioSource = GetComponent<AudioSource>();
         _eventManager = EventManager.Instance;
     }
@@ -34,16 +34,16 @@ public class PushOtherPlayers : MonoBehaviour
                 GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
             }
 
-            animator.SetInteger("UpperState", 1);
+            _animator.SetInteger("UpperState", 1);
             Invoke("Idle", 0.58f);
 
             //If there is players in player perimeter
-            if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
+            if (_playerPerimeter.playersInPerimeter != null && _playerPerimeter.playersInPerimeter.Count != 0)
             {
                 //For each player in player perimeter
-                for (int i = 0; i < playerPerimeter.playersInPerimeter.Count; i++)
+                for (int i = 0; i < _playerPerimeter.playersInPerimeter.Count; i++)
                 {
-                    GameObject otherPlayer = playerPerimeter.playersInPerimeter[i];
+                    GameObject otherPlayer = _playerPerimeter.playersInPerimeter[i];
 
                     //If player is in front of this player
                     if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush / 2)
@@ -78,6 +78,6 @@ public class PushOtherPlayers : MonoBehaviour
 
     void Idle()
     {
-        animator.SetInteger("UpperState", 0);
+        _animator.SetInteger("UpperState", 0);
     }
 }

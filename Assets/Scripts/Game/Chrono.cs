@@ -15,9 +15,7 @@ public class Chrono : MonoBehaviour
     [SerializeField]
     private Coroutine _decrementTimer;
 
-    [SerializeField]
     private int _nbrOfMinutes;
-    [SerializeField]
     private int _nbrOfSeconds;
 
     [SerializeField]

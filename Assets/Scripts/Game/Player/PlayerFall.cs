@@ -6,12 +6,12 @@ public class PlayerFall : MonoBehaviour
 {
     private EventManager _eventManager;
 
-    private Rigidbody rb;
-    private Movements movements;
-    private PlayerStateMachine stateMachine;
-    private CollectObjects collectObjects;
-    ParticleSystem smoke;
-    Animator animator;
+    private Rigidbody _rb;
+    private Movements _movements;
+    private PlayerStateMachine _stateMachine;
+    private CollectObjects _collectObjects;
+    private ParticleSystem _smoke;
+    private Animator _animator;
 
     [HideInInspector]public GameObject objectThatPushedMe;
     public float pushForce;
@@ -20,47 +20,47 @@ public class PlayerFall : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        movements = GetComponent<Movements>();
-        stateMachine = GetComponent<PlayerStateMachine>();
-        collectObjects = GetComponent<CollectObjects>();
-        smoke = GetComponentInChildren<ParticleSystem>();
-        animator = GetComponentInChildren<Animator>();
+        _rb = GetComponent<Rigidbody>();
+        _movements = GetComponent<Movements>();
+        _stateMachine = GetComponent<PlayerStateMachine>();
+        _collectObjects = GetComponent<CollectObjects>();
+        _smoke = GetComponentInChildren<ParticleSystem>();
+        _animator = GetComponentInChildren<Animator>();
         _eventManager = EventManager.Instance;
     }
 
-    public void Fall(Vector3 _direction)
+    public void Fall(Vector3 direction)
     {
         if(!_eventManager.isThereAnEventInProgress)
         {
             GamepadRumble.Instance.StartRumble(gameObject, 0.75f, 0.5f);
         }
 
-        smoke.Play();
+        _smoke.Play();
 
         //Stop any movement
-        movements.isInMovement = false;
-        animator.SetInteger("State", 2);
-        animator.SetInteger("UpperState", 0);
+        _movements.isInMovement = false;
+        _animator.SetInteger("State", 2);
+        _animator.SetInteger("UpperState", 0);
 
         //Player falls
-        rb.drag = 2.5f;
+        _rb.drag = 2.5f;
 
-        transform.forward = _direction;
+        transform.forward = direction;
         Vector3 force = transform.forward * pushForce;
-        rb.AddForce(force);
+        _rb.AddForce(force);
         StartCoroutine(WaitUntilRaise());
     }
 
-    public void DropObjectWhenPlayerFalls(GameObject _objectThatIsHeld)
+    public void DropObjectWhenPlayerFalls(GameObject objectThatIsHeld)
     {
         //Set object state machine
-        ObjectStateMachine objectStateMachine = _objectThatIsHeld.GetComponent<ObjectStateMachine>();
+        ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
         objectStateMachine.dropUpForce = this.dropUpForce;
         objectStateMachine.dropForwardForce = this.dropForwardForce;
         objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
-        collectObjects.objectThatIsHeld = null;
+        _collectObjects.objectThatIsHeld = null;
     }
 
     private IEnumerator WaitUntilRaise()
@@ -68,16 +68,16 @@ public class PlayerFall : MonoBehaviour
         //Wait during the fall
         yield return new WaitForSeconds(1.2f);
 
-        animator.SetInteger("State", 3);
+        _animator.SetInteger("State", 3);
 
         yield return new WaitForSeconds(0.8f);
 
-        animator.SetInteger("State", 0);
+        _animator.SetInteger("State", 0);
 
-        rb.drag = 5f;
+        _rb.drag = 5f;
         objectThatPushedMe = null;
         
         //Player can move again
-        stateMachine.ChangeState(stateMachine.invincibleState);
+        _stateMachine.ChangeState(_stateMachine.invincibleState);
     }
 }

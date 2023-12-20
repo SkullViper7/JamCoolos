@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerDevice : MonoBehaviour
 {
     [HideInInspector]public PlayerInput playerInput;
-    private PlayerStateMachine playerStateMachine;
+    private PlayerStateMachine _playerStateMachine;
 
     private void Start()
     {
         //Assign device
-        playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
         LinkPlayerToDevice();
     }
 
@@ -35,20 +35,20 @@ public class PlayerDevice : MonoBehaviour
             default:
                 //For the tests player
                 playerInput = GetComponent<PlayerInput>();
-                playerStateMachine.playerInput = playerInput;
-                playerStateMachine.ChangeState(playerStateMachine.defaultState);
+                _playerStateMachine.playerInput = playerInput;
+                _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
                 break;
         }
     }
 
-    private void TryToFindController(string _name)
+    private void TryToFindController(string name)
     {
         //Try to find the PlayerInputController for the player given, if there is no PlayerInputController for him, desactive him
-        if (GameObject.Find(_name) != null)
+        if (GameObject.Find(name) != null)
         {
-            playerInput = GameObject.Find(_name).GetComponent<PlayerInput>();
-            playerStateMachine.playerInput = playerInput;
-            playerStateMachine.ChangeState(playerStateMachine.defaultState);
+            playerInput = GameObject.Find(name).GetComponent<PlayerInput>();
+            _playerStateMachine.playerInput = playerInput;
+            _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
             ScoreManager.Instance.playerScores.Add(this.gameObject.name, 0);
             GameManager.Instance.players.Add(this.gameObject);
             GameManager.Instance.gamepads.Add((Gamepad)playerInput.user.pairedDevices[0]);

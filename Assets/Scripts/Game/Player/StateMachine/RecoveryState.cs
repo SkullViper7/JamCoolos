@@ -5,52 +5,52 @@ using UnityEngine.InputSystem;
 
 public class RecoveryState : IPlayerState
 {
-    private Movements movements;
-    private CollectObjects collectObjects;
-    private PushOtherPlayers pushOtherPlayers;
-    private PlayerStateMachine stateMachine;
-    private PlayerRecovery playerRecovery;
+    private Movements _movements;
+    private CollectObjects _collectObjects;
+    private PushOtherPlayers _pushOtherPlayers;
+    private PlayerStateMachine _stateMachine;
+    private PlayerRecovery _playerRecovery;
 
-    public void OnEnter(PlayerStateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine stateMachine)
     {
-        stateMachine = _stateMachine;
-        _stateMachine.playerInput.onActionTriggered += this.OnAction;
-        movements = _stateMachine.movements;
-        collectObjects = _stateMachine.collectObjects;
-        pushOtherPlayers = _stateMachine.pushOtherPlayers;
+        this._stateMachine = stateMachine;
+        stateMachine.playerInput.onActionTriggered += this.OnAction;
+        _movements = stateMachine.movements;
+        _collectObjects = stateMachine.collectObjects;
+        _pushOtherPlayers = stateMachine.pushOtherPlayers;
 
         //Launch recovery
-        playerRecovery = _stateMachine.playerRecovery;
-        playerRecovery.LaunchRecovery(playerRecovery.defaultRecoveryTime * TimeCoefficient());
+        _playerRecovery = stateMachine.playerRecovery;
+        _playerRecovery.LaunchRecovery(_playerRecovery.defaultRecoveryTime * TimeCoefficient());
 
-        collectObjects.objectThatIsHeld = null;
+        _collectObjects.objectThatIsHeld = null;
     }
 
-    public void OnExit(PlayerStateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine stateMachine)
     {
-        playerRecovery.StopRecovery();
+        _playerRecovery.StopRecovery();
     }
 
     private void OnAction(InputAction.CallbackContext context)
     {
-        if (this == stateMachine.currentState)
+        if (this == _stateMachine.currentState)
         {
             //In default state, player can move, collect an objet and push
             switch (context.action.name)
             {
                 case "Movements":
-                    movements.Move(context.action.ReadValue<Vector2>());
+                    _movements.Move(context.action.ReadValue<Vector2>());
                     break;
                 case "InteractWithObjects":
                     if (context.started)
                     {
-                        collectObjects.TryToCollectObject();
+                        _collectObjects.TryToCollectObject();
                     }
                     break;
                 case "PushOtherPlayers":
                     if (context.started)
                     {
-                        pushOtherPlayers.TryToPush();
+                        _pushOtherPlayers.TryToPush();
                     }
                     break;
             }
@@ -60,6 +60,6 @@ public class RecoveryState : IPlayerState
     private float TimeCoefficient()
     {
         //Return the multiplier to apply to the default recovery time to reduce it
-        return collectObjects.objectThatIsHeld.GetComponent<CollectableObject>().weight / 100f;
+        return _collectObjects.objectThatIsHeld.GetComponent<CollectableObject>().weight / 100f;
     }
 }
