@@ -9,7 +9,7 @@ public class Movements : MonoBehaviour
 
     private Rigidbody rb;
     public float defaultMoveSpeed;
-    [HideInInspector]
+    //[HideInInspector]
     public float actualSpeed;
 
     [HideInInspector]

@@ -51,6 +51,7 @@ public class PlayerDevice : MonoBehaviour
             playerStateMachine.ChangeState(playerStateMachine.defaultState);
             ScoreManager.Instance.playerScores.Add(this.gameObject.name, 0);
             GameManager.Instance.players.Add(this.gameObject);
+            GameManager.Instance.gamepads.Add((Gamepad)playerInput.user.pairedDevices[0]);
         }
         else
         {

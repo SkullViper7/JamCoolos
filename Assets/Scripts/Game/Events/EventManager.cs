@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class EventManager : MonoBehaviour
 {
-    GameObject[] players;
-
     public GameObject cam;
 
     [Header("Earthquake")]
@@ -36,23 +34,15 @@ public class EventManager : MonoBehaviour
     bool isEarthquakeRunning;
     bool isWindRunning;
 
-    private List<Gamepad> gamepads = new List<Gamepad>();
+    GameManager manager;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        players = GameObject.FindGameObjectsWithTag("Player");
 
+        manager = GameManager.Instance;
+        
         StartCoroutine(PlayEvent());
-
-        for (int i = 0; i < players.Length; i++)
-        {
-            var playerInput = players[i].GetComponent<PlayerDevice>().playerInput;
-            if (playerInput != null && playerInput.user.pairedDevices.Count > 0)
-            {
-                var gamepad = (Gamepad)playerInput.user.pairedDevices[0];
-                gamepads.Add(gamepad);
-            }
-        }
     }
 
     IEnumerator PlayEvent()
@@ -79,52 +69,50 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("Earthquake");
         cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
-        for (int i = 0; i < gamepads.Count; i++)
+        for (int i = 0; i < manager.gamepads.Count; i++)
         {
-            GamepadRumble.Instance.StartRumble(players[i], 4, 1);
+            GamepadRumble.Instance.StartRumble(manager.players[i], eqDuration, 1);
             audioSource.PlayOneShot(earthquakeSFX);
-            Movements movements = players[i].GetComponent<Movements>();
-            movements.actualSpeed = 0;
-            if (players[i].GetComponent<PlayerStateMachine>().currentState == players[i].GetComponent<PlayerStateMachine>().holdingState)
-            {
-                players[i].GetComponent<CollectObjects>().DropObject();
-            }
+
+            PlayerStateMachine stateMachine = manager.players[i].GetComponent<PlayerStateMachine>();
+            stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
+            stateMachine.ChangeState(stateMachine.fallingState);
         }
 
         yield return new WaitForSeconds(eqDuration);
 
-        for (int i = 0; i < gamepads.Count; i++)
+        for (int i = 0; i < manager.gamepads.Count; i++)
         {
-            players[i].GetComponent<Movements>().actualSpeed = 300;
+            manager.players[i].GetComponent<Movements>().actualSpeed = 300;
         }
     }
 
     public IEnumerator Lightning()
     {
-        int randomStrike = Random.Range(0, players.Length);
+        int randomStrike = Random.Range(0, manager.players.Count);
 
         GameObject flash;
-        flash = Instantiate(lightning, players[randomStrike].transform.position, Quaternion.identity);
+        flash = Instantiate(lightning, manager.players[randomStrike].transform.position, Quaternion.identity);
         flashAnim.Play("Flash");
 
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
 
-        PlayerStateMachine stateMachine = players[randomStrike].GetComponent<PlayerStateMachine>();
+        PlayerStateMachine stateMachine = manager.players[randomStrike].GetComponent<PlayerStateMachine>();
         stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
         stateMachine.ChangeState(stateMachine.fallingState);
 
 
         audioSource.PlayOneShot(lightningSFX);
 
-        GamepadRumble.Instance.StartRumble(players[randomStrike], 0.5f, 1);
+        GamepadRumble.Instance.StartRumble(manager.players[randomStrike], 0.5f, 1);
 
-        Movements movements = players[randomStrike].GetComponent<Movements>();
+        Movements movements = manager.players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.defaultMoveSpeed;
         movements.actualSpeed = 0;
 
-        if (players[randomStrike].GetComponent<PlayerStateMachine>().currentState == players[randomStrike].GetComponent<PlayerStateMachine>().holdingState)
+        if (manager.players[randomStrike].GetComponent<PlayerStateMachine>().currentState == manager.players[randomStrike].GetComponent<PlayerStateMachine>().holdingState)
         {
-            players[randomStrike].GetComponent<CollectObjects>().DropObject();
+            manager.players[randomStrike].GetComponent<CollectObjects>().DropObject();
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -132,26 +120,26 @@ public class EventManager : MonoBehaviour
 
         yield return new WaitForSeconds(lDuration);
 
-        players[randomStrike].GetComponent<Movements>().actualSpeed = initalSpeed;
+        manager.players[randomStrike].GetComponent<Movements>().actualSpeed = initalSpeed;
         flashAnim.Play("Idle");
     }
 
     public IEnumerator Wind()
     {
         Debug.Log("Wind");
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < manager.players.Count; i++)
         {
-            players[i].GetComponent<Movements>().actualSpeed /= 2;
-            GamepadRumble.Instance.StartRumble(players[i], 3, 0.5f);
+            manager.players[i].GetComponent<Movements>().actualSpeed /= 2;
+            GamepadRumble.Instance.StartRumble(manager.players[i], 3, 0.5f);
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(windSFX);
         }
 
         yield return new WaitForSeconds(3);
 
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < manager.players.Count; i++)
         {
-            players[i].GetComponent<Movements>().actualSpeed *= 2;
+            manager.players[i].GetComponent<Movements>().actualSpeed *= 2;
             audioSource.volume = 1;
         }
 
