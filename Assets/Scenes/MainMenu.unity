@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac4f7055a62f27409c97f65041c91da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 120611651732349940, guid: 908a514a48c3e024ba669305efb9fc74,
+  carPrefab: {fileID: 120611651732349940, guid: 610af41b3e31c144e9575f285e6d27db,
     type: 3}
   rightSpawn: {fileID: 1382262966}
   leftSpawn: {fileID: 1677366552}
