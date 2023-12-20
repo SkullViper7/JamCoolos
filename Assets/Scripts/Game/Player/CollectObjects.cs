@@ -9,7 +9,7 @@ public class CollectObjects : MonoBehaviour
     private PlayerStateMachine playerStateMachine;
     private PlayerPerimeter playerPerimeter;
     [HideInInspector] public GameObject objectThatIsHeld;
-    Chrono chrono;
+    private Chrono chrono;
 
     public float distanceToCollectAnObject;
     public float AngleToCollectAnObject;
@@ -28,7 +28,7 @@ public class CollectObjects : MonoBehaviour
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
-        chrono = GameObject.Find("Chrono").GetComponent<Chrono>();
+        chrono = Chrono.Instance;
         chrono.EndOfTheGame += DropObject;
     }
 
