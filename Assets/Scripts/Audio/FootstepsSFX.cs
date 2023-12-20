@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FootstepsSFX : MonoBehaviour
 {
-    GameObject footstepsSFX;
+    AudioSource footstepsSFX;
     public List<AudioClip> grassFootsteps;
     public List<AudioClip> rockFootsteps;
     public List<AudioClip> carpetFootsteps;
@@ -13,7 +13,7 @@ public class FootstepsSFX : MonoBehaviour
 
     private void Start()
     {
-        footstepsSFX = GameObject.FindGameObjectWithTag("FootstepsSFX");
+        footstepsSFX = GetComponent<AudioSource>();
     }
 
     public void Footsteps()
@@ -21,19 +21,19 @@ public class FootstepsSFX : MonoBehaviour
         if (movements.isOnGrass)
         {
             int randomSound = Random.Range(0, grassFootsteps.Count);
-            footstepsSFX.GetComponent<AudioSource>().PlayOneShot(grassFootsteps[randomSound]);
+            footstepsSFX.PlayOneShot(grassFootsteps[randomSound]);
         }
 
         if (movements.isOnRock)
         {
             int randomSound = Random.Range(0, rockFootsteps.Count);
-            footstepsSFX.GetComponent<AudioSource>().PlayOneShot(rockFootsteps[randomSound]);
+            footstepsSFX.PlayOneShot(rockFootsteps[randomSound]);
         }
 
         if (movements.isOnCarpet)
         {
             int randomSound = Random.Range(0, carpetFootsteps.Count);
-            footstepsSFX.GetComponent<AudioSource>().PlayOneShot(carpetFootsteps[randomSound]);
+            footstepsSFX.PlayOneShot(carpetFootsteps[randomSound]);
         }
     }
 }

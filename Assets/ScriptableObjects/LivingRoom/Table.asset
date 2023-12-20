@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Table
   m_EditorClassIdentifier: 
   weight: 37
-  mesh: {fileID: -5495902117074765545, guid: 7a7afd0d4d1b42042a0dbd07f49c5da8, type: 3}
+  mesh: {fileID: -5495902117074765545, guid: 54968c0088066264286e07da0291d2df, type: 3}
   material: {fileID: 2100000, guid: 4e9a3ef2109bac9478d7bef9c4dbb4bc, type: 2}
   defaultSpawnProba: 7
   spawnProba: 7
   score: 75
-  lowValue: 76
-  highValue: 83
+  lowValue: 86
+  highValue: 93
