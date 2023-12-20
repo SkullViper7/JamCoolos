@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerFall : MonoBehaviour
 {
+    private EventManager _eventManager;
+
     private Rigidbody rb;
     private Movements movements;
     private PlayerStateMachine stateMachine;
@@ -24,11 +26,16 @@ public class PlayerFall : MonoBehaviour
         collectObjects = GetComponent<CollectObjects>();
         smoke = GetComponentInChildren<ParticleSystem>();
         animator = GetComponentInChildren<Animator>();
+        _eventManager = EventManager.Instance;
     }
 
     public void Fall(Vector3 _direction)
     {
-        GamepadRumble.Instance.StartRumble(gameObject, 0.75f, 0.5f);
+        if(!_eventManager.isThereAnEventInProgress)
+        {
+            GamepadRumble.Instance.StartRumble(gameObject, 0.75f, 0.5f);
+        }
+
         smoke.Play();
 
         //Stop any movement

@@ -8,6 +8,8 @@ public class PushOtherPlayers : MonoBehaviour
     private PlayerPerimeter playerPerimeter;
     Animator animator;
 
+    private EventManager _eventManager;
+
     public float distanceToPush;
     public float angleToPush;
 
@@ -20,13 +22,18 @@ public class PushOtherPlayers : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         animator.SetLayerWeight(1, 1);
         audioSource = GetComponent<AudioSource>();
+        _eventManager = EventManager.Instance;
     }
 
     public void TryToPush()
     {
         if (!GameManager.Instance.isGameOver)
         {
-            GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
+            if (!_eventManager.isThereAnEventInProgress)
+            {
+                GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
+            }
+
             animator.SetInteger("UpperState", 1);
             Invoke("Idle", 0.58f);
 

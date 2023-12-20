@@ -5,11 +5,17 @@ using UnityEngine.InputSystem;
 
 public class GamepadRumble : MonoBehaviour
 {
+    //Singleton
     private static GamepadRumble instance = null;
     public static GamepadRumble Instance => instance;
+    //
+
+
+    private Dictionary<Gamepad, Coroutine> _activeRumbles = new();
 
     private void Awake()
     {
+        //Singleton
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -19,25 +25,29 @@ public class GamepadRumble : MonoBehaviour
         {
             instance = this;
         }
+        //
 
         DontDestroyOnLoad(gameObject);
     }
 
-    private Dictionary<Gamepad, Coroutine> activeRumbles = new Dictionary<Gamepad, Coroutine>();
-
     public void StartRumble(GameObject playerController, float time, float force)
     {
+        //Get the gamepad associate to a player given
         PlayerDevice playerDevice = playerController.GetComponent<PlayerDevice>();
+
+        //Check if the gamepad is already rumbling
         if (playerDevice != null && playerDevice.playerInput != null &&
             playerDevice.playerInput.user != null && playerDevice.playerInput.user.pairedDevices.Count > 0)
         {
             Gamepad controller = (Gamepad)playerDevice.playerInput.user.pairedDevices[0];
-            if (activeRumbles.ContainsKey(controller))
+            if (_activeRumbles.ContainsKey(controller))
             {
-                StopCoroutine(activeRumbles[controller]);
+                StopCoroutine(_activeRumbles[controller]);
             }
+
+            //Start rumble
             Coroutine rumbleCoroutine = StartCoroutine(RumbleRoutine(controller, time, force));
-            activeRumbles[controller] = rumbleCoroutine;
+            _activeRumbles[controller] = rumbleCoroutine;
         }
     }
 
@@ -45,14 +55,9 @@ public class GamepadRumble : MonoBehaviour
     {
         controller.SetMotorSpeeds(force, force);
 
-        float timer = 0f;
-        while (timer < time)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(time);
 
         controller.SetMotorSpeeds(0, 0);
-        activeRumbles.Remove(controller);
+        _activeRumbles.Remove(controller);
     }
 }

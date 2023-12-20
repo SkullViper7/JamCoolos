@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8774579069076800810
+--- !u!1 &9172175644414428807
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1196373911431539315}
-  - component: {fileID: 932892199576164322}
-  - component: {fileID: 819020651928221083}
+  - component: {fileID: 5238626241327294452}
+  - component: {fileID: 1069321048768244087}
+  - component: {fileID: 6663853294104705791}
+  - component: {fileID: 1687735762774896496}
+  - component: {fileID: 8971463156421242328}
+  - component: {fileID: 5634215951165253399}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -18,55 +21,96 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1196373911431539315
+--- !u!4 &5238626241327294452
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8774579069076800810}
+  m_GameObject: {fileID: 9172175644414428807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.91191375, y: 3.0309157, z: -7.352287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &932892199576164322
+--- !u!114 &1069321048768244087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8774579069076800810}
+  m_GameObject: {fileID: 9172175644414428807}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8efe3235640df4199510429ddf53e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  eqDuration: 5
-  eqStrength: 0.5
-  eqVibrato: 15
-  eqRandomness: 90
-  earthquakeSFX: {fileID: 8300000, guid: 93c3e96dc230cc4409216064faed0e29, type: 3}
-  lDuration: 1
-  lStrength: 3
-  lVibrato: 10
-  lRandomness: 90
-  lightning: {fileID: 7061342045393136197, guid: 1147764e3f0970849be8a7cf84b32f4c,
+  isThereAnEventInProgress: 0
+--- !u!114 &6663853294104705791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172175644414428807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ec5c44855d13f48910037c66b3d403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _windDuration: 5
+  _windStrength: 0.1
+  _windSFX: {fileID: 8300000, guid: 38672511fb75059438cc340bee6636a4, type: 3}
+--- !u!114 &1687735762774896496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172175644414428807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1a4358c1f51fd4e8a7959f3f15d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _lightDuration: 0.5
+  _lightStrength: 2
+  _lightVibrato: 10
+  _lightRandomness: 90
+  _lightning: {fileID: 7061342045393136197, guid: 1147764e3f0970849be8a7cf84b32f4c,
     type: 3}
-  flashAnim: {fileID: 0}
-  lightningSFX: {fileID: 8300000, guid: be76a587ba6dc154aa70cfa598cbcee2, type: 3}
-  windSFX: {fileID: 8300000, guid: 38672511fb75059438cc340bee6636a4, type: 3}
---- !u!82 &819020651928221083
+  _flashAnim: {fileID: 0}
+  _lightningSFX: {fileID: 8300000, guid: be76a587ba6dc154aa70cfa598cbcee2, type: 3}
+--- !u!114 &8971463156421242328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172175644414428807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5aa81d3f0898f346880b76e3fe5335d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _earthquakeDuration: 3
+  _earthquakeStrength: 1
+  _earthquakeVibrato: 10
+  _earthquakeRandomness: 90
+  _earthquakeSFX: {fileID: 8300000, guid: 93c3e96dc230cc4409216064faed0e29, type: 3}
+--- !u!82 &5634215951165253399
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8774579069076800810}
+  m_GameObject: {fileID: 9172175644414428807}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
