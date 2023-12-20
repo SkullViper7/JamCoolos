@@ -5,20 +5,34 @@ using System;
 
 public class Chrono : MonoBehaviour
 {
-    public float time;
+    [SerializeField]
+    private float time;
 
-    public TMP_Text minutes;
-    public TMP_Text seconds;
-    private Coroutine decrementTimer;
+    [SerializeField]
+    private TMP_Text _minutes;
+    [SerializeField]
+    private TMP_Text _seconds;
+    [SerializeField]
+    private Coroutine _decrementTimer;
 
-    private int nbrOfMinutes;
-    private int nbrOfSeconds;
+    [SerializeField]
+    private int _nbrOfMinutes;
+    [SerializeField]
+    private int _nbrOfSeconds;
 
-    [Space]
-    public GameObject EndScreen;
-    public GameObject gameUI;
-    public AudioSource gameMusic;
-    public AudioSource endMusic;
+    [SerializeField]
+    private GameObject _EndScreen;
+    [SerializeField]
+    private GameObject _gameUI;
+    [SerializeField]
+    private AudioSource _gameMusic;
+    [SerializeField]
+    private AudioSource _endMusic;
+
+    //Singleton
+    private static Chrono _instance = null;
+    public static Chrono Instance => _instance;
+    //
 
     // Observer
     public delegate void ProgressDelegate();
@@ -30,21 +44,35 @@ public class Chrono : MonoBehaviour
     public event ProgressDelegate EndOfTheGame;
     //
 
+    private void Awake()
+    {
+        //Singleton
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+        }
+        //
+    }
     private void Start()
     {
         ConvertTimeIntoChrono(time);
 
-        minutes.SetText(ConvertToString(nbrOfMinutes));
-        seconds.SetText(ConvertToString(nbrOfSeconds));
+        _minutes.SetText(ConvertToString(_nbrOfMinutes));
+        _seconds.SetText(ConvertToString(_nbrOfSeconds));
 
-        decrementTimer = StartCoroutine(DecrementChrono());
+        _decrementTimer = StartCoroutine(DecrementChrono());
     }
 
     private void ConvertTimeIntoChrono(float _time)
     {
         // Convert seconds into minutes and seconds
-        nbrOfMinutes = Mathf.FloorToInt(_time / 60f);
-        nbrOfSeconds = (int)(_time - (Mathf.FloorToInt(_time / 60f) * 60f));
+        _nbrOfMinutes = Mathf.FloorToInt(_time / 60f);
+        _nbrOfSeconds = (int)(_time - (Mathf.FloorToInt(_time / 60f) * 60f));
     }
 
     private float ConvertChronoIntoTime(int _minutes, int _seconds)
@@ -65,24 +93,24 @@ public class Chrono : MonoBehaviour
 
         // Decrement seconds at each second and minutes when seconds are under 0
         // Stop the chrono if minutes and seconds are equals to 0
-        if (nbrOfSeconds - 1 == -1 && nbrOfMinutes != 0)
+        if (_nbrOfSeconds - 1 == -1 && _nbrOfMinutes != 0)
         {
-            nbrOfSeconds = 59;
-            nbrOfMinutes -= 1;
+            _nbrOfSeconds = 59;
+            _nbrOfMinutes -= 1;
 
-            minutes.SetText(ConvertToString(nbrOfMinutes));
-            seconds.SetText(ConvertToString(nbrOfSeconds));
-            decrementTimer = StartCoroutine(DecrementChrono());
+            _minutes.SetText(ConvertToString(_nbrOfMinutes));
+            _seconds.SetText(ConvertToString(_nbrOfSeconds));
+            _decrementTimer = StartCoroutine(DecrementChrono());
         }
-        else if (nbrOfSeconds - 1 == -1 && nbrOfMinutes == 0)
+        else if (_nbrOfSeconds - 1 == -1 && _nbrOfMinutes == 0)
         {
             StopTimer();
         }
         else
         {
-            nbrOfSeconds -= 1;
-            seconds.SetText(ConvertToString(nbrOfSeconds));
-            decrementTimer = StartCoroutine(DecrementChrono());
+            _nbrOfSeconds -= 1;
+            _seconds.SetText(ConvertToString(_nbrOfSeconds));
+            _decrementTimer = StartCoroutine(DecrementChrono());
         }
 
         //Invoke this event at each second
@@ -92,17 +120,17 @@ public class Chrono : MonoBehaviour
     private void CheckGameProgress()
     {
         //Check if it's the tiers of the game
-        if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 3) * 2)
+        if (ConvertChronoIntoTime(_nbrOfMinutes, _nbrOfSeconds) == Math.Floor(time / 3) * 2)
         {
             TiersOfTheGame?.Invoke();
         }
         //Check if it's the half of the game
-        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 2))
+        else if (ConvertChronoIntoTime(_nbrOfMinutes, _nbrOfSeconds) == Math.Floor(time / 2))
         {
             HalfOfTheGame?.Invoke();
         }
         //Check if it's the last quarter of the game
-        else if (ConvertChronoIntoTime(nbrOfMinutes, nbrOfSeconds) == Math.Floor(time / 4))
+        else if (ConvertChronoIntoTime(_nbrOfMinutes, _nbrOfSeconds) == Math.Floor(time / 4))
         {
             LastQuarterOfTheGame?.Invoke();
         }
@@ -111,11 +139,11 @@ public class Chrono : MonoBehaviour
     public void StopTimer()
     {
         // Stop the timer
-        StopCoroutine(decrementTimer);
-        EndScreen.SetActive(true);
-        gameUI.SetActive(false);
-        gameMusic.Stop();
-        endMusic.Play();
+        StopCoroutine(_decrementTimer);
+        _EndScreen.SetActive(true);
+        _gameUI.SetActive(false);
+        _gameMusic.Stop();
+        _endMusic.Play();
         GameManager.Instance.isGameOver = true;
         EndOfTheGame?.Invoke();
     }
