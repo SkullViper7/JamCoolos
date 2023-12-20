@@ -46,7 +46,6 @@ public class Earthquake : MonoBehaviour
             GamepadRumble.Instance.StartRumble(_gameManager.players[i], _earthquakeDuration, _earthquakeStrength);
 
             PlayerStateMachine playerStateMachine = _gameManager.players[i].GetComponent<PlayerStateMachine>();
-            transform.rotation  = playerStateMachine.transform.rotation;
             playerStateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
             playerStateMachine.ChangeState(playerStateMachine.fallingState);
         }

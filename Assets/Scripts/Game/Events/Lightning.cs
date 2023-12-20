@@ -50,7 +50,6 @@ public class Lightning : MonoBehaviour
 
         //Makes the player fall forward
         PlayerStateMachine playerStateMachine = playerToStrike.GetComponent<PlayerStateMachine>();
-        transform.rotation = playerStateMachine.transform.rotation;
         playerStateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
         playerStateMachine.ChangeState(playerStateMachine.fallingState);
 

@@ -14,11 +14,12 @@ public class FallingState : IPlayerState
 
         if (_playerFall.objectThatPushedMe.CompareTag("Player"))
         {
-            //Player falls
+            //Player falls in the opposite direction of the object that pushed him
             _playerFall.Fall(_playerFall.objectThatPushedMe.transform.forward);
         }
-        else
+        if (_playerFall.objectThatPushedMe.CompareTag("Car"))
         {
+            //Player is pushed on the side of the road
             int randomAngle = Random.Range(0, 2);
 
             if (randomAngle == 0)
@@ -29,6 +30,11 @@ public class FallingState : IPlayerState
             {
                 _playerFall.Fall(-_playerFall.objectThatPushedMe.transform.forward);
             }
+        }
+        else
+        {
+            //Player falls forward
+            _playerFall.Fall(stateMachine.transform.forward);
         }
 
         //If player held an object, he drops it
