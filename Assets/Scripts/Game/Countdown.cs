@@ -24,6 +24,7 @@ public class Countdown : MonoBehaviour
         text.text = "1";
         yield return new WaitForSeconds(1);
         text.text = "GO";
+        GameManager.Instance.isGameOver = false;
         yield return new WaitForSeconds(1);
         chrono.SetActive(true);
         Destroy(gameObject);

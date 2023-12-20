@@ -24,30 +24,33 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void TryToPush()
     {
-        GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
-        animator.SetInteger("UpperState", 1);
-        Invoke("Idle", 0.58f);
-
-        //If there is players in player perimeter
-        if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            //For each player in player perimeter
-            for (int i = 0; i < playerPerimeter.playersInPerimeter.Count; i++)
-            {
-                GameObject otherPlayer = playerPerimeter.playersInPerimeter[i];
+            GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
+            animator.SetInteger("UpperState", 1);
+            Invoke("Idle", 0.58f);
 
-                //If player is in front of this player
-                if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush/2)
+            //If there is players in player perimeter
+            if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
+            {
+                //For each player in player perimeter
+                for (int i = 0; i < playerPerimeter.playersInPerimeter.Count; i++)
                 {
-                    //If player is enough close
-                    if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= distanceToPush)
+                    GameObject otherPlayer = playerPerimeter.playersInPerimeter[i];
+
+                    //If player is in front of this player
+                    if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush / 2)
                     {
-                        PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
-                        //If other player is not already falling or invincible
-                        if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState && otherPlayerStateMachine.currentState != otherPlayerStateMachine.invincibleState)
+                        //If player is enough close
+                        if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= distanceToPush)
                         {
-                            //Other player falls
-                            Push(otherPlayerStateMachine);
+                            PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
+                            //If other player is not already falling or invincible
+                            if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState && otherPlayerStateMachine.currentState != otherPlayerStateMachine.invincibleState)
+                            {
+                                //Other player falls
+                                Push(otherPlayerStateMachine);
+                            }
                         }
                     }
                 }

@@ -27,6 +27,7 @@ public class Chrono : MonoBehaviour
     public event ProgressDelegate TiersOfTheGame;
     public event ProgressDelegate HalfOfTheGame;
     public event ProgressDelegate LastQuarterOfTheGame;
+    public event ProgressDelegate EndOfTheGame;
     //
 
     private void Start()
@@ -115,6 +116,8 @@ public class Chrono : MonoBehaviour
         gameUI.SetActive(false);
         gameMusic.Stop();
         endMusic.Play();
+        GameManager.Instance.isGameOver = true;
+        EndOfTheGame?.Invoke();
     }
 
     private string ConvertToString(int _time)

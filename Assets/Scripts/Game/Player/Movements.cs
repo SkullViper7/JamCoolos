@@ -54,7 +54,7 @@ public class Movements : MonoBehaviour
     {
         UpdateGroundType();
 
-        if (isInMovement)
+        if (isInMovement && !GameManager.Instance.isGameOver)
         {
             //Player moves when joystick is held
             Vector3 velocity = actualOrientation * actualSpeed * Time.deltaTime;

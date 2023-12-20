@@ -9,6 +9,7 @@ public class CollectObjects : MonoBehaviour
     private PlayerStateMachine playerStateMachine;
     private PlayerPerimeter playerPerimeter;
     [HideInInspector] public GameObject objectThatIsHeld;
+    Chrono chrono;
 
     public float distanceToCollectAnObject;
     public float AngleToCollectAnObject;
@@ -27,42 +28,47 @@ public class CollectObjects : MonoBehaviour
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+        chrono = GameObject.Find("Chrono").GetComponent<Chrono>();
+        chrono.EndOfTheGame += DropObject;
     }
 
     public void TryToCollectObject()
     {
-        //If there is objects in player perimeter
-        if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            //For each object in player perimeter
-            for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
+            //If there is objects in player perimeter
+            if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
             {
-                //If there is no object already held
-                if (objectThatIsHeld == null)
+                //For each object in player perimeter
+                for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
                 {
-                    GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
-                    ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
-
-                    //If object is collectable
-                    if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                    //If there is no object already held
+                    if (objectThatIsHeld == null)
                     {
-                        Vector3 direction = currentObject.transform.position - transform.position;
+                        GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
+                        ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
 
-                        //If player is in the object
-                        if (IsPlayerInTheObject(currentObject))
+                        //If object is collectable
+                        if (objectStateMachine.currentState == objectStateMachine.collectableState)
                         {
-                            //Collect object and switch to holding state
-                            CollectObject(currentObject);
-                        }
-                        //If object is in front of the player
-                        else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
-                        {
-                            //Check if object is enough close
-                            RaycastHit hit;
-                            if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
+                            Vector3 direction = currentObject.transform.position - transform.position;
+
+                            //If player is in the object
+                            if (IsPlayerInTheObject(currentObject))
                             {
                                 //Collect object and switch to holding state
                                 CollectObject(currentObject);
+                            }
+                            //If object is in front of the player
+                            else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
+                            {
+                                //Check if object is enough close
+                                RaycastHit hit;
+                                if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
+                                {
+                                    //Collect object and switch to holding state
+                                    CollectObject(currentObject);
+                                }
                             }
                         }
                     }
