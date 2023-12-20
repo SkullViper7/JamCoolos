@@ -24,7 +24,7 @@ public class Movements : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<PlayerStateMachine>().playerAnimator;
 
         _lastOrientation = transform.forward;
         _actualOrientation = transform.forward;

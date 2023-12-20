@@ -13,13 +13,13 @@ public class PushOtherPlayers : MonoBehaviour
     public float distanceToPush;
     public float angleToPush;
 
-    AudioSource audioSource;
+    private AudioSource audioSource;
     public List<AudioClip> punchSFX;
 
     void Start()
     {
         _playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<PlayerStateMachine>().playerAnimator;
         _animator.SetLayerWeight(1, 1);
         audioSource = GetComponent<AudioSource>();
         _eventManager = EventManager.Instance;

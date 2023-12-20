@@ -19,6 +19,9 @@ public class InvincibleState : IPlayerState
         _collectObjects = stateMachine.collectObjects;
         _pushOtherPlayers = stateMachine.pushOtherPlayers;
 
+        //Set the speed by delfault
+        _movements.actualSpeed = _movements.defaultMoveSpeed;
+
         //Launch invincibility
         _playerInvincibility = stateMachine.playerInvincibility;
         _playerInvincibility.LaunchInvincibility();

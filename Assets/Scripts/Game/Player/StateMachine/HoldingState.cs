@@ -22,7 +22,7 @@ public class HoldingState : IPlayerState
 
     public void OnExit(PlayerStateMachine stateMachine)
     {
-
+        
     }
 
     private void OnAction(InputAction.CallbackContext context)

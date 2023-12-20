@@ -25,7 +25,7 @@ public class PlayerFall : MonoBehaviour
         _stateMachine = GetComponent<PlayerStateMachine>();
         _collectObjects = GetComponent<CollectObjects>();
         _smoke = GetComponentInChildren<ParticleSystem>();
-        _animator = GetComponentInChildren<Animator>();
+        _animator = _stateMachine.playerAnimator;
         _eventManager = EventManager.Instance;
     }
 
