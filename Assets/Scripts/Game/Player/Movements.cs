@@ -9,7 +9,7 @@ public class Movements : MonoBehaviour
 
     private Rigidbody rb;
     public float defaultMoveSpeed;
-    [HideInInspector]
+    //[HideInInspector]
     public float actualSpeed;
 
     [HideInInspector]
@@ -54,7 +54,7 @@ public class Movements : MonoBehaviour
     {
         UpdateGroundType();
 
-        if (isInMovement)
+        if (isInMovement && !GameManager.Instance.isGameOver)
         {
             //Player moves when joystick is held
             Vector3 velocity = actualOrientation * actualSpeed * Time.deltaTime;
@@ -68,19 +68,19 @@ public class Movements : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 2))
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Grass"))
+            if (hit.collider.gameObject.tag == "Grass")
             {
                 isOnGrass = true;
                 isOnRock = false;
                 isOnCarpet = false;
             }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Rock"))
+            else if (hit.collider.gameObject.tag == "Rock")
             {
                 isOnGrass = false;
                 isOnRock = true;
                 isOnCarpet = false;
             }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Carpet"))
+            else if (hit.collider.gameObject.tag == "Carpet")
             {
                 isOnGrass = false;
                 isOnRock = false;

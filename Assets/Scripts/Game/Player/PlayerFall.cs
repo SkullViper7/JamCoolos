@@ -28,7 +28,7 @@ public class PlayerFall : MonoBehaviour
 
     public void Fall(Vector3 _direction)
     {
-        StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.75f, 0.5f));
+        GamepadRumble.Instance.StartRumble(gameObject, 0.75f, 0.5f);
         smoke.Play();
 
         //Stop any movement

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
   m_Name: Table
   m_EditorClassIdentifier: 
-  weight: 50
-  mesh: {fileID: -5495902117074765545, guid: 976d734df9b811e44b2fa22d9a951489, type: 3}
-  material: {fileID: 2100000, guid: b2e9b6b871ddaee4ab0efc4c81bddb2c, type: 2}
-  spawnProba: 10
-  score: 100
-  lowValue: 90
-  highValue: 100
+  weight: 37
+  mesh: {fileID: -5495902117074765545, guid: 7a7afd0d4d1b42042a0dbd07f49c5da8, type: 3}
+  material: {fileID: 2100000, guid: 4e9a3ef2109bac9478d7bef9c4dbb4bc, type: 2}
+  defaultSpawnProba: 7
+  spawnProba: 7
+  score: 75
+  lowValue: 76
+  highValue: 83

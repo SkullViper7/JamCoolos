@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Toy
   m_EditorClassIdentifier: 
   weight: 10
-  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
+  mesh: {fileID: -3583879495106562997, guid: 3700f3c4b10073247a3612555c915825, type: 3}
+  material: {fileID: 2100000, guid: fafaf8f6f7e153740a6aa2f2751d2017, type: 2}
+  defaultSpawnProba: 30
   spawnProba: 30
   score: 20
   lowValue: 50

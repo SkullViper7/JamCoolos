@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,14 @@ public class GameManager : MonoBehaviour
     //[HideInInspector]
     public int playerCount;
 
+    public bool isGameOver = true;
+
     [HideInInspector]
     public List<GameObject> playerInputControls = new();
 
     [HideInInspector]
     public List<GameObject> players = new();
+    public List<Gamepad> gamepads = new();
 
     private void Awake()
     {

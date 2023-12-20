@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.InputSystem.Composites;
 
 public class CollectObjects : MonoBehaviour
 {
     private PlayerStateMachine playerStateMachine;
     private PlayerPerimeter playerPerimeter;
     [HideInInspector] public GameObject objectThatIsHeld;
+    Chrono chrono;
 
+    public float distanceToCollectAnObject;
+    public float AngleToCollectAnObject;
     public float dropUpForce;
     public float dropForwardForce;
 
@@ -24,39 +28,75 @@ public class CollectObjects : MonoBehaviour
         playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+        chrono = GameObject.Find("Chrono").GetComponent<Chrono>();
+        chrono.EndOfTheGame += DropObject;
     }
 
     public void TryToCollectObject()
     {
-        //If there is objects in player perimeter
-        if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            //For each object in player perimeter
-            for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
+            //If there is objects in player perimeter
+            if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
             {
-                //If there is no object already held
-                if (objectThatIsHeld == null)
+                //For each object in player perimeter
+                for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
                 {
-                    GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
-
-                    //If object is enough close
-                    if (Vector3.Distance(transform.position, currentObject.transform.position) <= 2)
+                    //If there is no object already held
+                    if (objectThatIsHeld == null)
                     {
-                        //If object is in front of the player
-                        if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(currentObject.transform.position.x - transform.position.x, currentObject.transform.position.z - transform.position.z)) <= 35f)
-                        {
-                            ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
+                        GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
+                        ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
 
-                            //If object is collectable
-                            if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                        //If object is collectable
+                        if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                        {
+                            Vector3 direction = currentObject.transform.position - transform.position;
+
+                            //If player is in the object
+                            if (IsPlayerInTheObject(currentObject))
                             {
                                 //Collect object and switch to holding state
                                 CollectObject(currentObject);
+                            }
+                            //If object is in front of the player
+                            else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
+                            {
+                                //Check if object is enough close
+                                RaycastHit hit;
+                                if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
+                                {
+                                    //Collect object and switch to holding state
+                                    CollectObject(currentObject);
+                                }
                             }
                         }
                     }
                 }
             }
+        }
+    }
+
+    private bool IsPlayerInTheObject(GameObject _object)
+    {
+        MeshCollider meshCollider = _object.GetComponent<MeshCollider>();
+
+        //Set min and max position to be in the object
+        float sizeX = meshCollider.bounds.size.x / 2;
+        float sizeZ = meshCollider.bounds.size.z / 2;
+        float posXMax = _object.transform.position.x + sizeX;
+        float posXMin = _object.transform.position.x - sizeX;
+        float posZMax = _object.transform.position.z + sizeZ;
+        float posZMin = _object.transform.position.z - sizeZ;
+
+        //Check if player is between these positions
+        if (transform.position.x < posXMax && transform.position.x > posXMin && transform.position.z < posZMax && transform.position.z > posZMin)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

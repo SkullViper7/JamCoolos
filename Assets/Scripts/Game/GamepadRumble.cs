@@ -23,13 +23,36 @@ public class GamepadRumble : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public IEnumerator Rumble(GameObject playerController, float time, float force)
+    private Dictionary<Gamepad, Coroutine> activeRumbles = new Dictionary<Gamepad, Coroutine>();
+
+    public void StartRumble(GameObject playerController, float time, float force)
     {
-        Gamepad controller = (Gamepad)playerController.GetComponent<PlayerDevice>().playerInput.user.pairedDevices[0];
+        PlayerDevice playerDevice = playerController.GetComponent<PlayerDevice>();
+        if (playerDevice != null && playerDevice.playerInput != null &&
+            playerDevice.playerInput.user != null && playerDevice.playerInput.user.pairedDevices.Count > 0)
+        {
+            Gamepad controller = (Gamepad)playerDevice.playerInput.user.pairedDevices[0];
+            if (activeRumbles.ContainsKey(controller))
+            {
+                StopCoroutine(activeRumbles[controller]);
+            }
+            Coroutine rumbleCoroutine = StartCoroutine(RumbleRoutine(controller, time, force));
+            activeRumbles[controller] = rumbleCoroutine;
+        }
+    }
+
+    private IEnumerator RumbleRoutine(Gamepad controller, float time, float force)
+    {
         controller.SetMotorSpeeds(force, force);
 
-        yield return new WaitForSeconds(time);
+        float timer = 0f;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
 
         controller.SetMotorSpeeds(0, 0);
+        activeRumbles.Remove(controller);
     }
 }
