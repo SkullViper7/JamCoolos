@@ -50,7 +50,7 @@ public class CarSpawner : MonoBehaviour
 
         carLeft.transform.DOMove(leftTarget.position, carSpeed);
 
-        StartCoroutine(DestroyCar(carLeft, leftTarget, leftSpawn));
+        StartCoroutine(DestroyCar(carLeft));
     }
 
     void RightCarMove()
@@ -60,12 +60,12 @@ public class CarSpawner : MonoBehaviour
 
         carRight.transform.DOMove(rightTarget.position, carSpeed);
 
-        StartCoroutine(DestroyCar(carRight, rightTarget, rightSpawn));
+        StartCoroutine(DestroyCar(carRight));
     }
 
-    IEnumerator DestroyCar(GameObject car, Transform target, Transform spawn)
+    IEnumerator DestroyCar(GameObject car)
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
 
         Destroy(car);
     }
