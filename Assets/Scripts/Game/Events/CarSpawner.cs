@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
-    public GameObject carPrefab;
+    public List<GameObject> carPrefab;
 
     [Space]
     public Transform rightSpawn;
@@ -45,8 +45,9 @@ public class CarSpawner : MonoBehaviour
 
     void LeftCarMove()
     {
+        int randomCar = Random.Range(0, carPrefab.Count);
         GameObject carLeft;
-        carLeft = GameObject.Instantiate(carPrefab, leftSpawn.position, Quaternion.identity);
+        carLeft = GameObject.Instantiate(carPrefab[randomCar], leftSpawn.position, Quaternion.Euler(0, 180, 0));
 
         carLeft.transform.DOMove(leftTarget.position, carSpeed);
 
@@ -55,8 +56,9 @@ public class CarSpawner : MonoBehaviour
 
     void RightCarMove()
     {
+        int randomCar = Random.Range(0, carPrefab.Count);
         GameObject carRight;
-        carRight = GameObject.Instantiate(carPrefab, rightSpawn.position, Quaternion.identity);
+        carRight = GameObject.Instantiate(carPrefab[randomCar], rightSpawn.position, Quaternion.identity);
 
         carRight.transform.DOMove(rightTarget.position, carSpeed);
 
