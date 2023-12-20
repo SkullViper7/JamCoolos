@@ -15,7 +15,7 @@ public class Chrono : MonoBehaviour
     private int nbrOfSeconds;
 
     [Space]
-    public GameObject EndScreen;
+    public GameObject finish;
     public GameObject gameUI;
     public AudioSource gameMusic;
     public AudioSource endMusic;
@@ -112,7 +112,7 @@ public class Chrono : MonoBehaviour
     {
         // Stop the timer
         StopCoroutine(decrementTimer);
-        EndScreen.SetActive(true);
+        finish.SetActive(true);
         gameUI.SetActive(false);
         gameMusic.Stop();
         endMusic.Play();
