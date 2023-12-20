@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Chair
   m_EditorClassIdentifier: 
   weight: 15
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dd29a0ffdbd95f04baabcb55c318c63c, type: 2}
+  mesh: {fileID: -5495902117074765545, guid: fd39086508f9ee14aa0ba170512a7824, type: 3}
+  material: {fileID: 2100000, guid: ecb7d4a4bd0bcf846a9e0040ec4eb608, type: 2}
   defaultSpawnProba: 13
   spawnProba: 13
   score: 30

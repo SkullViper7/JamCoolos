@@ -6,9 +6,10 @@ using UnityEngine.InputSystem.Composites;
 
 public class CollectObjects : MonoBehaviour
 {
-    private PlayerStateMachine playerStateMachine;
-    private PlayerPerimeter playerPerimeter;
+    private PlayerStateMachine _playerStateMachine;
+    private PlayerPerimeter _playerPerimeter;
     [HideInInspector] public GameObject objectThatIsHeld;
+    private Chrono _chrono;
 
     public float distanceToCollectAnObject;
     public float AngleToCollectAnObject;
@@ -23,46 +24,51 @@ public class CollectObjects : MonoBehaviour
 
     void Start()
     {
-        playerStateMachine = GetComponent<PlayerStateMachine>();
-        playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+        _chrono = Chrono.Instance;
+        _chrono.EndOfTheGame += DropObject;
     }
 
     public void TryToCollectObject()
     {
-        //If there is objects in player perimeter
-        if (playerPerimeter.collectableObjectsInPerimeter != null && playerPerimeter.collectableObjectsInPerimeter.Count != 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            //For each object in player perimeter
-            for (int i = 0; i < playerPerimeter.collectableObjectsInPerimeter.Count; i++)
+            //If there is objects in player perimeter
+            if (_playerPerimeter.collectableObjectsInPerimeter != null && _playerPerimeter.collectableObjectsInPerimeter.Count != 0)
             {
-                //If there is no object already held
-                if (objectThatIsHeld == null)
+                //For each object in player perimeter
+                for (int i = 0; i < _playerPerimeter.collectableObjectsInPerimeter.Count; i++)
                 {
-                    GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
-                    ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
-
-                    //If object is collectable
-                    if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                    //If there is no object already held
+                    if (objectThatIsHeld == null)
                     {
-                        Vector3 direction = currentObject.transform.position - transform.position;
+                        GameObject currentObject = _playerPerimeter.collectableObjectsInPerimeter[i];
+                        ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
 
-                        //If player is in the object
-                        if (IsPlayerInTheObject(currentObject))
+                        //If object is collectable
+                        if (objectStateMachine.currentState == objectStateMachine.collectableState)
                         {
-                            //Collect object and switch to holding state
-                            CollectObject(currentObject);
-                        }
-                        //If object is in front of the player
-                        else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
-                        {
-                            //Check if object is enough close
-                            RaycastHit hit;
-                            if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
+                            Vector3 direction = currentObject.transform.position - transform.position;
+
+                            //If player is in the object
+                            if (IsPlayerInTheObject(currentObject))
                             {
                                 //Collect object and switch to holding state
                                 CollectObject(currentObject);
+                            }
+                            //If object is in front of the player
+                            else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
+                            {
+                                //Check if object is enough close
+                                RaycastHit hit;
+                                if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
+                                {
+                                    //Collect object and switch to holding state
+                                    CollectObject(currentObject);
+                                }
                             }
                         }
                     }
@@ -71,17 +77,17 @@ public class CollectObjects : MonoBehaviour
         }
     }
 
-    private bool IsPlayerInTheObject(GameObject _object)
+    private bool IsPlayerInTheObject(GameObject objectToCheck)
     {
-        MeshCollider meshCollider = _object.GetComponent<MeshCollider>();
+        MeshCollider meshCollider = objectToCheck.GetComponent<MeshCollider>();
 
         //Set min and max position to be in the object
         float sizeX = meshCollider.bounds.size.x / 2;
         float sizeZ = meshCollider.bounds.size.z / 2;
-        float posXMax = _object.transform.position.x + sizeX;
-        float posXMin = _object.transform.position.x - sizeX;
-        float posZMax = _object.transform.position.z + sizeZ;
-        float posZMin = _object.transform.position.z - sizeZ;
+        float posXMax = objectToCheck.transform.position.x + sizeX;
+        float posXMin = objectToCheck.transform.position.x - sizeX;
+        float posZMax = objectToCheck.transform.position.z + sizeZ;
+        float posZMin = objectToCheck.transform.position.z - sizeZ;
 
         //Check if player is between these positions
         if (transform.position.x < posXMax && transform.position.x > posXMin && transform.position.z < posZMax && transform.position.z > posZMin)
@@ -94,19 +100,19 @@ public class CollectObjects : MonoBehaviour
         }
     }
 
-    private void CollectObject(GameObject _object)
+    private void CollectObject(GameObject objectToCollect)
     {
         int randomSFX = Random.Range(0, pickupSFX.Count);
         animator.SetInteger("UpperState", 2);
         audioSource.PlayOneShot(pickupSFX[randomSFX]);
 
         //Set the actual player who hold the object and the object that is held
-        _object.GetComponent<CollectableObject>().actualPlayerWhoHoldThisObject = this.gameObject;
-        objectThatIsHeld = _object;
+        objectToCollect.GetComponent<CollectableObject>().actualPlayerWhoHoldThisObject = this.gameObject;
+        objectThatIsHeld = objectToCollect;
 
         //Set the different state machines
-        playerStateMachine.ChangeState(playerStateMachine.holdingState);
-        ObjectStateMachine objectStateMachine = _object.GetComponent<ObjectStateMachine>();
+        _playerStateMachine.ChangeState(_playerStateMachine.holdingState);
+        ObjectStateMachine objectStateMachine = objectToCollect.GetComponent<ObjectStateMachine>();
         objectStateMachine.ChangeState(objectStateMachine.isHeldState);
     }
 
@@ -114,7 +120,6 @@ public class CollectObjects : MonoBehaviour
     {
         animator.SetInteger("UpperState", 3);
         Invoke("Idle", 0.67f);
-
         Invoke("DropSFX", 0.65f);
 
         //Set the different state machines
@@ -123,7 +128,7 @@ public class CollectObjects : MonoBehaviour
         objectStateMachine.dropForwardForce = this.dropForwardForce;
         objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
-        playerStateMachine.ChangeState(playerStateMachine.recoveryState);
+        _playerStateMachine.ChangeState(_playerStateMachine.recoveryState);
     }
 
     void DropSFX()

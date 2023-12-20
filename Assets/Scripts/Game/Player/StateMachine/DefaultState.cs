@@ -5,48 +5,48 @@ using UnityEngine.InputSystem;
 
 public class DefaultState : IPlayerState
 {
-    private Movements movements;
-    private CollectObjects collectObjects;
-    private PushOtherPlayers pushOtherPlayers;
-    private PlayerStateMachine stateMachine;
+    private Movements _movements;
+    private CollectObjects _collectObjects;
+    private PushOtherPlayers _pushOtherPlayers;
+    private PlayerStateMachine _stateMachine;
 
-    public void OnEnter(PlayerStateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine stateMachine)
     {
-        stateMachine = _stateMachine;
-        _stateMachine.playerInput.onActionTriggered += this.OnAction;
-        movements = _stateMachine.movements;
-        collectObjects = _stateMachine.collectObjects;
-        pushOtherPlayers = _stateMachine.pushOtherPlayers;
+        this._stateMachine = stateMachine;
+        stateMachine.playerInput.onActionTriggered += this.OnAction;
+        _movements = stateMachine.movements;
+        _collectObjects = stateMachine.collectObjects;
+        _pushOtherPlayers = stateMachine.pushOtherPlayers;
 
         //Set the speed by delfault
-        movements.actualSpeed = movements.defaultMoveSpeed;
+        _movements.actualSpeed = _movements.defaultMoveSpeed;
     }
 
-    public void OnExit(PlayerStateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine stateMachine)
     {
 
     }
 
     private void OnAction(InputAction.CallbackContext context)
     {
-        if (this == stateMachine.currentState)
+        if (this == _stateMachine.currentState)
         {
             //In default state, player can move, collect an objet and push
             switch (context.action.name)
             {
                 case "Movements":
-                    movements.Move(context.action.ReadValue<Vector2>());
+                    _movements.Move(context.action.ReadValue<Vector2>());
                     break;
                 case "InteractWithObjects":
                     if (context.started)
                     {
-                        collectObjects.TryToCollectObject();
+                        _collectObjects.TryToCollectObject();
                     }
                     break;
                 case "PushOtherPlayers":
                     if (context.started)
                     {
-                        pushOtherPlayers.TryToPush();
+                        _pushOtherPlayers.TryToPush();
                     }
                     break;
             }

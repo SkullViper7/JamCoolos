@@ -10,19 +10,20 @@ public class SpawnManager : MonoBehaviour
     //
 
     [SerializeField]
-    private List<GameObject> areas;
+    private List<GameObject> _areas;
     [SerializeField]
-    private int numberOfObjectsAtStartInAZone;
+    private int _numberOfObjectsAtStartInAZone;
 
+    [HideInInspector]
     public int numberOfObjectsInGame;
+    [HideInInspector]
     public bool wasThereABigObjectDuringGame;
     public Coroutine spawnCoroutine;
 
     public int minDelayBetweenTwoObjects;
     public int maxDelayBetweenTwoObjects;
 
-    [SerializeField]
-    private Chrono chrono;
+    private Chrono _chrono;
 
     private void Awake()
     {
@@ -41,21 +42,24 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        _chrono = Chrono.Instance;
+
         //Listeners
-        chrono.NewSecond += CheckIfThereAreEnoughObjects;
-        chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
-        chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
-        chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
+        _chrono.NewSecond += CheckIfThereAreEnoughObjects;
+        _chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
+        _chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
+        _chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
+        _chrono.EndOfTheGame += StopSpawn;
         //
 
         //Initialize all object bases
         InitializeObjectBases();
 
         //Initialize areas before any operation
-        for (int i = 0; i < areas.Count; i++)
+        for (int i = 0; i < _areas.Count; i++)
         {
-            areas[i].GetComponent<ObjectPool>().InitializePool();
-            areas[i].GetComponent<SpawnArea>().InitializeArea();
+            _areas[i].GetComponent<ObjectPool>().InitializePool();
+            _areas[i].GetComponent<SpawnArea>().InitializeArea();
         }
 
         //Spawn a big object in an area and random objects but no big in the others
@@ -64,9 +68,9 @@ public class SpawnManager : MonoBehaviour
 
     private void InitializeObjectBases()
     {
-        for (int i = 0; i < areas.Count; i++)
+        for (int i = 0; i < _areas.Count; i++)
         {
-            ObjectPool objectPool = areas[i].GetComponent<ObjectPool>();
+            ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
             List<CollectableObjectBase> objectBases = objectPool.ObjectBases;
 
             for (int j = 0; j < objectBases.Count; j++)
@@ -78,10 +82,10 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnAtStart()
     {
-        List<GameObject> _areas = new(areas);
+        List<GameObject> areas = new(this._areas);
 
         //Spawn a big object in a random area
-        GameObject areaWithTheBigObjectAtStart = _areas[Random.Range(0, _areas.Count)];
+        GameObject areaWithTheBigObjectAtStart = areas[Random.Range(0, areas.Count)];
         SpawnArea spawnAreaWithTheBigObjectAtStart = areaWithTheBigObjectAtStart.GetComponent<SpawnArea>();
         ObjectPool poolWithTheBigObjectAtStart = areaWithTheBigObjectAtStart.GetComponent<ObjectPool>();
 
@@ -93,14 +97,14 @@ public class SpawnManager : MonoBehaviour
         }
 
         //Spawn random objects in the other areas but don't spawn a big object
-        _areas.Remove(areaWithTheBigObjectAtStart);
+        areas.Remove(areaWithTheBigObjectAtStart);
 
-        for (int i = 0; i < _areas.Count; i++)
+        for (int i = 0; i < areas.Count; i++)
         {
-            SpawnArea spawnArea = _areas[i].GetComponent<SpawnArea>();
-            ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
+            SpawnArea spawnArea = areas[i].GetComponent<SpawnArea>();
+            ObjectPool objectPool = areas[i].GetComponent<ObjectPool>();
 
-            for (int j = 0; j < numberOfObjectsAtStartInAZone; j++)
+            for (int j = 0; j < _numberOfObjectsAtStartInAZone; j++)
             {
                 GameObject newObjectToSpawn = objectPool.GetAnObject();
 
@@ -121,7 +125,7 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(minDelayBetweenTwoObjects, maxDelayBetweenTwoObjects + 1));
 
         //Spawn a random object in a random area
-        GameObject area = areas[Random.Range(0, areas.Count)];
+        GameObject area = _areas[Random.Range(0, _areas.Count)];
         SpawnArea spawnArea = area.GetComponent<SpawnArea>();
         ObjectPool objectPool = area.GetComponent<ObjectPool>();
 
@@ -141,9 +145,9 @@ public class SpawnManager : MonoBehaviour
         if (!wasThereABigObjectDuringGame)
         {
             //For each area
-            for (int i = 0; i < areas.Count; i++)
+            for (int i = 0; i < _areas.Count; i++)
             {
-                ObjectPool objectPool = areas[i].GetComponent<ObjectPool>();
+                ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
 
                 //Get the list of objects without the biggest
                 List<CollectableObjectBase> objectBasesWithoutTheBiggest = new(objectPool.ObjectBases);
@@ -207,7 +211,7 @@ public class SpawnManager : MonoBehaviour
         if (!wasThereABigObjectDuringGame)
         {
             //Spawn a big object in a random area
-            GameObject area = areas[Random.Range(0, areas.Count)];
+            GameObject area = _areas[Random.Range(0, _areas.Count)];
             SpawnArea spawnArea = area.GetComponent<SpawnArea>();
             ObjectPool objectPool = spawnArea.GetComponent<ObjectPool>();
 
@@ -216,14 +220,14 @@ public class SpawnManager : MonoBehaviour
             //If an object is available spawn it as a big object
             if (bigObjectToSpawn != null)
             {
-                chrono.NewSecond -= ForceABigObjectToSpawn;
+                _chrono.NewSecond -= ForceABigObjectToSpawn;
                 ResetAllProbabilities();
                 spawnArea.Spawn(objectPool.HydrateObject(bigObjectToSpawn, objectPool.GetBiggestObject()));
             }
             //Else retry every second
             else
             {
-                chrono.NewSecond += ForceABigObjectToSpawn;
+                _chrono.NewSecond += ForceABigObjectToSpawn;
             }
         }
     }
@@ -233,16 +237,16 @@ public class SpawnManager : MonoBehaviour
         int maxNumberOfObjectsInGame = 0;
 
         //Get all pool sizes
-        for (int i = 0; i < areas.Count; i++)
+        for (int i = 0; i < _areas.Count; i++)
         {
-            maxNumberOfObjectsInGame += areas[i].GetComponent<ObjectPool>().poolSize;
+            maxNumberOfObjectsInGame += _areas[i].GetComponent<ObjectPool>().poolSize;
         }
 
         //Check if there is a minimum of the half of the maximum number of objects in the game
         if (numberOfObjectsInGame < maxNumberOfObjectsInGame / 2)
         {
             //Spawn a random object in a random area
-            GameObject area = areas[Random.Range(0, areas.Count)];
+            GameObject area = _areas[Random.Range(0, _areas.Count)];
             SpawnArea spawnArea = area.GetComponent<SpawnArea>();
             ObjectPool objectPool = area.GetComponent<ObjectPool>();
 
@@ -264,9 +268,9 @@ public class SpawnManager : MonoBehaviour
     public void ResetAllProbabilities()
     {
         //Reset all probabilities for object bases
-        for (int i = 0; i < areas.Count; i++)
+        for (int i = 0; i < _areas.Count; i++)
         {
-            ObjectPool objectPool = areas[i].GetComponent<ObjectPool>();
+            ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
             List<CollectableObjectBase> objectBases = new(objectPool.ObjectBases);
 
             for (int j = 0; j < objectBases.Count; j++)
@@ -276,5 +280,11 @@ public class SpawnManager : MonoBehaviour
 
             objectPool.CalculeProbabilities();
         }
+    }
+
+    void StopSpawn()
+    {
+        StopCoroutine(spawnCoroutine);
+        spawnCoroutine = null;
     }
 }

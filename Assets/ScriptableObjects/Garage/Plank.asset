@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   weight: 10
-  mesh: {fileID: 304168434690812165, guid: a6e6c82adb7d8074b94e388b5d236d14, type: 3}
+  mesh: {fileID: 304168434690812165, guid: 203242e1abc8133459f0995f4b725c07, type: 3}
   material: {fileID: 2100000, guid: aa7511e83c35a334ea905bfb047c556c, type: 2}
   defaultSpawnProba: 15
   spawnProba: 15

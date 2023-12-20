@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,14 @@ public class GameManager : MonoBehaviour
     //[HideInInspector]
     public int playerCount;
 
+    public bool isGameOver = true;
+
     [HideInInspector]
     public List<GameObject> playerInputControls = new();
 
     [HideInInspector]
     public List<GameObject> players = new();
+    public List<Gamepad> gamepads = new();
 
     private void Awake()
     {
@@ -42,7 +46,14 @@ public class GameManager : MonoBehaviour
         playerCount = 0;
     }
 
-    public void ClearPlayerInputControls()
+    public void ResetManager()
+    {
+        players.Clear();
+        gamepads.Clear();
+        isGameOver = true;
+    }
+
+    public void ClearManager()
     {
         //Delete all playerInputControls
         foreach (GameObject playerInputControl in playerInputControls)
@@ -50,13 +61,10 @@ public class GameManager : MonoBehaviour
             Destroy(playerInputControl);
         }
         playerInputControls.Clear();
-        playerCount = 0;
-    }
 
-    public void ResetManager()
-    {
         //Reset all values
+        playerCount = 0;
         maxPlayerCount = 0;
-        ClearPlayerInputControls();
+        ResetManager();
     }
 }

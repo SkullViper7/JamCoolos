@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerInvincibility : MonoBehaviour
 {
-    private PlayerStateMachine playerStateMachine;
+    private PlayerStateMachine _playerStateMachine;
     public Coroutine invincibilityCoroutine;
 
     public float defaultInvincibilityTime;
 
     private void Start()
     {
-        playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
     public void LaunchInvincibility()
@@ -34,6 +34,6 @@ public class PlayerInvincibility : MonoBehaviour
     {
         //Wait until invincibility time to return to default state
         yield return new WaitForSeconds(defaultInvincibilityTime);
-        playerStateMachine.ChangeState(playerStateMachine.defaultState);
+        _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
     }
 }

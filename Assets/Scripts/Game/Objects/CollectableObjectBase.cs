@@ -7,7 +7,7 @@ public class CollectableObjectBase : ScriptableObject
     public Mesh mesh;
     public Material material;
     public int defaultSpawnProba;
-    //[HideInInspector]
+    [HideInInspector]
     public int spawnProba;
     public int score;
     public int lowValue;

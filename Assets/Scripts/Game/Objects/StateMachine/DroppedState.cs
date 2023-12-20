@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class DroppedState : IObjectState
 {
-    ObjectStateMachine objectStateMachine;
-    private ObjectFall objectFall;
+    private ObjectStateMachine _objectStateMachine;
+    private ObjectFall _objectFall;
 
-    public void OnEnter(ObjectStateMachine _objectStateMachine)
+    public void OnEnter(ObjectStateMachine objectStateMachine)
     {
-        objectStateMachine = _objectStateMachine;
+        this._objectStateMachine = objectStateMachine;
 
         //Listen if the object has hit the ground
-        objectFall = _objectStateMachine.objectFall;
-        objectFall.enabled = true;
-        objectFall.ObjectHitsTheGround += ObjectHasHitTheGround;
+        _objectFall = objectStateMachine.objectFall;
+        _objectFall.enabled = true;
+        _objectFall.ObjectHitsTheGround += ObjectHasHitTheGround;
 
         //Drop object on the ground
-        _objectStateMachine.transform.SetParent(null);
+        objectStateMachine.transform.SetParent(null);
 
-        Rigidbody rigidbody = _objectStateMachine.GetComponent<Rigidbody>();
+        Rigidbody rigidbody = objectStateMachine.GetComponent<Rigidbody>();
 
         rigidbody.isKinematic = false;
-        rigidbody.AddForce(_objectStateMachine.transform.up * _objectStateMachine.dropUpForce);
-        rigidbody.AddForce(_objectStateMachine.transform.forward * _objectStateMachine.dropForwardForce);
+        rigidbody.AddForce(objectStateMachine.transform.up * objectStateMachine.dropUpForce);
+        rigidbody.AddForce(objectStateMachine.transform.forward * objectStateMachine.dropForwardForce);
     }
 
-    public void OnExit(ObjectStateMachine _objectStateMachine)
+    public void OnExit(ObjectStateMachine objectStateMachine)
     {
-        objectFall.enabled = false;
+        _objectFall.enabled = false;
     }
 
     private void ObjectHasHitTheGround()
     {
         //Object is collectable again
-        objectStateMachine.ChangeState(objectStateMachine.collectableState);
+        _objectStateMachine.ChangeState(_objectStateMachine.collectableState);
     }
 }

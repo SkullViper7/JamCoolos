@@ -49,6 +49,6 @@ public class PlayerStateMachine : MonoBehaviour
 //Interface for each state
 public interface IPlayerState
 {
-    public void OnEnter(PlayerStateMachine _playerStateMachine);
-    public void OnExit(PlayerStateMachine _playerStateMachine);
+    public void OnEnter(PlayerStateMachine playerStateMachine);
+    public void OnExit(PlayerStateMachine playerStateMachine);
 }

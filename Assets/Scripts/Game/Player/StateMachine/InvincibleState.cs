@@ -5,52 +5,52 @@ using UnityEngine.InputSystem;
 
 public class InvincibleState : IPlayerState
 {
-    private Movements movements;
-    private CollectObjects collectObjects;
-    private PushOtherPlayers pushOtherPlayers;
-    private PlayerStateMachine stateMachine;
-    private PlayerInvincibility playerInvincibility;
+    private Movements _movements;
+    private CollectObjects _collectObjects;
+    private PushOtherPlayers _pushOtherPlayers;
+    private PlayerStateMachine _stateMachine;
+    private PlayerInvincibility _playerInvincibility;
 
-    public void OnEnter(PlayerStateMachine _stateMachine)
+    public void OnEnter(PlayerStateMachine stateMachine)
     {
-        stateMachine = _stateMachine;
-        _stateMachine.playerInput.onActionTriggered += this.OnAction;
-        movements = _stateMachine.movements;
-        collectObjects = _stateMachine.collectObjects;
-        pushOtherPlayers = _stateMachine.pushOtherPlayers;
+        this._stateMachine = stateMachine;
+        stateMachine.playerInput.onActionTriggered += this.OnAction;
+        _movements = stateMachine.movements;
+        _collectObjects = stateMachine.collectObjects;
+        _pushOtherPlayers = stateMachine.pushOtherPlayers;
 
         //Launch invincibility
-        playerInvincibility = _stateMachine.playerInvincibility;
-        playerInvincibility.LaunchInvincibility();
+        _playerInvincibility = stateMachine.playerInvincibility;
+        _playerInvincibility.LaunchInvincibility();
     }
 
-    public void OnExit(PlayerStateMachine _stateMachine)
+    public void OnExit(PlayerStateMachine stateMachine)
     {
-        playerInvincibility.StopInvincibility();
+        _playerInvincibility.StopInvincibility();
     }
 
     private void OnAction(InputAction.CallbackContext context)
     {
-        if (this == stateMachine.currentState)
+        if (this == _stateMachine.currentState)
         {
             //In default state, player can move, collect an objet and push
             switch (context.action.name)
             {
                 case "Movements":
-                    movements.Move(context.action.ReadValue<Vector2>());
+                    _movements.Move(context.action.ReadValue<Vector2>());
                     break;
                 case "InteractWithObjects":
                     if (context.started)
                     {
-                        collectObjects.TryToCollectObject();
+                        _collectObjects.TryToCollectObject();
                     }
                     break;
                 case "PushOtherPlayers":
                     if (context.started)
                     {
-                        pushOtherPlayers.TryToPush();
+                        _pushOtherPlayers.TryToPush();
                         //If player in invincibility try to push other player, it stop invincibility
-                        stateMachine.ChangeState(stateMachine.defaultState);
+                        _stateMachine.ChangeState(_stateMachine.defaultState);
                     }
                     break;
             }

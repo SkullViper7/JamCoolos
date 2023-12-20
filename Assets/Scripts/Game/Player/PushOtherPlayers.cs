@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PushOtherPlayers : MonoBehaviour
 {
-    private PlayerPerimeter playerPerimeter;
-    Animator animator;
+    private PlayerPerimeter _playerPerimeter;
+    private Animator _animator;
+
+    private EventManager _eventManager;
 
     public float distanceToPush;
     public float angleToPush;
@@ -16,38 +18,46 @@ public class PushOtherPlayers : MonoBehaviour
 
     void Start()
     {
-        playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
-        animator = GetComponentInChildren<Animator>();
-        animator.SetLayerWeight(1, 1);
+        _playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
+        _animator = GetComponentInChildren<Animator>();
+        _animator.SetLayerWeight(1, 1);
         audioSource = GetComponent<AudioSource>();
+        _eventManager = EventManager.Instance;
     }
 
     public void TryToPush()
     {
-        GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
-        animator.SetInteger("UpperState", 1);
-        Invoke("Idle", 0.58f);
-
-        //If there is players in player perimeter
-        if (playerPerimeter.playersInPerimeter != null && playerPerimeter.playersInPerimeter.Count != 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            //For each player in player perimeter
-            for (int i = 0; i < playerPerimeter.playersInPerimeter.Count; i++)
+            if (!_eventManager.isThereAnEventInProgress)
             {
-                GameObject otherPlayer = playerPerimeter.playersInPerimeter[i];
+                GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
+            }
 
-                //If player is in front of this player
-                if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush/2)
+            _animator.SetInteger("UpperState", 1);
+            Invoke("Idle", 0.58f);
+
+            //If there is players in player perimeter
+            if (_playerPerimeter.playersInPerimeter != null && _playerPerimeter.playersInPerimeter.Count != 0)
+            {
+                //For each player in player perimeter
+                for (int i = 0; i < _playerPerimeter.playersInPerimeter.Count; i++)
                 {
-                    //If player is enough close
-                    if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= distanceToPush)
+                    GameObject otherPlayer = _playerPerimeter.playersInPerimeter[i];
+
+                    //If player is in front of this player
+                    if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush / 2)
                     {
-                        PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
-                        //If other player is not already falling or invincible
-                        if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState && otherPlayerStateMachine.currentState != otherPlayerStateMachine.invincibleState)
+                        //If player is enough close
+                        if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= distanceToPush)
                         {
-                            //Other player falls
-                            Push(otherPlayerStateMachine);
+                            PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
+                            //If other player is not already falling or invincible
+                            if (otherPlayerStateMachine.currentState != otherPlayerStateMachine.fallingState && otherPlayerStateMachine.currentState != otherPlayerStateMachine.invincibleState)
+                            {
+                                //Other player falls
+                                Push(otherPlayerStateMachine);
+                            }
                         }
                     }
                 }
@@ -68,6 +78,6 @@ public class PushOtherPlayers : MonoBehaviour
 
     void Idle()
     {
-        animator.SetInteger("UpperState", 0);
+        _animator.SetInteger("UpperState", 0);
     }
 }

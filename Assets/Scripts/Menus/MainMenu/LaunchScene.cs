@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LaunchScene : MonoBehaviour
 {
-    public void LaunchAScene(string _sceneName)
+    public GameObject playerChoice;
+    public GameObject mainMenu;
+
+    public Animator camAnim;
+
+    public void LaunchAScene()
     {
-        SceneManager.LoadScene(_sceneName);
+        playerChoice.SetActive(true);
+        mainMenu.SetActive(false);
+        camAnim.Play("SceneSwitch");
     }
 }

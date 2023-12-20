@@ -6,12 +6,12 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField]
-    private GameObject objectPrefab;
+    private GameObject _objectPrefab;
 
     public readonly ConcurrentBag<GameObject> objects = new();
     public int poolSize;
 
-    private int totalChance;
+    private int _totalChance;
 
     public List<CollectableObjectBase> ObjectBases;
 
@@ -25,7 +25,7 @@ public class ObjectPool : MonoBehaviour
         //Create a pool of objects without any informations
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject newObject = Instantiate(objectPrefab, Vector3.zero, Quaternion.identity);
+            GameObject newObject = Instantiate(_objectPrefab, Vector3.zero, Quaternion.identity);
             objects.Add(newObject);
             newObject.GetComponent<CollectableObject>().poolWhereItCameFrom = this;
             newObject.SetActive(false);
@@ -54,21 +54,21 @@ public class ObjectPool : MonoBehaviour
     public void CalculeProbabilities()
     {
         //Set up total probabilities and a range in percent for each object
-        totalChance = 0;
+        _totalChance = 0;
 
         for (int i = 0; i < ObjectBases.Count; i++)
         {
-            ObjectBases[i].lowValue = totalChance;
-            ObjectBases[i].highValue = totalChance + ObjectBases[i].spawnProba;
+            ObjectBases[i].lowValue = _totalChance;
+            ObjectBases[i].highValue = _totalChance + ObjectBases[i].spawnProba;
 
-            totalChance += ObjectBases[i].spawnProba;
+            _totalChance += ObjectBases[i].spawnProba;
         }
     }
 
     public CollectableObjectBase GetRandomObject()
     {
         //Return an random object base depending of the probability
-        int randVal = Random.Range(0, totalChance + 1);
+        int randVal = Random.Range(0, _totalChance + 1);
 
         for (int i = 0; i < ObjectBases.Count; i++)
         {
@@ -101,7 +101,7 @@ public class ObjectPool : MonoBehaviour
         //If range of the biggest object is from 0
         if (biggestObjectOfThisArea.lowValue == 0)
         {
-            int randVal = Random.Range(biggestObjectOfThisArea.highValue + 1, totalChance + 1);
+            int randVal = Random.Range(biggestObjectOfThisArea.highValue + 1, _totalChance + 1);
 
             for (int i = 0; i < ObjectBases.Count; i++)
             {
@@ -113,7 +113,7 @@ public class ObjectPool : MonoBehaviour
             }
         }
         //If range of the biggest object is to 100
-        else if (biggestObjectOfThisArea.highValue == totalChance)
+        else if (biggestObjectOfThisArea.highValue == _totalChance)
         {
             int randVal = Random.Range(0, biggestObjectOfThisArea.lowValue);
 
@@ -160,15 +160,15 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
-    public GameObject HydrateObject(GameObject _object, CollectableObjectBase _collectableObjectBase)
+    public GameObject HydrateObject(GameObject objectToHydrate, CollectableObjectBase collectableObjectBase)
     {
         //Hydrate the prefab object with a base given
-        CollectableObject collectable = _object.GetComponent<CollectableObject>();
-        collectable.collectableObjectBase = _collectableObjectBase;
+        CollectableObject collectable = objectToHydrate.GetComponent<CollectableObject>();
+        collectable.collectableObjectBase = collectableObjectBase;
         collectable.InitialiseObject();
 
         //return this object
-        return _object;
+        return objectToHydrate;
     }
 
     public GameObject GetAnObject()
@@ -185,13 +185,13 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public void Release(GameObject _object)
+    public void Release(GameObject objectToRelease)
     {
         //Reset object values to re-use it
-        _object.GetComponent<CollectableObject>().ResetObject();
+        objectToRelease.GetComponent<CollectableObject>().ResetObject();
 
         //When an object finished it work, it return in available objects
-        objects.Add(_object);
+        objects.Add(objectToRelease);
         SpawnManager.Instance.numberOfObjectsInGame--;
     }
 }

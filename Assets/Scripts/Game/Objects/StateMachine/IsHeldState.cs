@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class IsHeldState : IObjectState
 {
-    private CollectableObject collectableObject;
+    private CollectableObject _collectableObject;
 
-    public void OnEnter(ObjectStateMachine _objectStateMachine)
+    public void OnEnter(ObjectStateMachine objectStateMachine)
     {
-        collectableObject = _objectStateMachine.collectableObject;
+        _collectableObject = objectStateMachine.collectableObject;
 
         //object is collected
-        _objectStateMachine.transform.SetParent(collectableObject.actualPlayerWhoHoldThisObject.transform);
-        _objectStateMachine.GetComponent<Rigidbody>().isKinematic = true;
+        objectStateMachine.transform.SetParent(_collectableObject.actualPlayerWhoHoldThisObject.transform);
+        objectStateMachine.GetComponent<Rigidbody>().isKinematic = true;
 
         //Set a new height depending of the size of the object
-        float newHeight = collectableObject.actualPlayerWhoHoldThisObject.GetComponent<MeshRenderer>().bounds.size.y / 2f + _objectStateMachine.GetComponent<MeshRenderer>().bounds.size.y / 2;
+        float newHeight = _collectableObject.actualPlayerWhoHoldThisObject.GetComponent<MeshRenderer>().bounds.size.y / 2f + objectStateMachine.GetComponent<MeshRenderer>().bounds.size.y / 2;
 
-        _objectStateMachine.transform.localPosition = new Vector3(0, newHeight, 0);
-        _objectStateMachine.transform.localRotation = Quaternion.identity;
+        objectStateMachine.transform.localPosition = new Vector3(0, newHeight, 0);
+        objectStateMachine.transform.localRotation = Quaternion.identity;
     }
 
-    public void OnExit(ObjectStateMachine _objectStateMachine)
+    public void OnExit(ObjectStateMachine objectStateMachine)
     {
         //Set the historic of the object
-        collectableObject.lastPlayerWhoHeldThisObject = collectableObject.actualPlayerWhoHoldThisObject;
-        collectableObject.actualPlayerWhoHoldThisObject = null;
+        _collectableObject.lastPlayerWhoHeldThisObject = _collectableObject.actualPlayerWhoHoldThisObject;
+        _collectableObject.actualPlayerWhoHoldThisObject = null;
     }
 }

@@ -44,6 +44,6 @@ public class ObjectStateMachine : MonoBehaviour
 //Interface for each state
 public interface IObjectState
 {
-    public void OnEnter(ObjectStateMachine _objectStateMachine);
-    public void OnExit(ObjectStateMachine _objectStateMachine);
+    public void OnEnter(ObjectStateMachine objectStateMachine);
+    public void OnExit(ObjectStateMachine objectStateMachine);
 }
