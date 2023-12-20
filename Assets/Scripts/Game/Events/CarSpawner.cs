@@ -65,7 +65,7 @@ public class CarSpawner : MonoBehaviour
 
     IEnumerator DestroyCar(GameObject car)
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(carSpeed);
 
         Destroy(car);
     }
