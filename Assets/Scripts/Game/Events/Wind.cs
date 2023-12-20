@@ -19,6 +19,8 @@ public class Wind : MonoBehaviour
     [SerializeField]
     private AudioClip _windSFX;
 
+    private bool _windIsBlowing;
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -33,10 +35,10 @@ public class Wind : MonoBehaviour
 
     private IEnumerator WindBlows()
     {
-        //Divides player speed by 2 and make all gamepads rumble
+        _windIsBlowing = true;
+        //Make all gamepads rumble
         for (int i = 0; i < _gameManager.players.Count; i++)
         {
-            _gameManager.players[i].GetComponent<Movements>().actualSpeed /= 2;
             GamepadRumble.Instance.StartRumble(_gameManager.players[i], _windDuration, _windStrength);
         }
         
@@ -46,6 +48,8 @@ public class Wind : MonoBehaviour
 
         //Wait during the wind
         yield return new WaitForSeconds(_windDuration);
+
+        _windIsBlowing = true;
 
         //Reset movespeeds
         for (int i = 0; i < _gameManager.players.Count; i++)
@@ -57,5 +61,18 @@ public class Wind : MonoBehaviour
         _audioSource.volume = 1;
 
         _eventManager.isThereAnEventInProgress = false;
+    }
+
+    private void FixedUpdate()
+    {
+        //Divide player speed by 2
+        if (_windIsBlowing)
+        {
+            for (int i = 0; i < _gameManager.players.Count; i++)
+            {
+                Movements playerMovements = _gameManager.players[i].GetComponent<Movements>();
+                playerMovements.actualSpeed = playerMovements.defaultMoveSpeed / 2;
+            }
+        }
     }
 }

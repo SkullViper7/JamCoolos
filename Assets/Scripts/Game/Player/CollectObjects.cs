@@ -16,7 +16,7 @@ public class CollectObjects : MonoBehaviour
     public float dropUpForce;
     public float dropForwardForce;
 
-    Animator animator;
+    private Animator _animator;
     AudioSource audioSource;
 
     public List<AudioClip> pickupSFX;
@@ -26,7 +26,7 @@ public class CollectObjects : MonoBehaviour
     {
         _playerStateMachine = GetComponent<PlayerStateMachine>();
         _playerPerimeter = GetComponentInChildren<PlayerPerimeter>();
-        animator = GetComponentInChildren<Animator>();
+        _animator = _playerStateMachine.playerAnimator;
         audioSource = GetComponent<AudioSource>();
         _chrono = Chrono.Instance;
         _chrono.EndOfTheGame += DropObject;
@@ -103,7 +103,7 @@ public class CollectObjects : MonoBehaviour
     private void CollectObject(GameObject objectToCollect)
     {
         int randomSFX = Random.Range(0, pickupSFX.Count);
-        animator.SetInteger("UpperState", 2);
+        _animator.SetInteger("UpperState", 2);
         audioSource.PlayOneShot(pickupSFX[randomSFX]);
 
         //Set the actual player who hold the object and the object that is held
@@ -118,7 +118,7 @@ public class CollectObjects : MonoBehaviour
 
     public void DropObject()
     {
-        animator.SetInteger("UpperState", 3);
+        _animator.SetInteger("UpperState", 3);
         Invoke("Idle", 0.67f);
         Invoke("DropSFX", 0.65f);
 
@@ -139,6 +139,6 @@ public class CollectObjects : MonoBehaviour
 
     void Idle()
     {
-        animator.SetInteger("UpperState", 0);
+        _animator.SetInteger("UpperState", 0);
     }
 }

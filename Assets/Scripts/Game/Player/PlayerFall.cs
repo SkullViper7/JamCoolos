@@ -25,7 +25,7 @@ public class PlayerFall : MonoBehaviour
         _stateMachine = GetComponent<PlayerStateMachine>();
         _collectObjects = GetComponent<CollectObjects>();
         _smoke = GetComponentInChildren<ParticleSystem>();
-        _animator = GetComponentInChildren<Animator>();
+        _animator = _stateMachine.playerAnimator;
         _eventManager = EventManager.Instance;
     }
 
@@ -42,6 +42,7 @@ public class PlayerFall : MonoBehaviour
         _movements.isInMovement = false;
         _animator.SetInteger("State", 2);
         _animator.SetInteger("UpperState", 0);
+        _animator.SetLayerWeight(1, 0);
 
         //Player falls
         _rb.drag = 2.5f;
@@ -73,6 +74,8 @@ public class PlayerFall : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 
         _animator.SetInteger("State", 0);
+        _animator.SetLayerWeight(1, 1);
+        _animator.SetInteger("UpperState", 0);
 
         _rb.drag = 5f;
         objectThatPushedMe = null;

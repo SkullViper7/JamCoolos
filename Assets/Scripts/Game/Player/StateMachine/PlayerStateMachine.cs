@@ -23,6 +23,8 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public PlayerRecovery playerRecovery;
     [HideInInspector] public PlayerInvincibility playerInvincibility;
 
+    public Animator playerAnimator;
+
     private void Awake()
     {
         movements = GetComponent<Movements>();

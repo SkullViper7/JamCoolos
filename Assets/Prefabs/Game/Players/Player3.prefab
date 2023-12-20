@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 9986558673253961}
   - component: {fileID: 1397892786671382401}
   - component: {fileID: 6651160753457402761}
+  - component: {fileID: 4237694286168190570}
   m_Layer: 0
   m_Name: PlayerMarker
   m_TagString: Untagged
@@ -151,6 +152,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4237694286168190570
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744842087278348103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3c59d3940b7bdc448ccc556de2c084f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4849410713127640136
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +438,7 @@ MonoBehaviour:
   playerFall: {fileID: 0}
   playerRecovery: {fileID: 0}
   playerInvincibility: {fileID: 0}
+  playerAnimator: {fileID: 1437652184315745867}
 --- !u!114 &8140670186057600265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73ffa21556e71642a765723ae16017b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMarkerAnimator: {fileID: 4237694286168190570}
   defaultInvincibilityTime: 3
 --- !u!82 &4802298207538847220
 AudioSource:
