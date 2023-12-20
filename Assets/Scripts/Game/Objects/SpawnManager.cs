@@ -46,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         chrono.TiersOfTheGame += IncreaseProbabilityForBiggestObject;
         chrono.HalfOfTheGame += IncreaseProbabilityForBiggestObject;
         chrono.LastQuarterOfTheGame += ForceABigObjectToSpawn;
+        chrono.EndOfTheGame += StopSpawn;
         //
 
         //Initialize all object bases
@@ -276,5 +277,11 @@ public class SpawnManager : MonoBehaviour
 
             objectPool.CalculeProbabilities();
         }
+    }
+
+    void StopSpawn()
+    {
+        StopCoroutine(spawnCoroutine);
+        spawnCoroutine = null;
     }
 }
