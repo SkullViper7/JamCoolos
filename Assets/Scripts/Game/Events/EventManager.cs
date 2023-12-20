@@ -81,7 +81,7 @@ public class EventManager : MonoBehaviour
         cam.GetComponent<Camera>().DOShakePosition(eqDuration, eqStrength, eqVibrato, eqRandomness, false);
         for (int i = 0; i < gamepads.Count; i++)
         {
-            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 4, 1));
+            GamepadRumble.Instance.StartRumble(players[i], 4, 1);
             audioSource.PlayOneShot(earthquakeSFX);
             Movements movements = players[i].GetComponent<Movements>();
             movements.actualSpeed = 0;
@@ -109,9 +109,14 @@ public class EventManager : MonoBehaviour
 
         cam.GetComponent<Camera>().DOShakePosition(lDuration, lStrength, lVibrato, lRandomness);
 
+        PlayerStateMachine stateMachine = players[randomStrike].GetComponent<PlayerStateMachine>();
+        stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
+        stateMachine.ChangeState(stateMachine.fallingState);
+
+
         audioSource.PlayOneShot(lightningSFX);
 
-        StartCoroutine(GamepadRumble.Instance.Rumble(players[randomStrike], 0.5f, 1));
+        GamepadRumble.Instance.StartRumble(players[randomStrike], 0.5f, 1);
 
         Movements movements = players[randomStrike].GetComponent<Movements>();
         float initalSpeed = movements.defaultMoveSpeed;
@@ -137,7 +142,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Movements>().actualSpeed /= 2;
-            StartCoroutine(GamepadRumble.Instance.Rumble(players[i], 3, 0.5f));
+            GamepadRumble.Instance.StartRumble(players[i], 3, 0.5f);
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(windSFX);
         }

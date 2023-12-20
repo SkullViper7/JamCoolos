@@ -19,4 +19,4 @@ MonoBehaviour:
   spawnProba: 10
   score: 100
   lowValue: 0
-  highValue: 40
+  highValue: 10

@@ -8,6 +8,9 @@ public class PushOtherPlayers : MonoBehaviour
     private PlayerPerimeter playerPerimeter;
     Animator animator;
 
+    public float distanceToPush;
+    public float angleToPush;
+
     AudioSource audioSource;
     public List<AudioClip> punchSFX;
 
@@ -21,7 +24,7 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void TryToPush()
     {
-        StartCoroutine(GamepadRumble.Instance.Rumble(gameObject, 0.25f, 0.5f));
+        GamepadRumble.Instance.StartRumble(gameObject, 0.25f, 0.5f);
         animator.SetInteger("UpperState", 1);
         Invoke("Idle", 0.58f);
 
@@ -33,11 +36,11 @@ public class PushOtherPlayers : MonoBehaviour
             {
                 GameObject otherPlayer = playerPerimeter.playersInPerimeter[i];
 
-                //If player is enough close
-                if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= 2)
+                //If player is in front of this player
+                if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= angleToPush/2)
                 {
-                    //If player is in front of this player
-                    if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(otherPlayer.transform.position.x - transform.position.x, otherPlayer.transform.position.z - transform.position.z)) <= 45f)
+                    //If player is enough close
+                    if (Vector3.Distance(transform.position, otherPlayer.transform.position) <= distanceToPush)
                     {
                         PlayerStateMachine otherPlayerStateMachine = otherPlayer.GetComponent<PlayerStateMachine>();
                         //If other player is not already falling or invincible

@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectThatIsHeld: {fileID: 0}
+  distanceToCollectAnObject: 1.5
+  AngleToCollectAnObject: 90
   dropUpForce: 100
   dropForwardForce: 400
   pickupSFX:
@@ -385,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4e0f6cb99e46e4e98c5038411413bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPush: 1.5
+  angleToPush: 90
   punchSFX:
   - {fileID: 8300000, guid: 80be0f4aef2061843a100a332dbd9fc6, type: 3}
   - {fileID: 8300000, guid: 2864d2137aeed7a44aaa0dc57d1cec95, type: 3}
@@ -400,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2850594ad681b749bf8142981f51d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerThatPushedMe: {fileID: 0}
+  objectThatPushedMe: {fileID: 0}
   pushForce: 600
   dropUpForce: 150
   dropForwardForce: 600

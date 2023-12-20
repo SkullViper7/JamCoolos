@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: "Canap\xE9"
+  m_Name: Plank
   m_EditorClassIdentifier: 
-  weight: 55
-  mesh: {fileID: -4353394543340689726, guid: 119c88a921005d746bd4e38870c498a9, type: 3}
-  material: {fileID: 2100000, guid: 6a999ef431a7a2d4d8cace999529de87, type: 2}
-  spawnProba: 8
-  score: 110
-  lowValue: 90
-  highValue: 100
+  weight: 10
+  mesh: {fileID: 304168434690812165, guid: a6e6c82adb7d8074b94e388b5d236d14, type: 3}
+  material: {fileID: 2100000, guid: aa7511e83c35a334ea905bfb047c556c, type: 2}
+  defaultSpawnProba: 15
+  spawnProba: 15
+  score: 20
+  lowValue: 50
+  highValue: 65

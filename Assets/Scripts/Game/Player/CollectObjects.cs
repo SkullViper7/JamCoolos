@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.InputSystem.Composites;
 
 public class CollectObjects : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CollectObjects : MonoBehaviour
     private PlayerPerimeter playerPerimeter;
     [HideInInspector] public GameObject objectThatIsHeld;
 
+    public float distanceToCollectAnObject;
+    public float AngleToCollectAnObject;
     public float dropUpForce;
     public float dropForwardForce;
 
@@ -38,17 +41,25 @@ public class CollectObjects : MonoBehaviour
                 if (objectThatIsHeld == null)
                 {
                     GameObject currentObject = playerPerimeter.collectableObjectsInPerimeter[i];
+                    ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
 
-                    //If object is enough close
-                    if (Vector3.Distance(transform.position, currentObject.transform.position) <= 2)
+                    //If object is collectable
+                    if (objectStateMachine.currentState == objectStateMachine.collectableState)
                     {
-                        //If object is in front of the player
-                        if (Vector2.Angle(new Vector2(transform.forward.x, transform.forward.z), new Vector2(currentObject.transform.position.x - transform.position.x, currentObject.transform.position.z - transform.position.z)) <= 35f)
-                        {
-                            ObjectStateMachine objectStateMachine = currentObject.GetComponent<ObjectStateMachine>();
+                        Vector3 direction = currentObject.transform.position - transform.position;
 
-                            //If object is collectable
-                            if (objectStateMachine.currentState == objectStateMachine.collectableState)
+                        //If player is in the object
+                        if (IsPlayerInTheObject(currentObject))
+                        {
+                            //Collect object and switch to holding state
+                            CollectObject(currentObject);
+                        }
+                        //If object is in front of the player
+                        else if (Vector2.Angle(new Vector2(direction.x, direction.z), new Vector2(transform.forward.x, transform.forward.z)) <= AngleToCollectAnObject / 2)
+                        {
+                            //Check if object is enough close
+                            RaycastHit hit;
+                            if (Physics.Raycast(transform.position, direction, out hit, distanceToCollectAnObject))
                             {
                                 //Collect object and switch to holding state
                                 CollectObject(currentObject);
@@ -57,6 +68,29 @@ public class CollectObjects : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    private bool IsPlayerInTheObject(GameObject _object)
+    {
+        MeshCollider meshCollider = _object.GetComponent<MeshCollider>();
+
+        //Set min and max position to be in the object
+        float sizeX = meshCollider.bounds.size.x / 2;
+        float sizeZ = meshCollider.bounds.size.z / 2;
+        float posXMax = _object.transform.position.x + sizeX;
+        float posXMin = _object.transform.position.x - sizeX;
+        float posZMax = _object.transform.position.z + sizeZ;
+        float posZMin = _object.transform.position.z - sizeZ;
+
+        //Check if player is between these positions
+        if (transform.position.x < posXMax && transform.position.x > posXMin && transform.position.z < posZMax && transform.position.z > posZMin)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
