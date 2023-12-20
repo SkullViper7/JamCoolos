@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Weel
   m_EditorClassIdentifier: 
   weight: 25
-  mesh: {fileID: -1990611668554530130, guid: 516965509991e59468633840ef89d75a, type: 3}
+  mesh: {fileID: -1990611668554530130, guid: fce1f7dc745874b4eb8488e3fdc0ea97, type: 3}
   material: {fileID: 2100000, guid: 04f57101e393df147834c18462978fe4, type: 2}
   defaultSpawnProba: 20
   spawnProba: 20
   score: 50
-  lowValue: 65
-  highValue: 85
+  lowValue: 80
+  highValue: 100

@@ -36,7 +36,11 @@ public class Movements : MonoBehaviour
         {
             actualOrientation = new Vector3(_value.x, 0f, _value.y);
             isInMovement = true;
-            animator.SetInteger("State", 1);
+
+            if (!GameManager.Instance.isGameOver)
+            {
+                animator.SetInteger("State", 1);
+            }
         }
         //Else keep the last orientation to don't go to the neutral pos
         else
