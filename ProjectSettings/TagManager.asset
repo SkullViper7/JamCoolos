@@ -10,7 +10,7 @@ TagManager:
   - Car
   - Grass
   - Rock
-  - Carpet
+  - Wood
   layers:
   - Default
   - TransparentFX
