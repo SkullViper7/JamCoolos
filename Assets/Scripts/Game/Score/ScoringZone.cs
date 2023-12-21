@@ -6,12 +6,12 @@ public class ScoringZone : MonoBehaviour
 {
     public GameObject playerAssignToThisZone;
 
-    AudioSource audioSource;
+    private AudioSource _audioSource;
     public AudioClip cashSFX;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +24,7 @@ public class ScoringZone : MonoBehaviour
             if (collectableObject.lastPlayerWhoHeldThisObject == playerAssignToThisZone)
             {
                 //Add score to the player
-                ScoreManager.Instance.AddScore(playerAssignToThisZone.name, collectableObject.score);
+                ScoreManager.Instance.AddScore(playerAssignToThisZone, collectableObject.score);
 
                 //Remove object from all player perimeters
                 RemoveObjectFromAllPerimeters(other.gameObject);
@@ -32,12 +32,12 @@ public class ScoringZone : MonoBehaviour
                 //Release object
                 collectableObject.poolWhereItCameFrom.Release(other.gameObject);
 
-                audioSource.PlayOneShot(cashSFX);
+                _audioSource.PlayOneShot(cashSFX);
             }
         }
     }
 
-    private void RemoveObjectFromAllPerimeters(GameObject _object)
+    private void RemoveObjectFromAllPerimeters(GameObject objectToRemove)
     {
         //For each player in game
         GameManager gameManager = GameManager.Instance;
@@ -45,10 +45,10 @@ public class ScoringZone : MonoBehaviour
         {
             //If player perimeter contains object given
             PlayerPerimeter playerPerimeter = gameManager.players[i].GetComponentInChildren<PlayerPerimeter>();
-            if(playerPerimeter.collectableObjectsInPerimeter.Contains(_object))
+            if(playerPerimeter.collectableObjectsInPerimeter.Contains(objectToRemove))
             {
                 //Remove object
-                playerPerimeter.collectableObjectsInPerimeter.Remove(_object);
+                playerPerimeter.collectableObjectsInPerimeter.Remove(objectToRemove);
             }
         }
     }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pipe
   m_EditorClassIdentifier: 
   weight: 5
-  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: d23ddbda9cc57084eaf3f709de7970ed, type: 2}
+  mesh: {fileID: -5505656329704350330, guid: 6c570eca2546a1d4194236e3a723b2da, type: 3}
+  material: {fileID: 2100000, guid: b27b1d9322802fa4f92d8d34eb7e9c56, type: 2}
   defaultSpawnProba: 20
   spawnProba: 20
   score: 10

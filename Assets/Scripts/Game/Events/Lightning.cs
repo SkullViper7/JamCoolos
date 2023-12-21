@@ -1,12 +1,14 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Lightning : MonoBehaviour
 {
-    public GameObject cam;
+    [SerializeField]
+    private GameObject _camera;
+    private AudioSource _audioSource;
+    private EventManager _eventManager;
 
     [Header("Lightning")]
     [SerializeField]
@@ -24,16 +26,19 @@ public class Lightning : MonoBehaviour
     [SerializeField]
     private AudioClip _lightningSFX;
 
-    private AudioSource _audioSource;
-
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        _eventManager = GetComponent<EventManager>();
     }
 
-    public IEnumerator LightningStrikes()
+    public void DoLightningStrike()
     {
-        yield return new WaitForSeconds(3f);
+        StartCoroutine(LightningStrikes());
+    }
+
+    private IEnumerator LightningStrikes()
+    {
         //Get the actual best player
         GameObject playerToStrike = ScoreManager.Instance.GetBestPlayer();
 
@@ -42,10 +47,11 @@ public class Lightning : MonoBehaviour
         _flashAnim.Play("Flash");
 
         //Shake the camera
-        cam.transform.DOShakePosition(_lightDuration, _lightStrength, _lightVibrato, _lightRandomness);
+        _camera.transform.DOShakePosition(_lightDuration, _lightStrength, _lightVibrato, _lightRandomness);
 
-        //Makes the player fall
+        //Makes the player fall forward
         PlayerStateMachine playerStateMachine = playerToStrike.GetComponent<PlayerStateMachine>();
+        gameObject.transform.rotation = Quaternion.Euler(0f, playerToStrike.transform.rotation.y, 0f);
         playerStateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
         playerStateMachine.ChangeState(playerStateMachine.fallingState);
 
@@ -60,5 +66,9 @@ public class Lightning : MonoBehaviour
         Destroy(lightning);
 
         _flashAnim.Play("Idle");
+
+        gameObject.transform.rotation = Quaternion.identity;
+
+        _eventManager.isThereAnEventInProgress = false;
     }
 }

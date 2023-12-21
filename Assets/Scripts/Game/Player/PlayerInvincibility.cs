@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerInvincibility : MonoBehaviour
 {
-    private PlayerStateMachine playerStateMachine;
+    private PlayerStateMachine _playerStateMachine;
     public Coroutine invincibilityCoroutine;
+
+    [SerializeField]
+    private Animator _playerMarkerAnimator;
 
     public float defaultInvincibilityTime;
 
     private void Start()
     {
-        playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
     public void LaunchInvincibility()
@@ -25,6 +28,7 @@ public class PlayerInvincibility : MonoBehaviour
         //Make sure that the coroutine is clear
         if (invincibilityCoroutine != null)
         {
+            _playerMarkerAnimator.SetBool("IsInvincible", false);
             StopCoroutine(invincibilityCoroutine);
             invincibilityCoroutine = null;
         }
@@ -32,8 +36,12 @@ public class PlayerInvincibility : MonoBehaviour
 
     private IEnumerator Invincibility()
     {
+        //Makes player marker flash
+        _playerMarkerAnimator.SetBool("IsInvincible", true);
+
         //Wait until invincibility time to return to default state
         yield return new WaitForSeconds(defaultInvincibilityTime);
-        playerStateMachine.ChangeState(playerStateMachine.defaultState);
+        _playerMarkerAnimator.SetBool("IsInvincible", false);
+        _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
     }
 }

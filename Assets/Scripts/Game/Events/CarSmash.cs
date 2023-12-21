@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CarSmash : MonoBehaviour
 {
-    AudioSource audioSource;
+    private AudioSource _audioSource;
     public AudioClip crash;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class CarSmash : MonoBehaviour
             PlayerStateMachine stateMachine = other.GetComponent<PlayerStateMachine>();
             stateMachine.GetComponent<PlayerFall>().objectThatPushedMe = this.gameObject;
             stateMachine.ChangeState(stateMachine.fallingState);
-            audioSource.PlayOneShot(crash);
+            _audioSource.PlayOneShot(crash);
         }
     }
 }

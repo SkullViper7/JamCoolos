@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Movements : MonoBehaviour
 {
-    private Vector3 lastOrientation;
-    private Vector3 actualOrientation;
+    private Vector3 _lastOrientation;
+    private Vector3 _actualOrientation;
 
-    private Rigidbody rb;
+    private Rigidbody _rb;
     public float defaultMoveSpeed;
-    //[HideInInspector]
+    [HideInInspector]
     public float actualSpeed;
 
     [HideInInspector]
     public bool isInMovement;
 
-    Animator animator;
+    private Animator _animator;
 
     public bool isOnGrass;
     public bool isOnRock;
@@ -23,35 +23,38 @@ public class Movements : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
+        _rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<PlayerStateMachine>().playerAnimator;
+
+        _lastOrientation = transform.forward;
+        _actualOrientation = transform.forward;
     }
 
-    public void Move(Vector2 _value)
+    public void Move(Vector2 value)
     {
-        lastOrientation = actualOrientation;
+        _lastOrientation = _actualOrientation;
 
         //If joystick is not in neutral pos, actual orientation is the same as the joystick
-        if (_value != new Vector2(0, 0))
+        if (value != new Vector2(0, 0))
         {
-            actualOrientation = new Vector3(_value.x, 0f, _value.y);
-            isInMovement = true;
-
             if (!GameManager.Instance.isGameOver)
             {
-                animator.SetInteger("State", 1);
+                _actualOrientation = new Vector3(value.x, 0f, value.y);
+                isInMovement = true;
+
+                _animator.SetInteger("State", 1);
             }
         }
         //Else keep the last orientation to don't go to the neutral pos
         else
         {
-            actualOrientation = lastOrientation;
+            _actualOrientation = _lastOrientation;
             isInMovement = false;
-            animator.SetInteger("State", 0);
+            _animator.SetInteger("State", 0);
         }
 
         //Player orientation is the same as the stick
-        transform.forward = actualOrientation;
+        transform.forward = _actualOrientation;
     }
 
     private void FixedUpdate()
@@ -61,40 +64,40 @@ public class Movements : MonoBehaviour
         if (isInMovement && !GameManager.Instance.isGameOver)
         {
             //Player moves when joystick is held
-            Vector3 velocity = actualOrientation * actualSpeed * Time.deltaTime;
-            rb.velocity = velocity;
+            Vector3 velocity = _actualOrientation * actualSpeed * Time.deltaTime;
+            _rb.velocity = velocity;
         }
     }
 
     private void UpdateGroundType()
     {
+        //Check on what type of ground player walks
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 2))
         {
-            if (hit.collider.gameObject.tag == "Grass")
+            switch (hit.collider.gameObject.tag)
             {
-                isOnGrass = true;
-                isOnRock = false;
-                isOnCarpet = false;
-            }
-            else if (hit.collider.gameObject.tag == "Rock")
-            {
-                isOnGrass = false;
-                isOnRock = true;
-                isOnCarpet = false;
-            }
-            else if (hit.collider.gameObject.tag == "Carpet")
-            {
-                isOnGrass = false;
-                isOnRock = false;
-                isOnCarpet = true;
-            }
-            else
-            {
-                isOnGrass = false;
-                isOnRock = false;
-                isOnCarpet = false;
+                case "Grass":
+                    isOnGrass = true;
+                    isOnRock = false;
+                    isOnCarpet = false;
+                    break;
+                case "Rock":
+                    isOnGrass = false;
+                    isOnRock = true;
+                    isOnCarpet = false;
+                    break;
+                case "Carpet":
+                    isOnGrass = false;
+                    isOnRock = false;
+                    isOnCarpet = true;
+                    break;
+                default:
+                    isOnGrass = false;
+                    isOnRock = false;
+                    isOnCarpet = false;
+                    break;
             }
         }
         else

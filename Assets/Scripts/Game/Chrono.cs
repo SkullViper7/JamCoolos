@@ -15,19 +15,30 @@ public class Chrono : MonoBehaviour
     [SerializeField]
     private Coroutine _decrementTimer;
 
-    [SerializeField]
     private int _nbrOfMinutes;
-    [SerializeField]
     private int _nbrOfSeconds;
 
     [SerializeField]
-    private GameObject _EndScreen;
+    private GameObject _finish;
     [SerializeField]
     private GameObject _gameUI;
     [SerializeField]
     private AudioSource _gameMusic;
     [SerializeField]
     private AudioSource _endMusic;
+    [SerializeField] 
+    private AudioSource _buzzer;
+    [SerializeField]
+    private GameObject _endScreen;
+
+    [SerializeField]
+    private GameObject _cam;
+    [SerializeField] 
+    private GameObject _camTarget;
+    [SerializeField]
+    private Podium _podiumScript;
+    [SerializeField]
+    private Animator fadeAnim;
 
     //Singleton
     private static Chrono _instance = null;
@@ -140,12 +151,29 @@ public class Chrono : MonoBehaviour
     {
         // Stop the timer
         StopCoroutine(_decrementTimer);
-        _EndScreen.SetActive(true);
+        _finish.SetActive(true);
         _gameUI.SetActive(false);
         _gameMusic.Stop();
+        _buzzer.Play();
         _endMusic.Play();
         GameManager.Instance.isGameOver = true;
         EndOfTheGame?.Invoke();
+        Invoke("ShowPodium", 3);
+    }
+
+    void ShowPodium()
+    {
+        _podiumScript.MoveToPodium();
+        _endScreen.SetActive(true);
+        fadeAnim.Play("Fade");
+        Invoke("MoveCam", 0.6f);
+    }
+
+    void MoveCam()
+    {
+        _cam.GetComponent<MultiTargetCam>().enabled = false;
+        _cam.transform.position = _camTarget.transform.position;
+        _cam.transform.rotation = _camTarget.transform.rotation;
     }
 
     private string ConvertToString(int _time)

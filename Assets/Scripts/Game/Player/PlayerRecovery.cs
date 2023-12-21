@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PlayerRecovery : MonoBehaviour
 {
-    private PlayerStateMachine playerStateMachine;
+    private PlayerStateMachine _playerStateMachine;
     public Coroutine recoveryCoroutine;
 
     public float defaultRecoveryTime;
 
     private void Start()
     {
-        playerStateMachine = GetComponent<PlayerStateMachine>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
-    public void LaunchRecovery(float _recoveryTime)
+    public void LaunchRecovery(float recoveryTime)
     {
         //Start coroutine
-        recoveryCoroutine = StartCoroutine(Recovery(_recoveryTime));
+        recoveryCoroutine = StartCoroutine(Recovery(recoveryTime));
     }
 
     public void StopRecovery()
@@ -30,10 +30,10 @@ public class PlayerRecovery : MonoBehaviour
         }
     }
 
-    private IEnumerator Recovery(float _recoveryTime)
+    private IEnumerator Recovery(float recoveryTime)
     {
         //Wait until recovery to return to default state
-        yield return new WaitForSeconds(_recoveryTime);
-        playerStateMachine.ChangeState(playerStateMachine.defaultState);
+        yield return new WaitForSeconds(recoveryTime);
+        _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
     }
 }
