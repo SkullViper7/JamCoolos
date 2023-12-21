@@ -130,6 +130,76 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""GUI"",
+            ""id"": ""45ef5027-8015-4b26-ad50-fa115ca81363"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""0ad75193-1e57-4de2-b34f-ad64e165b9db"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Validate"",
+                    ""type"": ""Button"",
+                    ""id"": ""b66a2482-7c54-47fe-a9c4-67cc68f939c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""543c3412-183c-4e65-a595-b70242fde18e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acff0ead-35f6-4392-a273-e56710320ed0"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53b2efae-ae38-4c52-8461-4fe0a7e75c34"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0aea59c6-c459-41bb-ad7d-ebee8007dd1b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -141,6 +211,10 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_InGame_PushOtherPlayers = m_InGame.FindAction("PushOtherPlayers", throwIfNotFound: true);
         m_InGame_Pause = m_InGame.FindAction("Pause", throwIfNotFound: true);
         m_InGame_ReadyToPlay = m_InGame.FindAction("ReadyToPlay", throwIfNotFound: true);
+        // GUI
+        m_GUI = asset.FindActionMap("GUI", throwIfNotFound: true);
+        m_GUI_Navigate = m_GUI.FindAction("Navigate", throwIfNotFound: true);
+        m_GUI_Validate = m_GUI.FindAction("Validate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -276,6 +350,60 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public InGameActions @InGame => new InGameActions(this);
+
+    // GUI
+    private readonly InputActionMap m_GUI;
+    private List<IGUIActions> m_GUIActionsCallbackInterfaces = new List<IGUIActions>();
+    private readonly InputAction m_GUI_Navigate;
+    private readonly InputAction m_GUI_Validate;
+    public struct GUIActions
+    {
+        private @Inputs m_Wrapper;
+        public GUIActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Navigate => m_Wrapper.m_GUI_Navigate;
+        public InputAction @Validate => m_Wrapper.m_GUI_Validate;
+        public InputActionMap Get() { return m_Wrapper.m_GUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GUIActions set) { return set.Get(); }
+        public void AddCallbacks(IGUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GUIActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @Validate.started += instance.OnValidate;
+            @Validate.performed += instance.OnValidate;
+            @Validate.canceled += instance.OnValidate;
+        }
+
+        private void UnregisterCallbacks(IGUIActions instance)
+        {
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @Validate.started -= instance.OnValidate;
+            @Validate.performed -= instance.OnValidate;
+            @Validate.canceled -= instance.OnValidate;
+        }
+
+        public void RemoveCallbacks(IGUIActions instance)
+        {
+            if (m_Wrapper.m_GUIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GUIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GUIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GUIActions @GUI => new GUIActions(this);
     public interface IInGameActions
     {
         void OnMovements(InputAction.CallbackContext context);
@@ -283,5 +411,10 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnPushOtherPlayers(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnReadyToPlay(InputAction.CallbackContext context);
+    }
+    public interface IGUIActions
+    {
+        void OnNavigate(InputAction.CallbackContext context);
+        void OnValidate(InputAction.CallbackContext context);
     }
 }
