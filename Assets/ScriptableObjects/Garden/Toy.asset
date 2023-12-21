@@ -17,6 +17,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: fafaf8f6f7e153740a6aa2f2751d2017, type: 2}
   defaultSpawnProba: 30
   spawnProba: 30
-  score: 20
+  score: 15
   lowValue: 50
   highValue: 80
