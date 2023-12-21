@@ -33,6 +33,7 @@ public class PlayerPause : MonoBehaviour
     {
         //Pause the game
         Time.timeScale = 0f;
+        GameManager.Instance.isPause = true;
         _pauseWindow.SetActive(true);
     }
 }

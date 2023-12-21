@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using System;
+using Cinemachine;
 
 public class Chrono : MonoBehaviour
 {
@@ -172,6 +173,7 @@ public class Chrono : MonoBehaviour
     void MoveCam()
     {
         _cam.GetComponent<MultiTargetCam>().enabled = false;
+        _cam.GetComponent<CinemachineConfiner>().enabled = false;
         _cam.transform.position = _camTarget.transform.position;
         _cam.transform.rotation = _camTarget.transform.rotation;
     }
