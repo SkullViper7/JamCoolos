@@ -10,6 +10,7 @@ public class GamepadRumble : MonoBehaviour
     public static GamepadRumble Instance => instance;
     //
 
+    private GameManager _gameManager;
 
     private Dictionary<Gamepad, Coroutine> _activeRumbles = new();
 
@@ -28,6 +29,11 @@ public class GamepadRumble : MonoBehaviour
         //
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        _gameManager = GameManager.Instance;
     }
 
     public void StartRumble(GameObject playerController, float time, float force)
@@ -59,5 +65,15 @@ public class GamepadRumble : MonoBehaviour
 
         controller.SetMotorSpeeds(0, 0);
         _activeRumbles.Remove(controller);
+    }
+
+    private void OnApplicationQuit()
+    {
+        //Stop all gamepads rumble
+        for (int i = 0; i < _gameManager.players.Count; i++)
+        {
+            Gamepad controller = (Gamepad)_gameManager.players[i].GetComponent<PlayerDevice>().playerInput.user.pairedDevices[0];
+            controller.SetMotorSpeeds(0, 0);
+        }
     }
 }

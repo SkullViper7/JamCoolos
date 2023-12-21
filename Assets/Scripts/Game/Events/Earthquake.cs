@@ -46,6 +46,7 @@ public class Earthquake : MonoBehaviour
             GamepadRumble.Instance.StartRumble(_gameManager.players[i], _earthquakeDuration, _earthquakeStrength);
 
             PlayerStateMachine playerStateMachine = _gameManager.players[i].GetComponent<PlayerStateMachine>();
+            gameObject.transform.rotation = Quaternion.Euler(0f, playerStateMachine.transform.rotation.y, 0f);
             playerStateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
             playerStateMachine.ChangeState(playerStateMachine.fallingState);
         }
@@ -55,6 +56,7 @@ public class Earthquake : MonoBehaviour
 
         yield return new WaitForSeconds(_earthquakeDuration);
 
+        gameObject.transform.rotation = Quaternion.identity;
         _eventManager.isThereAnEventInProgress = false;
     }
 }
