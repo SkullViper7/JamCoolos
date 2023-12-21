@@ -37,7 +37,7 @@ public class Movements : MonoBehaviour
         //If joystick is not in neutral pos, actual orientation is the same as the joystick
         if (value != new Vector2(0, 0))
         {
-            if (!GameManager.Instance.isGameOver)
+            if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
             {
                 _actualOrientation = new Vector3(value.x, 0f, value.y);
                 isInMovement = true;
@@ -61,7 +61,7 @@ public class Movements : MonoBehaviour
     {
         UpdateGroundType();
 
-        if (isInMovement && !GameManager.Instance.isGameOver)
+        if (isInMovement && !GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
         {
             //Player moves when joystick is held
             Vector3 velocity = _actualOrientation * actualSpeed * Time.deltaTime;
