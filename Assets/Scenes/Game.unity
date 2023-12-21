@@ -2036,13 +2036,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 81659bb7d4bbebd40be20ee9652c6a67, type: 3}
 --- !u!224 &208234865 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1082678367255140175, guid: 81659bb7d4bbebd40be20ee9652c6a67,
-    type: 3}
-  m_PrefabInstance: {fileID: 208234864}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &208234866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3048782754078548804, guid: 81659bb7d4bbebd40be20ee9652c6a67,
+  m_CorrespondingSourceObject: {fileID: 5045366072218527411, guid: 81659bb7d4bbebd40be20ee9652c6a67,
     type: 3}
   m_PrefabInstance: {fileID: 208234864}
   m_PrefabAsset: {fileID: 0}
@@ -5760,7 +5754,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 208234866}
+      objectReference: {fileID: 0}
     - target: {fileID: 5446436592220688024, guid: 6125f3d933e841f419f7dc972191b3f9,
         type: 3}
       propertyPath: m_Name
@@ -9322,7 +9316,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 208234866}
+      objectReference: {fileID: 0}
     - target: {fileID: 8725904600604163000, guid: 2d7288d2a32d50b4ea13b76c96079975,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10862,7 +10856,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 208234866}
+      objectReference: {fileID: 0}
     - target: {fileID: 8725904600604163000, guid: 3e72da3baafdf7d47b4f248bcfb39d79,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -16942,7 +16936,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 208234866}
+      objectReference: {fileID: 0}
     - target: {fileID: 5446436592220688024, guid: 982f176fd757dde4db91dccbe31300bd,
         type: 3}
       propertyPath: m_Name
