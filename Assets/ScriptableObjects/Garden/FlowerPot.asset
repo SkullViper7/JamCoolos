@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 5
   mesh: {fileID: 8526484429025651462, guid: 79dc36e9ad3cb4748bed90e6d41b0cad, type: 3}
-  material: {fileID: 4561601497117340719, guid: 79dc36e9ad3cb4748bed90e6d41b0cad,
-    type: 3}
+  material: {fileID: 2100000, guid: 864b1178e68b0d74ba090deef5bfe8e5, type: 2}
   defaultSpawnProba: 20
   spawnProba: 20
   score: 10
