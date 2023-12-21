@@ -45,7 +45,7 @@ public class HoldingState : IPlayerState
         }
     }
 
-    private float SpeedCoefficient()
+    public float SpeedCoefficient()
     {
         //Return the multiplier to apply to the default speed to reduce speed
         return 1f - (_collectObjects.objectThatIsHeld.GetComponent<CollectableObject>().weight / 100f);

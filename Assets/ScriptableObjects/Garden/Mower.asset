@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mower
   m_EditorClassIdentifier: 
   weight: 50
-  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e25c3cfebe4b0a647be1c34321ffaf5e, type: 2}
+  mesh: {fileID: -5495902117074765545, guid: ddd8c3e47ddfac7478a94c9a2a8ae816, type: 3}
+  material: {fileID: 2100000, guid: 853b1f0695eeabd4c9aafedfd5c1c73f, type: 2}
   defaultSpawnProba: 10
   spawnProba: 10
   score: 100

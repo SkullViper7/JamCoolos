@@ -242,10 +242,10 @@ public class SpawnManager : MonoBehaviour
             maxNumberOfObjectsInGame += _areas[i].GetComponent<ObjectPool>().poolSize;
         }
 
-        //Check if there is a minimum of the half of the maximum number of objects in the game
-        if (numberOfObjectsInGame < maxNumberOfObjectsInGame / 2)
+        //Check if there is a minimum of the tiers of the maximum number of objects in the game
+        if (numberOfObjectsInGame < maxNumberOfObjectsInGame / 3)
         {
-            //Spawn a random object in a random area
+            //Spawn a random object that is not a big in a random area
             GameObject area = _areas[Random.Range(0, _areas.Count)];
             SpawnArea spawnArea = area.GetComponent<SpawnArea>();
             ObjectPool objectPool = area.GetComponent<ObjectPool>();
@@ -254,7 +254,7 @@ public class SpawnManager : MonoBehaviour
 
             if (objectToSpawn != null)
             {
-                spawnArea.Spawn(objectPool.HydrateObject(objectToSpawn, objectPool.GetRandomObject()));
+                spawnArea.Spawn(objectPool.HydrateObject(objectToSpawn, objectPool.GetRandomObjectWithoutTheBiggest()));
             }
         }
     }
@@ -282,7 +282,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void StopSpawn()
+    private void StopSpawn()
     {
         StopCoroutine(spawnCoroutine);
         spawnCoroutine = null;

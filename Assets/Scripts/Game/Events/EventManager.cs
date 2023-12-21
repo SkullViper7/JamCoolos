@@ -10,10 +10,13 @@ public class EventManager : MonoBehaviour
     private static EventManager _instance = null;
     public static EventManager Instance => _instance;
     //
+    private Chrono _chrono;
 
     private Lightning _lightning;
     private Earthquake _eartquake;
     private Wind _wind;
+
+    private Coroutine _eventsCoroutine;
 
     public bool isThereAnEventInProgress;
 
@@ -34,14 +37,17 @@ public class EventManager : MonoBehaviour
 
     private void Start()
     {
+        _chrono = Chrono.Instance;
         _lightning = GetComponent<Lightning>();
         _eartquake = GetComponent<Earthquake>();
         _wind = GetComponent<Wind>();
 
-        StartCoroutine(PlayEvent());
+        _chrono.EndOfTheGame += StopEvents;
+
+        _eventsCoroutine = StartCoroutine(PlayEvent());
     }
 
-    IEnumerator PlayEvent()
+    private IEnumerator PlayEvent()
     {
         int randomEvent = Random.Range(0, 3);
         int randomTime = Random.Range(10, 15);
@@ -70,6 +76,12 @@ public class EventManager : MonoBehaviour
                 }
         }
 
-        StartCoroutine(PlayEvent());
+        _eventsCoroutine = StartCoroutine(PlayEvent());
+    }
+
+    private void StopEvents()
+    {
+        StopCoroutine(_eventsCoroutine);
+        _eventsCoroutine = null;
     }
 }

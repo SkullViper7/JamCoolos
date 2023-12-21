@@ -18,6 +18,8 @@ public class Wind : MonoBehaviour
     private float _windStrength;
     [SerializeField]
     private AudioClip _windSFX;
+    [SerializeField]
+    private ParticleSystem _windVFX;
 
     private bool _windIsBlowing;
 
@@ -45,17 +47,30 @@ public class Wind : MonoBehaviour
         //Play audio
         _audioSource.volume = 0.5f;
         _audioSource.PlayOneShot(_windSFX);
+        _windVFX.Play();
 
         //Wait during the wind
         yield return new WaitForSeconds(_windDuration);
 
-        _windIsBlowing = true;
+        _windIsBlowing = false;
+        _windVFX.Stop();
 
         //Reset movespeeds
         for (int i = 0; i < _gameManager.players.Count; i++)
         {
             Movements playerMovements = _gameManager.players[i].GetComponent<Movements>();
-            playerMovements.actualSpeed = playerMovements.defaultMoveSpeed;
+            PlayerStateMachine playerStateMachine = _gameManager.players[i].GetComponent<PlayerStateMachine>();
+
+            //If player is holding an object
+            if (playerStateMachine.currentState == playerStateMachine.holdingState)
+            {
+                playerMovements.actualSpeed = playerMovements.defaultMoveSpeed * playerStateMachine.holdingState.SpeedCoefficient();
+            }
+            //If not
+            else
+            {
+                playerMovements.actualSpeed = playerMovements.defaultMoveSpeed;
+            }
         }
 
         _audioSource.volume = 1;

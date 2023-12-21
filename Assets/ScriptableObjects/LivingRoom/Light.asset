@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Light
   m_EditorClassIdentifier: 
   weight: 10
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: dc52523eb9af4d94eba717a291b9abf4, type: 2}
+  mesh: {fileID: -245266456209707876, guid: 6e416691a60a53044a9cbe271478da7d, type: 3}
+  material: {fileID: 2100000, guid: 2063a2e64d5e1d94ca74c4e75703f678, type: 2}
   defaultSpawnProba: 15
   spawnProba: 15
   score: 20
