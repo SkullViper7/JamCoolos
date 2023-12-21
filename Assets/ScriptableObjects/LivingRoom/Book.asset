@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Book
   m_EditorClassIdentifier: 
   weight: 5
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: e64043bb2ff54844499d27b5a2e28e5a, type: 2}
+  mesh: {fileID: 2866133477350360225, guid: 92da0321f097ff549ab5281c217cb712, type: 3}
+  material: {fileID: 2100000, guid: c32627f429950f54a94fc30b2c954a2a, type: 2}
   defaultSpawnProba: 20
   spawnProba: 20
   score: 10
