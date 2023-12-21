@@ -32,12 +32,6 @@ public class PlayerDevice : MonoBehaviour
             case "Player4":
                 TryToFindController("PlayerInputController4");
                 break;
-            default:
-                //For the tests player
-                playerInput = GetComponent<PlayerInput>();
-                _playerStateMachine.playerInput = playerInput;
-                _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
-                break;
         }
     }
 
@@ -52,6 +46,7 @@ public class PlayerDevice : MonoBehaviour
             ScoreManager.Instance.playerScores.Add(this.gameObject, 0);
             GameManager.Instance.players.Add(this.gameObject);
             GameManager.Instance.gamepads.Add((Gamepad)playerInput.user.pairedDevices[0]);
+            GetComponent<PlayerPause>().InitializePause();
         }
         else
         {
