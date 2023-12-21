@@ -2403,6 +2403,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 208234864}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &208234866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2852061773803643036, guid: 81659bb7d4bbebd40be20ee9652c6a67,
+    type: 3}
+  m_PrefabInstance: {fileID: 208234864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &215954696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7036,7 +7042,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 208234866}
     - target: {fileID: 5446436592220688024, guid: 6125f3d933e841f419f7dc972191b3f9,
         type: 3}
       propertyPath: m_Name
@@ -11238,7 +11244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 208234866}
     - target: {fileID: 8725904600604163000, guid: 2d7288d2a32d50b4ea13b76c96079975,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12975,7 +12981,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 208234866}
     - target: {fileID: 8725904600604163000, guid: 3e72da3baafdf7d47b4f248bcfb39d79,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -17931,7 +17937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57bc1a7b41b2764fa30ffd1ffc1c673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 180
   _minutes: {fileID: 7799142190087211724}
   _seconds: {fileID: 7799142190087211723}
   _finish: {fileID: 862844488}
@@ -19642,7 +19648,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _pauseWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 208234866}
     - target: {fileID: 5446436592220688024, guid: 982f176fd757dde4db91dccbe31300bd,
         type: 3}
       propertyPath: m_Name
@@ -21131,7 +21137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ec5c44855d13f48910037c66b3d403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 4205077871814340769}
+  _camera: {fileID: 1429263587}
   _windDuration: 5
   _windStrength: 0.1
   _windSFX: {fileID: 8300000, guid: 38672511fb75059438cc340bee6636a4, type: 3}
@@ -21757,7 +21763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5aa81d3f0898f346880b76e3fe5335d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 4205077871814340769}
+  _camera: {fileID: 1429263587}
   _earthquakeDuration: 3
   _earthquakeStrength: 1
   _earthquakeVibrato: 10
