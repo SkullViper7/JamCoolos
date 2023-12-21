@@ -1935,6 +1935,7 @@ MonoBehaviour:
   maxPlayerCount: 0
   playerCount: 0
   isGameOver: 1
+  isPause: 0
   playerInputControls: []
   players: []
 --- !u!4 &623582194
@@ -2103,7 +2104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb9020ac7662b81469efdffda8745da2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8461df0ebf729547a136135eec7d1cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2272,7 +2273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e0d0e61cb1ddcc43983cdb9b1ad2778, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6b9c0cac0fe17e40a38d9c6916f4029, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3025,7 +3026,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2c0cffa550a18a4d9c6083fdf88c170, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 060d02b58247ed9499f8656c1609305e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5210,7 +5211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63866f39f7c51bb46a29e35391e980f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee2129e089c5f0a4c9bb2c7a373e4abf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
