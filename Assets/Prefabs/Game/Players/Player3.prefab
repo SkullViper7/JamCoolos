@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: -3154528033642278633}
   - component: {fileID: 3251343103476265710}
   - component: {fileID: -383173292298095721}
+  - component: {fileID: -6860109857336701757}
   - component: {fileID: 4802298207538847220}
   m_Layer: 6
   m_Name: Player3
@@ -456,7 +457,7 @@ MonoBehaviour:
   isInMovement: 0
   isOnGrass: 0
   isOnRock: 0
-  isOnCarpet: 0
+  isOnWood: 0
 --- !u!114 &2760818744526352795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +543,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMarkerAnimator: {fileID: 4237694286168190570}
   defaultInvincibilityTime: 3
+--- !u!114 &-6860109857336701757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446436592220688024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f83a5d876738247bd061f5c4c3eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseWindow: {fileID: 0}
 --- !u!82 &4802298207538847220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1356,17 +1370,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d48846de6b45e9e41b5c4c2d6d7bd364, type: 3}
   - {fileID: 8300000, guid: 8f8c9e280b2873b489896759e3dd854f, type: 3}
   - {fileID: 8300000, guid: 36a4ccf8351ea9940abb73e0b9306da3, type: 3}
-  carpetFootsteps:
-  - {fileID: 8300000, guid: 505a015d5525e0442ae4a62d5bac304d, type: 3}
-  - {fileID: 8300000, guid: 7ffe843b3b9c8d14792d912d39646105, type: 3}
-  - {fileID: 8300000, guid: 2802b1a72217c464ea0171ad67e835f7, type: 3}
-  - {fileID: 8300000, guid: 88da42c7018c0fa41870ccf17d13da9c, type: 3}
-  - {fileID: 8300000, guid: 8b4e405a508185e428652ccc26469d53, type: 3}
-  - {fileID: 8300000, guid: cee4ef3ef0fd155409f7b5a5162cece8, type: 3}
-  - {fileID: 8300000, guid: b30822d7e7d412d459397d0749be742a, type: 3}
-  - {fileID: 8300000, guid: 7f31ac62883f78b4ba610e164f57f879, type: 3}
-  - {fileID: 8300000, guid: 2c37f11b2d56b374ebf354853c6ad643, type: 3}
-  - {fileID: 8300000, guid: 75d4e54cf94712d4e8de7ce385abceb2, type: 3}
+  woodFootsteps: []
   movements: {fileID: 8140670186057600265}
 --- !u!82 &2677704050352638625
 AudioSource:

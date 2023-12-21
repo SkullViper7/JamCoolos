@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
+  m_Name: LittleTable
+  m_EditorClassIdentifier: 
+  weight: 10
+  mesh: {fileID: -5245300274931811004, guid: 8320d1d4d60d67f499350a017bffa04e, type: 3}
+  material: {fileID: 2100000, guid: 8c9c424493ff74645a6cfe9c46f0d2d3, type: 2}
+  defaultSpawnProba: 15
+  spawnProba: 30
+  score: 20
+  lowValue: 50
+  highValue: 80

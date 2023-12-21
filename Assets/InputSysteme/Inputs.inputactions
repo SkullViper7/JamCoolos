@@ -108,6 +108,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GUI",
+            "id": "45ef5027-8015-4b26-ad50-fa115ca81363",
+            "actions": [
+                {
+                    "name": "Navigate",
+                    "type": "Value",
+                    "id": "0ad75193-1e57-4de2-b34f-ad64e165b9db",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Validate",
+                    "type": "Button",
+                    "id": "b66a2482-7c54-47fe-a9c4-67cc68f939c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "543c3412-183c-4e65-a595-b70242fde18e",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53b2efae-ae38-4c52-8461-4fe0a7e75c34",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Validate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
