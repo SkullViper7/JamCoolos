@@ -13,5 +13,11 @@ public class Finish : MonoBehaviour
     private void Start()
     {
         gameObject.transform.DOShakePosition(duration, strenght, vibrato, randomness, false, false);
+        Invoke("Delete", duration);
+    }
+
+    void Delete()
+    {
+        Destroy(gameObject);
     }
 }

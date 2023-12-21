@@ -19,13 +19,22 @@ public class Chrono : MonoBehaviour
     private int _nbrOfSeconds;
 
     [SerializeField]
-    private GameObject _EndScreen;
+    private GameObject _finish;
     [SerializeField]
     private GameObject _gameUI;
     [SerializeField]
     private AudioSource _gameMusic;
     [SerializeField]
     private AudioSource _endMusic;
+    [SerializeField]
+    private GameObject _endScreen;
+
+    [SerializeField]
+    private Animator _camAnim;
+    [SerializeField]
+    private Podium _podiumScript;
+    [SerializeField]
+    private Animator fadeAnim;
 
     //Singleton
     private static Chrono _instance = null;
@@ -138,12 +147,20 @@ public class Chrono : MonoBehaviour
     {
         // Stop the timer
         StopCoroutine(_decrementTimer);
-        _EndScreen.SetActive(true);
+        _finish.SetActive(true);
         _gameUI.SetActive(false);
         _gameMusic.Stop();
         _endMusic.Play();
         GameManager.Instance.isGameOver = true;
         EndOfTheGame?.Invoke();
+        Invoke("ShowPodium", 3);
+    }
+
+    void ShowPodium()
+    {
+        _endScreen.SetActive(true);
+        _camAnim.Play("Podium");
+        fadeAnim.Play("Fade");
     }
 
     private string ConvertToString(int _time)
