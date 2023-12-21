@@ -34,7 +34,7 @@ public class CollectObjects : MonoBehaviour
 
     public void TryToCollectObject()
     {
-        if (!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
         {
             //If there is objects in player perimeter
             if (_playerPerimeter.collectableObjectsInPerimeter != null && _playerPerimeter.collectableObjectsInPerimeter.Count != 0)

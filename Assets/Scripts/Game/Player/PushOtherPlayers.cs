@@ -27,7 +27,7 @@ public class PushOtherPlayers : MonoBehaviour
 
     public void TryToPush()
     {
-        if (!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
         {
             if (!_eventManager.isThereAnEventInProgress)
             {
