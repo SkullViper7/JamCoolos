@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine;
 
 public class Earthquake : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class Earthquake : MonoBehaviour
     public IEnumerator EarthQuakes()
     {
         //Shake the camera
+        _camera.GetComponent<CinemachineConfiner>().enabled = false;
         _camera.transform.DOShakePosition(_earthquakeDuration, _earthquakeStrength, _earthquakeVibrato, _earthquakeRandomness);
 
         //Makes all gamepads rumble and players fall forward
@@ -55,6 +57,8 @@ public class Earthquake : MonoBehaviour
         _audioSource.PlayOneShot(_earthquakeSFX);
 
         yield return new WaitForSeconds(_earthquakeDuration);
+
+        _camera.GetComponent<CinemachineConfiner>().enabled = true;
 
         gameObject.transform.rotation = Quaternion.identity;
         _eventManager.isThereAnEventInProgress = false;

@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using System.Collections;
 using UnityEditor;
@@ -47,6 +48,7 @@ public class Lightning : MonoBehaviour
         _flashAnim.Play("Flash");
 
         //Shake the camera
+        _camera.GetComponent<CinemachineConfiner>().enabled = false;
         _camera.transform.DOShakePosition(_lightDuration, _lightStrength, _lightVibrato, _lightRandomness);
 
         //Makes the player fall forward
@@ -68,6 +70,10 @@ public class Lightning : MonoBehaviour
         _flashAnim.Play("Idle");
 
         gameObject.transform.rotation = Quaternion.identity;
+
+        _camera.GetComponent<CinemachineConfiner>().enabled = true;
+
+        yield return new WaitForSeconds(1);
 
         _eventManager.isThereAnEventInProgress = false;
     }
