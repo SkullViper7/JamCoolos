@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Engine
+  m_Name: LargeVase 1
   m_EditorClassIdentifier: 
-  weight: 50
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
-  defaultSpawnProba: 10
-  spawnProba: 10
-  score: 100
+  weight: 5
+  mesh: {fileID: 4246886849839773083, guid: acd7e517a08a94a46a6c55e05d374a79, type: 3}
+  material: {fileID: 2100000, guid: 59300328dacef1e48b5e8a3b44fb8700, type: 2}
+  defaultSpawnProba: 20
+  spawnProba: 20
+  score: 10
   lowValue: 0
-  highValue: 10
+  highValue: 20

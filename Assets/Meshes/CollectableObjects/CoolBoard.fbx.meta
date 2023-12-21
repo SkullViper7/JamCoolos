@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2306aaeeb3fd7f84b9a6eac0ee6b0666
+guid: ec6b75995581e91498398cd5889eb57e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ID tableau coolos
-    second: {fileID: 2100000, guid: 7387dfeadfe92074386e79de20398bd0, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -72,7 +67,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
