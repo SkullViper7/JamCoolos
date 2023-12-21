@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Lightning : MonoBehaviour
@@ -50,6 +51,7 @@ public class Lightning : MonoBehaviour
 
         //Makes the player fall forward
         PlayerStateMachine playerStateMachine = playerToStrike.GetComponent<PlayerStateMachine>();
+        gameObject.transform.rotation = Quaternion.Euler(0f, playerToStrike.transform.rotation.y, 0f);
         playerStateMachine.GetComponent<PlayerFall>().objectThatPushedMe = gameObject;
         playerStateMachine.ChangeState(playerStateMachine.fallingState);
 
@@ -64,6 +66,8 @@ public class Lightning : MonoBehaviour
         Destroy(lightning);
 
         _flashAnim.Play("Idle");
+
+        gameObject.transform.rotation = Quaternion.identity;
 
         _eventManager.isThereAnEventInProgress = false;
     }

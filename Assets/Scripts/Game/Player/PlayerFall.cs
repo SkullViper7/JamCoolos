@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerFall : MonoBehaviour
@@ -13,7 +14,7 @@ public class PlayerFall : MonoBehaviour
     private ParticleSystem _smoke;
     private Animator _animator;
 
-    [HideInInspector]public GameObject objectThatPushedMe;
+    /*[HideInInspector]*/public GameObject objectThatPushedMe;
     public float pushForce;
     public float dropUpForce;
     public float dropForwardForce;
