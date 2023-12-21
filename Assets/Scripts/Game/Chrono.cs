@@ -26,6 +26,8 @@ public class Chrono : MonoBehaviour
     private AudioSource _gameMusic;
     [SerializeField]
     private AudioSource _endMusic;
+    [SerializeField] 
+    private AudioSource _buzzer;
     [SerializeField]
     private GameObject _endScreen;
 
@@ -152,6 +154,7 @@ public class Chrono : MonoBehaviour
         _finish.SetActive(true);
         _gameUI.SetActive(false);
         _gameMusic.Stop();
+        _buzzer.Play();
         _endMusic.Play();
         GameManager.Instance.isGameOver = true;
         EndOfTheGame?.Invoke();
