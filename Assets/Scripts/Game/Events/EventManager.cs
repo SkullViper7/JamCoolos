@@ -50,7 +50,7 @@ public class EventManager : MonoBehaviour
     private IEnumerator PlayEvent()
     {
         int randomEvent = Random.Range(0, 3);
-        int randomTime = Random.Range(5, 5);
+        int randomTime = Random.Range(25, 35);
 
         yield return new WaitForSeconds(randomTime);
 
