@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Toy
+  m_Name: LargeVase
   m_EditorClassIdentifier: 
-  weight: 10
-  mesh: {fileID: 6652942725277297195, guid: b074e595fa70e8a459e2fff2e6ea7191, type: 3}
-  material: {fileID: 2100000, guid: c15a0e599a4e084428d69c79390f0d87, type: 2}
-  defaultSpawnProba: 30
-  spawnProba: 30
-  score: 15
-  lowValue: 50
-  highValue: 80
+  weight: 5
+  mesh: {fileID: 5498007855465488397, guid: 510067d68094eab459bb19861475266e, type: 3}
+  material: {fileID: 2100000, guid: 20df1ab4f7def54418bca1db482d80c0, type: 2}
+  defaultSpawnProba: 20
+  spawnProba: 20
+  score: 10
+  lowValue: 0
+  highValue: 20

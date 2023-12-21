@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79ef1cb5d184a9c4e8d8a0b4bec72827, type: 3}
-  m_Name: Toy
+  m_Name: tv
   m_EditorClassIdentifier: 
-  weight: 10
-  mesh: {fileID: 6652942725277297195, guid: b074e595fa70e8a459e2fff2e6ea7191, type: 3}
-  material: {fileID: 2100000, guid: c15a0e599a4e084428d69c79390f0d87, type: 2}
-  defaultSpawnProba: 30
-  spawnProba: 30
-  score: 15
-  lowValue: 50
-  highValue: 80
+  weight: 30
+  mesh: {fileID: 3104452148268924369, guid: b53b131ae64f37049aeb3f4594c1beae, type: 3}
+  material: {fileID: 2100000, guid: ba66b0bbe8958134e899093a5cc7a479, type: 2}
+  defaultSpawnProba: 13
+  spawnProba: 13
+  score: 60
+  lowValue: 48
+  highValue: 61
