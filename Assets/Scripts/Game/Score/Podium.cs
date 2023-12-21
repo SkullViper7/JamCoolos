@@ -13,8 +13,12 @@ public class Podium : MonoBehaviour
     public Transform third;
     public Transform fourth;
 
-    [Header("Players")]
-    public List<Transform> players;
+    GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
 
     public void MoveToPodium()
     {
@@ -23,30 +27,35 @@ public class Podium : MonoBehaviour
 
         blocks.SetActive(true);
 
-        int playerIndex = 0;
-        foreach (var playerScore in scoreManager.playerScores)
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
-            Transform currentPlayer = players[playerIndex];
-            currentPlayer.SetParent(podium);
-            currentPlayer.position = GetPositionForPlayer(playerIndex); // Set the position based on score order
-            playerIndex++;
-        }
-    }
+            var kvp = scoreManager.playerScores.ElementAt(i);
 
-    private Vector3 GetPositionForPlayer(int playerIndex)
-    {
-        switch (playerIndex)
-        {
-            case 0:
-                return first.position;
-            case 1:
-                return second.position;
-            case 2:
-                return third.position;
-            case 3:
-                return fourth.position;
-            default:
-                return podium.position; // Set default position if there are more than 4 players
+            gameManager.players[i].transform.SetParent(podium);
+
+            switch (i)
+            {
+                case 0:
+                    kvp.Key.transform.position = first.transform.position;
+                    kvp.Key.transform.rotation = first.transform.rotation;
+                    kvp.Key.GetComponent<PlayerStateMachine>().playerAnimator.Play("Victory");
+                    break;
+                case 1:
+                    kvp.Key.transform.position = second.transform.position;
+                    kvp.Key.transform.rotation = second.transform.rotation;
+                    kvp.Key.GetComponent<PlayerStateMachine>().playerAnimator.Play("Second");
+                    break;
+                case 2:
+                    kvp.Key.transform.position = third.transform.position;
+                    kvp.Key.transform.rotation = third.transform.rotation;
+                    kvp.Key.GetComponent<PlayerStateMachine>().playerAnimator.Play("Third");
+                    break;
+                case 3:
+                    kvp.Key.transform.position = fourth.transform.position;
+                    kvp.Key.transform.rotation = fourth.transform.rotation;
+                    kvp.Key.GetComponent<PlayerStateMachine>().playerAnimator.Play("Fourth");
+                    break;
+            }
         }
     }
 }

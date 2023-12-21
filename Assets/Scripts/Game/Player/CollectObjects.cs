@@ -29,7 +29,10 @@ public class CollectObjects : MonoBehaviour
         _animator = _playerStateMachine.playerAnimator;
         audioSource = GetComponent<AudioSource>();
         _chrono = Chrono.Instance;
-        _chrono.EndOfTheGame += DropObject;
+        if (_playerStateMachine.currentState == _playerStateMachine.holdingState)
+        {
+            _chrono.EndOfTheGame += DropObject;
+        }
     }
 
     public void TryToCollectObject()
