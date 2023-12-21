@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: pneu
   m_EditorClassIdentifier: 
   weight: 50
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: ba667d4f3a607264f9736f921009784a, type: 2}
+  mesh: {fileID: 2534964839176971238, guid: ac508a459807ee6418d210665d1a0440, type: 3}
+  material: {fileID: 2100000, guid: 501ecfb7cfb32d049a745c79679910e1, type: 2}
   defaultSpawnProba: 10
   spawnProba: 10
   score: 100
