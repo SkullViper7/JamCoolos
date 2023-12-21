@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 2e4e3037057a8e642b96e0583f3e0f86
+guid: bba3b7f1088d9874aa04463037f01300
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ID tableau coolos
+    second: {fileID: 2100000, guid: a7de358c8690811428bee2481b85e7ee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
