@@ -14,17 +14,17 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 0.87058824, b: 0.76862746, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 12ccb828343c3405fb94289774b51aad, type: 2}
   m_HaloStrength: 0.5
@@ -508,27 +508,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.85
+      value: 14.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -538,7 +538,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.61
+      value: 3.9900007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -590,6 +590,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &43852710 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 43852709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &67056939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -666,7 +672,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -786,7 +792,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -906,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -995,7 +1001,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1084,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1278,7 +1284,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1367,7 +1373,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1456,7 +1462,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1545,7 +1551,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1634,7 +1640,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1727,7 +1733,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 224648902}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -1737,17 +1743,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 92.045
+      value: 92.04499
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 92.045
+      value: 92.04499
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.324
+      value: -8.324
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -1757,7 +1763,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.36
+      value: 20.960001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -1772,7 +1778,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -1809,6 +1815,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041c725dee1a095488a0aa15af5e4df4, type: 3}
+--- !u!4 &195878689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 195878688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &201714117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1885,7 +1897,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2026,6 +2038,10 @@ Transform:
   - {fileID: 499217646}
   - {fileID: 251643181}
   - {fileID: 814068387}
+  - {fileID: 650924212}
+  - {fileID: 1307224667}
+  - {fileID: 195878689}
+  - {fileID: 1883065397}
   m_Father: {fileID: 1259669735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &242521119
@@ -2394,7 +2410,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2483,7 +2499,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2666,7 +2682,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2881,7 +2897,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3044,7 +3060,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3351,7 +3367,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3546,7 +3562,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3740,7 +3756,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3829,7 +3845,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3918,7 +3934,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4118,7 +4134,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4555,7 +4571,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4644,7 +4660,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4852,7 +4868,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4941,7 +4957,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4960,7 +4976,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 224648902}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -4970,12 +4986,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 66.60822
+      value: 66.608215
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.983
+      value: 5.983
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -4985,7 +5001,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.498
+      value: 20.098
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -5000,7 +5016,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -5068,6 +5084,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0032282798, y: 0.08990992, z: 0.0013405523}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &650924212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
+    type: 3}
+  m_PrefabInstance: {fileID: 650924209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &701437079
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5121,14 @@ Transform:
   m_Children:
   - {fileID: 514232409}
   - {fileID: 704594114}
+  - {fileID: 940021222}
+  - {fileID: 1184428947}
+  - {fileID: 43852710}
+  - {fileID: 913893717}
+  - {fileID: 1129083576}
+  - {fileID: 779419015}
+  - {fileID: 1886950708}
+  - {fileID: 1230475993}
   m_Father: {fileID: 1259669735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &704594113
@@ -5211,7 +5241,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5300,7 +5330,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5389,7 +5419,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5408,27 +5438,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.03
+      value: -8.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -5438,7 +5468,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.79
+      value: 9.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -5490,6 +5520,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &779419015 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 779419014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &800052654
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,7 +5762,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5815,7 +5851,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6302,7 +6338,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6391,7 +6427,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6480,7 +6516,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6499,27 +6535,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.78
+      value: 3.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -6529,7 +6565,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.61
+      value: 3.9900007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -6581,6 +6617,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &913893717 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 913893716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &917024639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6657,7 +6699,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6746,7 +6788,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6835,7 +6877,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6924,7 +6966,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6943,7 +6985,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -6963,7 +7005,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.08
+      value: -4.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -6973,7 +7015,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.74
+      value: 9.860001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -7057,6 +7099,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 9caa9d23ba1e1954f826d2dcb752f9b0, type: 3}
+--- !u!4 &940021222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 940021219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &956953350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7133,7 +7181,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7327,7 +7375,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7416,7 +7464,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7505,7 +7553,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7594,7 +7642,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7899,7 +7947,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8062,7 +8110,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8178,27 +8226,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.13
+      value: -8.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -8208,7 +8256,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.61
+      value: 3.9900007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -8260,6 +8308,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &1129083576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1129083575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1145792775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8336,7 +8390,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8757,7 +8811,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8812,17 +8866,17 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 89.393005
+      value: 89.393
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 89.393005
+      value: 89.393
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -8832,7 +8886,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.77
+      value: 13.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -8842,7 +8896,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.79
+      value: 3.8100004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
         type: 3}
@@ -8926,6 +8980,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 9caa9d23ba1e1954f826d2dcb752f9b0, type: 3}
+--- !u!4 &1184428947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9caa9d23ba1e1954f826d2dcb752f9b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1184428944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212012917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9002,7 +9062,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9091,7 +9151,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9184,27 +9244,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.85
+      value: 14.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -9214,7 +9274,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.79
+      value: 9.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -9266,6 +9326,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &1230475993 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1230475992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1240752013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9342,7 +9408,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9431,7 +9497,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9560,7 +9626,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9903,7 +9969,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9922,7 +9988,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 224648902}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -9942,7 +10008,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.562
+      value: 12.562
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -9952,7 +10018,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.601
+      value: 12.999001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
         type: 3}
@@ -10035,6 +10101,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0032282798, y: 0.08990993, z: 0.0013405526}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1307224667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98fb025cf7262b9419deebc94af79391,
+    type: 3}
+  m_PrefabInstance: {fileID: 1307224664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1308723764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10244,7 +10316,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10782,7 +10854,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10943,7 +11015,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11139,7 +11211,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11551,7 +11623,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11729,7 +11801,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11853,7 +11925,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11942,7 +12014,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12152,7 +12224,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12241,7 +12313,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12330,7 +12402,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12973,7 +13045,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13062,7 +13134,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13151,7 +13223,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13240,7 +13312,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13482,7 +13554,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13602,7 +13674,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13691,7 +13763,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13780,7 +13852,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13869,7 +13941,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14047,7 +14119,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14526,7 +14598,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 224648902}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -14546,7 +14618,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.592
+      value: -2.592
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -14556,7 +14628,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.612
+      value: 26.212002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
         type: 3}
@@ -14608,33 +14680,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041c725dee1a095488a0aa15af5e4df4, type: 3}
+--- !u!4 &1883065397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 041c725dee1a095488a0aa15af5e4df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1883065396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1886950707
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 701437080}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.322
+      value: 82.32199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: 3.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -14644,7 +14722,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.79
+      value: 9.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
         type: 3}
@@ -14696,6 +14774,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40956a20f9858804d988509bd466e3f8, type: 3}
+--- !u!4 &1886950708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40956a20f9858804d988509bd466e3f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1886950707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1902852735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14772,7 +14856,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14861,7 +14945,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15007,7 +15091,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15096,7 +15180,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15185,7 +15269,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15410,7 +15494,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15499,7 +15583,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15641,7 +15725,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15824,7 +15908,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15913,7 +15997,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16067,7 +16151,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16189,7 +16273,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16414,7 +16498,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16503,7 +16587,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16592,7 +16676,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16681,7 +16765,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16975,7 +17059,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
         type: 3}
       propertyPath: m_TagString
-      value: Carpet
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18942,15 +19026,3 @@ SceneRoots:
   - {fileID: 536623345}
   - {fileID: 1429263589}
   - {fileID: 1990151698}
-  - {fileID: 650924209}
-  - {fileID: 1307224664}
-  - {fileID: 940021219}
-  - {fileID: 1184428944}
-  - {fileID: 43852709}
-  - {fileID: 913893716}
-  - {fileID: 1129083575}
-  - {fileID: 779419014}
-  - {fileID: 1886950707}
-  - {fileID: 1230475992}
-  - {fileID: 195878688}
-  - {fileID: 1883065396}
