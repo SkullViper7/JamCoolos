@@ -53,6 +53,24 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e7dbda8-b49f-4287-aa54-c19a833ab174"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReadyToPlay"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3ff9ffd-bda2-49f6-85c3-be46b1d5e05e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +106,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""PushOtherPlayers"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c04a8055-3b62-41e6-9230-fd1e3cd826f8"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7c9cc44-0572-44a3-b7a2-2f088acc2a2b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReadyToPlay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +139,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_InGame_Movements = m_InGame.FindAction("Movements", throwIfNotFound: true);
         m_InGame_InteractWithObjects = m_InGame.FindAction("InteractWithObjects", throwIfNotFound: true);
         m_InGame_PushOtherPlayers = m_InGame.FindAction("PushOtherPlayers", throwIfNotFound: true);
+        m_InGame_Pause = m_InGame.FindAction("Pause", throwIfNotFound: true);
+        m_InGame_ReadyToPlay = m_InGame.FindAction("ReadyToPlay", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +205,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Movements;
     private readonly InputAction m_InGame_InteractWithObjects;
     private readonly InputAction m_InGame_PushOtherPlayers;
+    private readonly InputAction m_InGame_Pause;
+    private readonly InputAction m_InGame_ReadyToPlay;
     public struct InGameActions
     {
         private @Inputs m_Wrapper;
@@ -170,6 +214,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @Movements => m_Wrapper.m_InGame_Movements;
         public InputAction @InteractWithObjects => m_Wrapper.m_InGame_InteractWithObjects;
         public InputAction @PushOtherPlayers => m_Wrapper.m_InGame_PushOtherPlayers;
+        public InputAction @Pause => m_Wrapper.m_InGame_Pause;
+        public InputAction @ReadyToPlay => m_Wrapper.m_InGame_ReadyToPlay;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +234,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @PushOtherPlayers.started += instance.OnPushOtherPlayers;
             @PushOtherPlayers.performed += instance.OnPushOtherPlayers;
             @PushOtherPlayers.canceled += instance.OnPushOtherPlayers;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @ReadyToPlay.started += instance.OnReadyToPlay;
+            @ReadyToPlay.performed += instance.OnReadyToPlay;
+            @ReadyToPlay.canceled += instance.OnReadyToPlay;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -201,6 +253,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @PushOtherPlayers.started -= instance.OnPushOtherPlayers;
             @PushOtherPlayers.performed -= instance.OnPushOtherPlayers;
             @PushOtherPlayers.canceled -= instance.OnPushOtherPlayers;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @ReadyToPlay.started -= instance.OnReadyToPlay;
+            @ReadyToPlay.performed -= instance.OnReadyToPlay;
+            @ReadyToPlay.canceled -= instance.OnReadyToPlay;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -223,5 +281,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnMovements(InputAction.CallbackContext context);
         void OnInteractWithObjects(InputAction.CallbackContext context);
         void OnPushOtherPlayers(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnReadyToPlay(InputAction.CallbackContext context);
     }
 }
