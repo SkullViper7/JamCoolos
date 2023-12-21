@@ -5,7 +5,7 @@ using System.Linq;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Dictionary<string, int> playerScores = new();
+    public Dictionary<GameObject, int> playerScores = new();
 
     //Singleton
     private static ScoreManager _instance = null;
@@ -27,16 +27,16 @@ public class ScoreManager : MonoBehaviour
         //
     }
 
-    public void AddScore(string playerName, int score)
+    public void AddScore(GameObject player, int score)
     {
         //Add score to a player given
-        playerScores[playerName] += score;
+        playerScores[player] += score;
     }
 
     public GameObject GetBestPlayer()
     {
         //Return the actual player who has the best score
-        string bestPlayer = "";
+        GameObject bestPlayer = null;
 
         for (int i = 0; i < playerScores.Count; i++)
         {
@@ -47,6 +47,6 @@ public class ScoreManager : MonoBehaviour
                 bestPlayer = kvp.Key;
             }
         }
-        return GameObject.Find(bestPlayer);
+        return bestPlayer;
     }
 }

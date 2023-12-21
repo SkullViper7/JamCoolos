@@ -118,17 +118,20 @@ public class CollectObjects : MonoBehaviour
 
     public void DropObject()
     {
-        _animator.SetInteger("UpperState", 3);
-        Invoke("Idle", 0.67f);
-        Invoke("DropSFX", 0.65f);
+        if (_playerStateMachine.currentState ==  _playerStateMachine.holdingState)
+        {
+            _animator.SetInteger("UpperState", 3);
+            Invoke("Idle", 0.67f);
+            Invoke("DropSFX", 0.65f);
 
-        //Set the different state machines
-        ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
-        objectStateMachine.dropUpForce = this.dropUpForce;
-        objectStateMachine.dropForwardForce = this.dropForwardForce;
-        objectStateMachine.ChangeState(objectStateMachine.droppedState);
+            //Set the different state machines
+            ObjectStateMachine objectStateMachine = objectThatIsHeld.GetComponent<ObjectStateMachine>();
+            objectStateMachine.dropUpForce = this.dropUpForce;
+            objectStateMachine.dropForwardForce = this.dropForwardForce;
+            objectStateMachine.ChangeState(objectStateMachine.droppedState);
 
-        _playerStateMachine.ChangeState(_playerStateMachine.recoveryState);
+            _playerStateMachine.ChangeState(_playerStateMachine.recoveryState);
+        }
     }
 
     void DropSFX()

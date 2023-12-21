@@ -19,7 +19,7 @@ public class Movements : MonoBehaviour
 
     public bool isOnGrass;
     public bool isOnRock;
-    public bool isOnCarpet;
+    public bool isOnWood;
 
     private void Start()
     {
@@ -81,22 +81,22 @@ public class Movements : MonoBehaviour
                 case "Grass":
                     isOnGrass = true;
                     isOnRock = false;
-                    isOnCarpet = false;
+                    isOnWood = false;
                     break;
                 case "Rock":
                     isOnGrass = false;
                     isOnRock = true;
-                    isOnCarpet = false;
+                    isOnWood = false;
                     break;
-                case "Carpet":
+                case "Wood":
                     isOnGrass = false;
                     isOnRock = false;
-                    isOnCarpet = true;
+                    isOnWood = true;
                     break;
                 default:
                     isOnGrass = false;
                     isOnRock = false;
-                    isOnCarpet = false;
+                    isOnWood = false;
                     break;
             }
         }
@@ -104,7 +104,7 @@ public class Movements : MonoBehaviour
         {
             isOnGrass = false;
             isOnRock = false;
-            isOnCarpet = false;
+            isOnWood = false;
         }
     }
 }
