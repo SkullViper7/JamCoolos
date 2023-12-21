@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PauseWindow : MonoBehaviour
 {
-    [SerializeField]
-    private List<PlayerInput> _playerInputs;
+    private Dictionary<PlayerInput, bool> _playerInputs = new();
 
     private GameManager _gameManager;
 
@@ -18,12 +19,15 @@ public class PauseWindow : MonoBehaviour
         {
             //Get all playerInputs 
             PlayerStateMachine _playerStateMachine = _gameManager.players[i].GetComponent<PlayerStateMachine>();
-            _playerInputs.Add(_gameManager.players[i].GetComponent<PlayerStateMachine>().playerInput);
+            _playerInputs.Add(_gameManager.players[i].GetComponent<PlayerStateMachine>().playerInput, false);
         }
 
         for (int i = 0; i < _playerInputs.Count; i++)
         {
-            _playerInputs[i].onActionTriggered += this.OnAction;
+            //Listen all players
+            var kvp = _playerInputs.ElementAt(i);
+
+            kvp.Key.onActionTriggered += this.OnAction;
         }
     }
 
@@ -35,7 +39,14 @@ public class PauseWindow : MonoBehaviour
             switch (context.action.name)
             {
                 case "ReadyToPlay":
-                    OnPlayerPress(context);
+                    if (context.started)
+                    {
+                        OnPlayerPress(context);
+                    }
+                    else if (context.canceled)
+                    {
+                        OnLeftPress(context);
+                    }
                     break;
             }
         }
@@ -43,8 +54,13 @@ public class PauseWindow : MonoBehaviour
 
     private void OnPlayerPress(InputAction.CallbackContext context)
     {
-        Debug.Log(context.control.name);
-        //switch (context.control.name)
+        Debug.Log(context.control.device.deviceId);
+        //switch (context.control.device.displayName)
+    }
+
+    private void OnLeftPress(InputAction.CallbackContext context)
+    {
+        
     }
 
     private void PlayGame()
