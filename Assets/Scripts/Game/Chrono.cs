@@ -158,6 +158,7 @@ public class Chrono : MonoBehaviour
 
     void ShowPodium()
     {
+        _podiumScript.MoveToPodium();
         _endScreen.SetActive(true);
         _camAnim.Play("Podium");
         fadeAnim.Play("Fade");

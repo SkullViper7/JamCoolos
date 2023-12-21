@@ -24,21 +24,21 @@ public class DisplayScore : MonoBehaviour
 
         scoreManager.playerScores = scoreManager.playerScores.OrderByDescending(_player => _player.Value).ToDictionary(_player => _player.Key, _player => _player.Value);
 
-        for (int i = 0; i < scoreManager.playerScores.Count; i++)
-        {
-            //Set rank
-            _ranks[i].text = (i + 1).ToString();
+        //for (int i = 0; i < scoreManager.playerScores.Count; i++)
+        //{
+        //    //Set rank
+        //    _ranks[i].text = (i + 1).ToString();
 
-            var kvp = scoreManager.playerScores.ElementAt(i);
+        //    var kvp = scoreManager.playerScores.ElementAt(i);
 
-            //Set names
-            _names[i].text = kvp.Key;
-            _names[i].color = PlayerColor(kvp.Key);
+        //    //Set names
+        //    _names[i].text = kvp.Key;
+        //    _names[i].color = PlayerColor(kvp.Key);
 
-            //Set scores
-            _scores[i].text = kvp.Value.ToString();
-            _scores[i].color = PlayerColor(kvp.Key);
-        }
+        //    //Set scores
+        //    _scores[i].text = kvp.Value.ToString();
+        //    _scores[i].color = PlayerColor(kvp.Key);
+        //}
     }
 
     private Color PlayerColor(string player)

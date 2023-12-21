@@ -24,7 +24,7 @@ public class ScoringZone : MonoBehaviour
             if (collectableObject.lastPlayerWhoHeldThisObject == playerAssignToThisZone)
             {
                 //Add score to the player
-                ScoreManager.Instance.AddScore(playerAssignToThisZone.name, collectableObject.score);
+                ScoreManager.Instance.AddScore(playerAssignToThisZone, collectableObject.score);
 
                 //Remove object from all player perimeters
                 RemoveObjectFromAllPerimeters(other.gameObject);
