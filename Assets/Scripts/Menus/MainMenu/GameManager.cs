@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int playerCount;
 
     public bool isGameOver = true;
+    public bool isPause = false;
 
     [HideInInspector]
     public List<GameObject> playerInputControls = new();
