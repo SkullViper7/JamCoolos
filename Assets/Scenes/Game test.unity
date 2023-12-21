@@ -13180,10 +13180,14 @@ MonoBehaviour:
   time: 90
   _minutes: {fileID: 7799142190087211724}
   _seconds: {fileID: 7799142190087211723}
-  _EndScreen: {fileID: 2140815606}
+  _finish: {fileID: 0}
   _gameUI: {fileID: 1867339010}
   _gameMusic: {fileID: 3401682630833403762}
   _endMusic: {fileID: 7797688861880759779}
+  _endScreen: {fileID: 0}
+  _camAnim: {fileID: 0}
+  _podiumScript: {fileID: 0}
+  fadeAnim: {fileID: 0}
 --- !u!1001 &1911111190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16270,6 +16274,7 @@ MonoBehaviour:
   _windDuration: 5
   _windStrength: 0.1
   _windSFX: {fileID: 8300000, guid: 38672511fb75059438cc340bee6636a4, type: 3}
+  _windVFX: {fileID: 0}
 --- !u!222 &6726382120740174689
 CanvasRenderer:
   m_ObjectHideFlags: 0

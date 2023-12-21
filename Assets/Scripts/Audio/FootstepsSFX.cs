@@ -7,7 +7,7 @@ public class FootstepsSFX : MonoBehaviour
     AudioSource footstepsSFX;
     public List<AudioClip> grassFootsteps;
     public List<AudioClip> rockFootsteps;
-    public List<AudioClip> carpetFootsteps;
+    public List<AudioClip> woodFootsteps;
 
     public Movements movements;
 
@@ -30,10 +30,10 @@ public class FootstepsSFX : MonoBehaviour
             footstepsSFX.PlayOneShot(rockFootsteps[randomSound]);
         }
 
-        if (movements.isOnCarpet)
+        if (movements.isOnWood)
         {
-            int randomSound = Random.Range(0, carpetFootsteps.Count);
-            footstepsSFX.PlayOneShot(carpetFootsteps[randomSound]);
+            int randomSound = Random.Range(0, woodFootsteps.Count);
+            footstepsSFX.PlayOneShot(woodFootsteps[randomSound]);
         }
     }
 }
