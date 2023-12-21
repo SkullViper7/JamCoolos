@@ -11,6 +11,7 @@ public class PauseWindow : MonoBehaviour
     {
         //Play the game
         Time.timeScale = 1f;
+        GameManager.Instance.isPause = false;
         gameObject.SetActive(false);
     }
 }

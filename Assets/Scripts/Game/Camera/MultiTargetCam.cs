@@ -25,7 +25,7 @@ public class MultiTargetCam : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Move();
         Zoom();
@@ -45,7 +45,10 @@ public class MultiTargetCam : MonoBehaviour
 
         Vector3 newPosition = centerPoint + offset;
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        if (!EventManager.Instance.isThereAnEventInProgress)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        }
     }
 
     Bounds CalculatePlayersBounds()
