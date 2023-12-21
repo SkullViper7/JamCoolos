@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,6 @@ using UnityEngine;
 //Modified script from Brackeys
 public class MultiTargetCam : MonoBehaviour
 {
-    GameObject[] targets;
-
     public Vector3 offset;
 
     public float smoothTime;
@@ -16,12 +15,14 @@ public class MultiTargetCam : MonoBehaviour
 
     Vector3 velocity;
 
-    Camera cam;
+    CinemachineVirtualCamera cam;
+
+    GameManager gameManager;
 
     private void Start()
     {
-        cam = GetComponent<Camera>();
-        targets = GameObject.FindGameObjectsWithTag("Player");
+        cam = GetComponent<CinemachineVirtualCamera>();
+        gameManager = GameManager.Instance;
     }
 
     private void LateUpdate()
@@ -33,7 +34,7 @@ public class MultiTargetCam : MonoBehaviour
     void Zoom()
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / 10);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, 0.25f);
+        cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, newZoom, 0.25f);
     }
 
     void Move()
@@ -49,8 +50,8 @@ public class MultiTargetCam : MonoBehaviour
 
     Bounds CalculatePlayersBounds()
     {
-        Bounds playersBounds = new Bounds(targets[0].transform.position, Vector3.zero);
-        foreach (GameObject player in targets)
+        Bounds playersBounds = new Bounds(gameManager.players[0].transform.position, Vector3.zero);
+        foreach (GameObject player in gameManager.players)
         {
             Renderer renderer = player.GetComponent<Renderer>();
             if (renderer != null)
@@ -64,10 +65,10 @@ public class MultiTargetCam : MonoBehaviour
 
     float GetGreatestDistance()
     {
-        var bounds = new Bounds(targets[0].transform.position, Vector3.zero);
-        for (int i = 0; i < targets.Length; i++)
+        var bounds = new Bounds(gameManager.players[0].transform.position, Vector3.zero);
+        for (int i = 0; i < gameManager.players.Count; i++)
         {
-            bounds.Encapsulate(targets[i].transform.position);
+            bounds.Encapsulate(gameManager.players[i].transform.position);
         }
 
         return bounds.size.x;

@@ -570,6 +570,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -679,6 +689,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -790,6 +810,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -869,6 +899,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -947,6 +987,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1132,6 +1182,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1210,6 +1270,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1290,6 +1360,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1369,6 +1449,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1447,6 +1537,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1600,6 +1700,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1919,9 +2029,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 251643181}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Carpet
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2100,6 +2210,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2178,6 +2298,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2351,6 +2481,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2557,6 +2697,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2709,6 +2859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3007,6 +3167,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3192,6 +3362,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3376,6 +3556,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3455,6 +3645,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3533,6 +3733,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3724,6 +3934,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3744,9 +3964,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514232409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sidewalk
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4151,6 +4371,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4229,6 +4459,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4428,6 +4668,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4507,6 +4757,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4560,7 +4820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704594114}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CompleteRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4653,6 +4913,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4732,6 +5002,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4810,6 +5090,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5050,6 +5340,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5128,6 +5428,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5606,6 +5916,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5684,6 +6004,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5764,6 +6094,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5842,6 +6182,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5922,6 +6272,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6000,6 +6360,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6080,6 +6450,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6158,6 +6538,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6343,6 +6733,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6421,6 +6821,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6501,6 +6911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6579,6 +6999,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6875,6 +7305,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7027,6 +7467,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7203,6 +7653,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7615,6 +8075,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7730,6 +8200,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7808,6 +8288,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7962,6 +8452,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8040,6 +8540,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8159,6 +8669,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8493,6 +9013,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8705,6 +9235,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8716,6 +9256,101 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1338357848}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1350494792
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350494793}
+  - component: {fileID: 1350494796}
+  - component: {fileID: 1350494795}
+  - component: {fileID: 1350494794}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350494793
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350494792}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429263589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350494794
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350494792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
+--- !u!114 &1350494795
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350494792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+--- !u!114 &1350494796
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350494792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1359184690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9138,6 +9773,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9289,6 +9934,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9300,6 +9955,113 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1424247499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1429263587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429263589}
+  - component: {fileID: 1429263588}
+  - component: {fileID: 1429263590}
+  - component: {fileID: 1429263591}
+  m_Layer: 0
+  m_Name: Virtual Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1429263588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429263587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    LensShift: {x: 0, y: 0}
+    GateFit: 2
+    FocusDistance: 10
+    m_SensorSize: {x: 1, y: 1}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 1350494793}
+--- !u!4 &1429263589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429263587}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5859967, y: -0.002264005, z: 0.001483347, w: 0.810309}
+  m_LocalPosition: {x: -1.2455394, y: 25.21892, z: -10.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1350494793}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429263590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429263587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a94ff34cbbcb1459e151b0c5f9b8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 20, z: -6}
+  smoothTime: 0.25
+  minZoom: 60
+  maxZoom: 45
+--- !u!114 &1429263591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429263587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 1
+  m_BoundingVolume: {fileID: 1990151697}
+  m_BoundingShape2D: {fileID: 0}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!1001 &1456656193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9367,6 +10129,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9770,6 +10542,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9938,6 +10720,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10052,6 +10844,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10130,6 +10932,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10331,6 +11143,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10410,6 +11232,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10488,6 +11320,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10641,6 +11483,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SideWalk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df00a1472ec225d4f8ba82d7f1e25754,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df00a1472ec225d4f8ba82d7f1e25754,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11112,6 +11964,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11190,6 +12052,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11270,6 +12142,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11348,6 +12230,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11581,6 +12473,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11691,6 +12593,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11769,6 +12681,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11849,6 +12771,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11927,6 +12859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12095,6 +13037,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12635,6 +13587,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12714,6 +13676,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12769,7 +13741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57bc1a7b41b2764fa30ffd1ffc1c673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 20
+  time: 90
   _minutes: {fileID: 7799142190087211724}
   _seconds: {fileID: 7799142190087211723}
   _finish: {fileID: 862844488}
@@ -12850,6 +13822,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12929,6 +13911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13007,6 +13999,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13223,6 +14225,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13302,6 +14314,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13313,6 +14335,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1974695660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1990151696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990151698}
+  - component: {fileID: 1990151697}
+  m_Layer: 0
+  m_Name: CamBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1990151697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990151696}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6, y: 1, z: 6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1990151698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990151696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2455394, y: 25.21892, z: -10.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1992339555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13380,6 +14455,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13554,6 +14639,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13632,6 +14727,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13777,6 +14882,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13888,6 +15003,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14104,6 +15229,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14182,6 +15317,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14262,6 +15407,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carpet (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14340,6 +15495,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14624,6 +15789,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carpet (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 416d084c17b724147b92b1a2914ce266,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15407,7 +16582,7 @@ GameObject:
   - component: {fileID: 1917574243139379102}
   - component: {fileID: 9093249623166944241}
   - component: {fileID: 5250954581691913340}
-  - component: {fileID: 7122261360195137361}
+  - component: {fileID: 9093249623166944242}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15559,8 +16734,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4205077871814340769}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: 0, y: 21.6, z: -13}
+  m_LocalRotation: {x: 0.5859967, y: -0.002264005, z: 0.001483347, w: 0.810309}
+  m_LocalPosition: {x: -1.2455394, y: 25.21892, z: -10.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15869,22 +17044,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7122261360195137361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205077871814340769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a94ff34cbbcb1459e151b0c5f9b8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 20, z: -6}
-  smoothTime: 0.25
-  minZoom: 80
-  maxZoom: 40
 --- !u!114 &7170893554053401602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16529,6 +17688,40 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4205077871814340769}
   m_Enabled: 1
+--- !u!114 &9093249623166944242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205077871814340769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9172175642807645366
 GameObject:
   m_ObjectHideFlags: 0
@@ -16570,3 +17763,5 @@ SceneRoots:
   - {fileID: 1805076132}
   - {fileID: 874957329}
   - {fileID: 536623345}
+  - {fileID: 1429263589}
+  - {fileID: 1990151698}
