@@ -18,7 +18,7 @@ public class PlayerPause : MonoBehaviour
     private void OnAction(InputAction.CallbackContext context)
     {
         //Pause game
-        if (!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
         {
             switch (context.action.name)
             {
