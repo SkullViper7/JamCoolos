@@ -3768,6 +3768,37 @@ Transform:
   - {fileID: 1607456849}
   m_Father: {fileID: 701437080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &536623344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536623345}
+  m_Layer: 0
+  m_Name: PodiumCamTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536623345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536623344}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.11, y: 1.057678, z: -16.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &541939113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12746,7 +12777,8 @@ MonoBehaviour:
   _gameMusic: {fileID: 3401682630833403762}
   _endMusic: {fileID: 7797688861880759779}
   _endScreen: {fileID: 2140815606}
-  _camAnim: {fileID: 9093249623166944242}
+  _cam: {fileID: 4205077871814340769}
+  _camTarget: {fileID: 536623344}
   _podiumScript: {fileID: 874957330}
   fadeAnim: {fileID: 1125165132}
 --- !u!1001 &1911111190
@@ -15375,7 +15407,6 @@ GameObject:
   - component: {fileID: 9093249623166944241}
   - component: {fileID: 5250954581691913340}
   - component: {fileID: 7122261360195137361}
-  - component: {fileID: 9093249623166944242}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16400,27 +16431,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4205077871814340769}
   m_Enabled: 1
---- !u!95 &9093249623166944242
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205077871814340769}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 427d281830ec9094cad57a4bc8266be0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9172175642807645366
 GameObject:
   m_ObjectHideFlags: 0
@@ -16461,3 +16471,4 @@ SceneRoots:
   - {fileID: 1609348569}
   - {fileID: 1805076132}
   - {fileID: 874957329}
+  - {fileID: 536623345}

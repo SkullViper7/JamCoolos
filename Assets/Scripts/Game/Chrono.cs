@@ -30,7 +30,9 @@ public class Chrono : MonoBehaviour
     private GameObject _endScreen;
 
     [SerializeField]
-    private Animator _camAnim;
+    private GameObject _cam;
+    [SerializeField] 
+    private GameObject _camTarget;
     [SerializeField]
     private Podium _podiumScript;
     [SerializeField]
@@ -160,8 +162,15 @@ public class Chrono : MonoBehaviour
     {
         _podiumScript.MoveToPodium();
         _endScreen.SetActive(true);
-        _camAnim.Play("Podium");
         fadeAnim.Play("Fade");
+        Invoke("MoveCam", 0.6f);
+    }
+
+    void MoveCam()
+    {
+        _cam.GetComponent<MultiTargetCam>().enabled = false;
+        _cam.transform.position = _camTarget.transform.position;
+        _cam.transform.rotation = _camTarget.transform.rotation;
     }
 
     private string ConvertToString(int _time)
