@@ -15,8 +15,8 @@ MonoBehaviour:
   weight: 15
   mesh: {fileID: 8476652292859537765, guid: 8efab60536c62b14daa3b6fea3ab8bb0, type: 3}
   material: {fileID: 2100000, guid: 67d441b30b3de5a4385385d2b49ff66f, type: 2}
-  defaultSpawnProba: 15
-  spawnProba: 15
+  defaultSpawnProba: 20
+  spawnProba: 20
   score: 30
   lowValue: 65
-  highValue: 80
+  highValue: 85

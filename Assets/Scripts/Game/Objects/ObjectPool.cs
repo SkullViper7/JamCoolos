@@ -13,7 +13,7 @@ public class ObjectPool : MonoBehaviour
 
     private int _totalChance;
 
-    public List<CollectableObjectBase> ObjectBases;
+    public List<CollectableObjectBase> objectBases;
 
     public CollectableObjectBase biggestObjectOfThisArea;
 
@@ -38,13 +38,13 @@ public class ObjectPool : MonoBehaviour
         CollectableObjectBase tempBiggestObjectOfThisArea = null;
         int tempBiggestScore = 0;
 
-        for (int i = 0; i < ObjectBases.Count; i++)
+        for (int i = 0; i < objectBases.Count; i++)
         {
             //Keep the biggest object of this area
-            if (ObjectBases[i].score > tempBiggestScore)
+            if (objectBases[i].score > tempBiggestScore)
             {
-                tempBiggestScore = ObjectBases[i].score;
-                tempBiggestObjectOfThisArea = ObjectBases[i];
+                tempBiggestScore = objectBases[i].score;
+                tempBiggestObjectOfThisArea = objectBases[i];
             }
         }
 
@@ -56,12 +56,12 @@ public class ObjectPool : MonoBehaviour
         //Set up total probabilities and a range in percent for each object
         _totalChance = 0;
 
-        for (int i = 0; i < ObjectBases.Count; i++)
+        for (int i = 0; i < objectBases.Count; i++)
         {
-            ObjectBases[i].lowValue = _totalChance;
-            ObjectBases[i].highValue = _totalChance + ObjectBases[i].spawnProba;
+            objectBases[i].lowValue = _totalChance;
+            objectBases[i].highValue = _totalChance + objectBases[i].spawnProba;
 
-            _totalChance += ObjectBases[i].spawnProba;
+            _totalChance += objectBases[i].spawnProba;
         }
     }
 
@@ -70,11 +70,11 @@ public class ObjectPool : MonoBehaviour
         //Return an random object base depending of the probability
         int randVal = Random.Range(0, _totalChance + 1);
 
-        for (int i = 0; i < ObjectBases.Count; i++)
+        for (int i = 0; i < objectBases.Count; i++)
         {
-            if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
+            if (randVal >= objectBases[i].lowValue && randVal < objectBases[i].highValue || (randVal == 100 && objectBases[i].highValue == 100))
             {
-                var objectToSpawn = ObjectBases[i];
+                var objectToSpawn = objectBases[i];
                 
                 //If object to spawn is the biggest, warns the spawn manager and reset probabilities
                 if (objectToSpawn == biggestObjectOfThisArea)
@@ -103,11 +103,11 @@ public class ObjectPool : MonoBehaviour
         {
             int randVal = Random.Range(biggestObjectOfThisArea.highValue + 1, _totalChance + 1);
 
-            for (int i = 0; i < ObjectBases.Count; i++)
+            for (int i = 0; i < objectBases.Count; i++)
             {
-                if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
+                if (randVal >= objectBases[i].lowValue && randVal < objectBases[i].highValue || (randVal == 100 && objectBases[i].highValue == 100))
                 {
-                    var objectToSpawn = ObjectBases[i];
+                    var objectToSpawn = objectBases[i];
                     return objectToSpawn;
                 }
             }
@@ -117,11 +117,11 @@ public class ObjectPool : MonoBehaviour
         {
             int randVal = Random.Range(0, biggestObjectOfThisArea.lowValue);
 
-            for (int i = 0; i < ObjectBases.Count; i++)
+            for (int i = 0; i < objectBases.Count; i++)
             {
-                if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
+                if (randVal >= objectBases[i].lowValue && randVal < objectBases[i].highValue || (randVal == 100 && objectBases[i].highValue == 100))
                 {
-                    var objectToSpawn = ObjectBases[i];
+                    var objectToSpawn = objectBases[i];
                     return objectToSpawn;
                 }
             }
@@ -130,26 +130,25 @@ public class ObjectPool : MonoBehaviour
         else
         {
             //Re-calcule the probabilities wihout the biggest object
-            //List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new();
-            List<CollectableObjectBase> ObjectBasesWithoutTheBiggest = new(ObjectBases);
-            ObjectBasesWithoutTheBiggest.Remove(biggestObjectOfThisArea);
+            List<CollectableObjectBase> objectBasesWithoutTheBiggest = new(objectBases);
+            objectBasesWithoutTheBiggest.Remove(biggestObjectOfThisArea);
             int tempTotalChance = 0;
-            for (int i = 0; i < ObjectBases.Count; i++)
+            for (int i = 0; i < objectBases.Count; i++)
             {
                 //Set up total probabilities and a range in percent for each object
-                ObjectBases[i].lowValue = tempTotalChance;
-                ObjectBases[i].highValue = tempTotalChance + ObjectBases[i].spawnProba;
+                objectBases[i].lowValue = tempTotalChance;
+                objectBases[i].highValue = tempTotalChance + objectBases[i].spawnProba;
 
-                tempTotalChance += ObjectBases[i].spawnProba;
+                tempTotalChance += objectBases[i].spawnProba;
             }
 
             int randVal = Random.Range(0, tempTotalChance + 1);
 
-            for (int i = 0; i < ObjectBases.Count; i++)
+            for (int i = 0; i < objectBases.Count; i++)
             {
-                if (randVal >= ObjectBases[i].lowValue && randVal < ObjectBases[i].highValue || (randVal == 100 && ObjectBases[i].highValue == 100))
+                if (randVal >= objectBases[i].lowValue && randVal < objectBases[i].highValue || (randVal == 100 && objectBases[i].highValue == 100))
                 {
-                    var objectToSpawn = ObjectBases[i];
+                    var objectToSpawn = objectBases[i];
                     //Reset probabilities with the biggest object
                     CalculeProbabilities();
                     return objectToSpawn;

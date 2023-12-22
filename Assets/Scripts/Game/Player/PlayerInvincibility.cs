@@ -8,12 +8,15 @@ public class PlayerInvincibility : MonoBehaviour
     public Coroutine invincibilityCoroutine;
 
     [SerializeField]
+    private GameObject _playerMarker;
     private Animator _playerMarkerAnimator;
 
     public float defaultInvincibilityTime;
 
     private void Start()
     {
+        Chrono.Instance.EndOfTheGame += DesactivePlayerMarker;
+        _playerMarkerAnimator = _playerMarker.GetComponent<Animator>();
         _playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
@@ -43,5 +46,11 @@ public class PlayerInvincibility : MonoBehaviour
         yield return new WaitForSeconds(defaultInvincibilityTime);
         _playerMarkerAnimator.SetBool("IsInvincible", false);
         _playerStateMachine.ChangeState(_playerStateMachine.defaultState);
+    }
+
+    private void DesactivePlayerMarker()
+    {
+        //Desactive player markers during the podium
+        _playerMarker.SetActive(false);
     }
 }

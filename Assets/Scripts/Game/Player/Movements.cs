@@ -32,29 +32,29 @@ public class Movements : MonoBehaviour
 
     public void Move(Vector2 value)
     {
-        _lastOrientation = _actualOrientation;
-
-        //If joystick is not in neutral pos, actual orientation is the same as the joystick
-        if (value != new Vector2(0, 0))
+        if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
         {
-            if (!GameManager.Instance.isGameOver && !GameManager.Instance.isPause)
+            _lastOrientation = _actualOrientation;
+
+            //If joystick is not in neutral pos, actual orientation is the same as the joystick
+            if (value != new Vector2(0, 0))
             {
                 _actualOrientation = new Vector3(value.x, 0f, value.y);
                 isInMovement = true;
 
                 _animator.SetInteger("State", 1);
             }
-        }
-        //Else keep the last orientation to don't go to the neutral pos
-        else
-        {
-            _actualOrientation = _lastOrientation;
-            isInMovement = false;
-            _animator.SetInteger("State", 0);
-        }
+            //Else keep the last orientation to don't go to the neutral pos
+            else
+            {
+                _actualOrientation = _lastOrientation;
+                isInMovement = false;
+                _animator.SetInteger("State", 0);
+            }
 
-        //Player orientation is the same as the stick
-        transform.forward = _actualOrientation;
+            //Player orientation is the same as the stick
+            transform.forward = _actualOrientation;
+        }
     }
 
     private void FixedUpdate()

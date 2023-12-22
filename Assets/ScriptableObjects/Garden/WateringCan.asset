@@ -18,5 +18,5 @@ MonoBehaviour:
   defaultSpawnProba: 13
   spawnProba: 20
   score: 25
-  lowValue: 80
-  highValue: 100
+  lowValue: 0
+  highValue: 0

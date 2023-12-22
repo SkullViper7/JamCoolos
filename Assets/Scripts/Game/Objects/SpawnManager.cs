@@ -71,7 +71,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < _areas.Count; i++)
         {
             ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
-            List<CollectableObjectBase> objectBases = objectPool.ObjectBases;
+            List<CollectableObjectBase> objectBases = objectPool.objectBases;
 
             for (int j = 0; j < objectBases.Count; j++)
             {
@@ -150,7 +150,7 @@ public class SpawnManager : MonoBehaviour
                 ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
 
                 //Get the list of objects without the biggest
-                List<CollectableObjectBase> objectBasesWithoutTheBiggest = new(objectPool.ObjectBases);
+                List<CollectableObjectBase> objectBasesWithoutTheBiggest = new(objectPool.objectBases);
                 objectBasesWithoutTheBiggest.Remove(objectPool.biggestObjectOfThisArea);
 
                 //Increase spawn probability for the biggest object
@@ -271,7 +271,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < _areas.Count; i++)
         {
             ObjectPool objectPool = _areas[i].GetComponent<ObjectPool>();
-            List<CollectableObjectBase> objectBases = new(objectPool.ObjectBases);
+            List<CollectableObjectBase> objectBases = new(objectPool.objectBases);
 
             for (int j = 0; j < objectBases.Count; j++)
             {

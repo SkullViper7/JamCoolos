@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73ffa21556e71642a765723ae16017b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMarkerAnimator: {fileID: 1701946424688440941}
+  _playerMarker: {fileID: 8955327561527939210}
   defaultInvincibilityTime: 3
 --- !u!114 &8035075572101466924
 MonoBehaviour:

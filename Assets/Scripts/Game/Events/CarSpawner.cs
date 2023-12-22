@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarSpawner : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class CarSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            Chrono.Instance.EndOfTheGame += StopAllCars;
+        }
         StartCoroutine(LeftCarSpawn());
         StartCoroutine(RightCarSpawn());
     }
@@ -70,5 +75,11 @@ public class CarSpawner : MonoBehaviour
         yield return new WaitForSeconds(carSpeed);
 
         Destroy(car);
+    }
+
+    private void StopAllCars()
+    {
+        //Desactive cars during podium
+        StopAllCoroutines();
     }
 }
