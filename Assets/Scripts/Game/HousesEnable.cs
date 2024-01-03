@@ -17,6 +17,11 @@ public class HousesEnable : MonoBehaviour
     public GameObject zone3;
     public GameObject zone4;
 
+    [Space]
+    public GameObject score2;
+    public GameObject score3;
+    public GameObject score4;
+
     private void Awake()
     {
         HouseSelect();
@@ -34,6 +39,9 @@ public class HousesEnable : MonoBehaviour
                     zone2.SetActive(false);
                     zone3.SetActive(false);
                     zone4.SetActive(false);
+                    score2.SetActive(false);
+                    score3.SetActive(false);
+                    score4.SetActive(false);
                 }
                 break;
             case 2:
@@ -42,12 +50,15 @@ public class HousesEnable : MonoBehaviour
                     house4.GetComponent<MeshRenderer>().material = greyMat;
                     zone3.SetActive(false);
                     zone4.SetActive(false);
+                    score3.SetActive(false);
+                    score4.SetActive(false);
                 }
                 break;
             case 3:
                 {
                     house4.GetComponent<MeshRenderer>().material = greyMat;
                     zone4.SetActive(false);
+                    score4.SetActive(false);
                 }
                 break;
         }

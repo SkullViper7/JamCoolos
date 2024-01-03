@@ -159,7 +159,7 @@ public class Chrono : MonoBehaviour
         _endMusic.Play();
         GameManager.Instance.isGameOver = true;
         EndOfTheGame?.Invoke();
-        Invoke("ShowPodium", 3);
+        Invoke("ShowPodium", 2);
     }
 
     void ShowPodium()
