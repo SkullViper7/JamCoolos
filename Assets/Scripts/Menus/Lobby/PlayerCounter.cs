@@ -9,6 +9,8 @@ public class PlayerCounter : MonoBehaviour
     [SerializeField]
     private GameObject launchGameButton;
     [SerializeField]
+    private GameObject card;
+    [SerializeField]
     private GameObject instructions;
     [SerializeField]
     private List<GameObject> playerHolders = new();
@@ -39,6 +41,7 @@ public class PlayerCounter : MonoBehaviour
             //Active the button to launch the game when everyone is connected
             instructions.SetActive(false);
             launchGameButton.SetActive(true);
+            card.SetActive(true);
         }
     }
 }
