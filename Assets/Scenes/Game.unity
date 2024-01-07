@@ -25553,7 +25553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57bc1a7b41b2764fa30ffd1ffc1c673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 180
   _minutes: {fileID: 7799142190087211724}
   _seconds: {fileID: 7799142190087211723}
   _finish: {fileID: 862844488}
