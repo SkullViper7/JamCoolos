@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 38199567}
-  m_IndirectSpecularColor: {r: 0.15897283, g: 0.5175269, b: 1.0392433, a: 1}
+  m_IndirectSpecularColor: {r: 0.15896621, g: 0.51753515, b: 1.0392404, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27990,7 +27990,7 @@ GameObject:
   - component: {fileID: 2083392212}
   - component: {fileID: 2083392213}
   m_Layer: 0
-  m_Name: HouseManager
+  m_Name: HousesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
