@@ -234,7 +234,6 @@ public class SpawnManager : MonoBehaviour
 
     private void CheckIfThereAreEnoughObjects()
     {
-        Debug.Log("Check");
         int maxNumberOfObjectsInGame = 0;
 
         //Get all pool sizes
@@ -243,12 +242,9 @@ public class SpawnManager : MonoBehaviour
             maxNumberOfObjectsInGame += _areas[i].GetComponent<ObjectPool>().poolSize;
         }
 
-        Debug.Log(maxNumberOfObjectsInGame);
-
         //Check if there is a minimum of the tiers of the maximum number of objects in the game
         if (numberOfObjectsInGame < maxNumberOfObjectsInGame / 3)
         {
-            Debug.Log("There is not enough objects");
             //Spawn a random object that is not a big in a random area
             GameObject area = _areas[Random.Range(0, _areas.Count)];
             SpawnArea spawnArea = area.GetComponent<SpawnArea>();

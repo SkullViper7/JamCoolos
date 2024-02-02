@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movements : MonoBehaviour
@@ -42,17 +40,24 @@ public class Movements : MonoBehaviour
                 _actualOrientation = new Vector3(value.x, 0f, value.y);
                 isInMovement = true;
 
-                _animator.SetInteger("State", 1);
+                if (_animator != null)
+                {
+                    _animator.SetInteger("State", 1);
+                }
             }
             //Else keep the last orientation to don't go to the neutral pos
             else
             {
                 _actualOrientation = _lastOrientation;
                 isInMovement = false;
-                _animator.SetInteger("State", 0);
+                if (_animator != null)
+                {
+                    _animator.SetInteger("State", 0);
+                }
             }
 
             //Player orientation is the same as the stick
+            Debug.Log(transform.name);
             transform.forward = _actualOrientation;
         }
     }
